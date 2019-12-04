@@ -14,3 +14,13 @@ Containers created and their ports are as follows:
 - **mysql** - `:3306`
 - **php** - `:9000`
 - **phpmyadmin** - `:8081`
+
+**PHPMyAdmin**
+
+Administrator Profile
+User: root
+Password: secret
+
+User Profile
+User: homestead
+Password: secret
