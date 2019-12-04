@@ -15,12 +15,15 @@ Containers created and their ports are as follows:
 - **php** - `:9000`
 - **phpmyadmin** - `:8081`
 
+
+------------
+
 **PHPMyAdmin**
 
 Administrator Profile
-User: root
-Password: secret
+User: `root`
+Password: `secret`
 
 User Profile
-User: homestead
-Password: secret
+User: `homestead`
+Password: `secret`
