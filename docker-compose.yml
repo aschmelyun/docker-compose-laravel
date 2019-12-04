@@ -46,3 +46,16 @@ services:
       - "9000:9000"
     networks:
       - laravel
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    restart: always
+    ports:
+    - "8081:80"
+    networks:
+      - laravel
