@@ -13,3 +13,4 @@ Containers created and their ports are as follows:
 - **nginx** - `:8080`
 - **mysql** - `:3306`
 - **php** - `:9000`
+- **phpmyadmin** - `:8081`
