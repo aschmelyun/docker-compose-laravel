@@ -65,3 +65,17 @@ services:
       - ./src:/var/www/html
     working_dir: /var/www/html
     entrypoint: ['npm', '--no-bin-links']
+
+  artisan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: artisan
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mysql
+    working_dir: /var/www/html
+    entrypoint: ['/var/www/html/artisan']
+    networks:
+      - laravel
