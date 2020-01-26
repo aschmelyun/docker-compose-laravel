@@ -57,3 +57,11 @@ services:
       - php
     networks:
       - laravel
+
+  npm:
+    image: node:latest
+    container_name: npm
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm', '--no-bin-links']
