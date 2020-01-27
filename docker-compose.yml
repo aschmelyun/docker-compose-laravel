@@ -59,12 +59,12 @@ services:
       - laravel
 
   npm:
-    image: node:latest
+    image: node:13.7
     container_name: npm
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
-    entrypoint: ['npm', '--no-bin-links']
+    entrypoint: ['npm']
 
   artisan:
     build:
