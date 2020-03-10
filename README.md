@@ -43,11 +43,6 @@ Containers created and their ports (if used) are as follows:
 
 >     replace php version and extension name with whatever you need.
 
--  when you want to rebuild images with `docker-compose up -d --build`, be sure the folder mysql_data/ is empty otherwise you will get a weird docker error !!!
-
-    ```sh
-    $ sudo rm -Rf  mysql_data/* 
-    ```
 
 - to call artisan tinker command use this line :
 

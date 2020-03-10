@@ -34,7 +34,7 @@ services:
       SERVICE_NAME: mysql
     volumes: 
       - ./backup_database:/backup_database
-      - ./mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     networks:
       - laravel
 
@@ -85,3 +85,6 @@ services:
     entrypoint: ['/var/www/html/artisan']
     networks:
       - laravel
+
+volumes:
+  mysql_data:
