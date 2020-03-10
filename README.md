@@ -35,8 +35,8 @@ Containers created and their ports (if used) are as follows:
 **Tips** :
 - in case you use a php extension not installed in the official composer image, be sure it's installed in php-fpm:alpine image via Dockerfile and add the following to your composer.json file in src/ folder :
 ```sh
-    "config" : {
-        "platform" : "7.2",
+    "platform" : {
+        "php" : "7.2",
         "ext-gd" : "1"
     }
 ```
