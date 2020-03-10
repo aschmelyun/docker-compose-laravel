@@ -1,2 +1,5 @@
 .DS_Store
 .idea
+src/*
+mysql_data/*
+backup_database/homestead.sql.gz

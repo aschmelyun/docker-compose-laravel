@@ -32,6 +32,9 @@ services:
       MYSQL_ROOT_PASSWORD: secret
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    volumes: 
+      - ./backup_database:/backup_database
+      - ./mysql_data:/var/lib/mysql
     networks:
       - laravel
 
@@ -42,6 +45,7 @@ services:
     container_name: php
     volumes:
       - ./src:/var/www/html
+    user: 1000:1000
     ports:
       - "9000:9000"
     networks:
@@ -52,6 +56,7 @@ services:
     container_name: composer
     volumes:
       - ./src:/var/www/html
+      - ~/.composer/cache:/tmp
     working_dir: /var/www/html
     depends_on:
       - php
@@ -71,6 +76,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: artisan
+    user: 1000:1000
     volumes:
       - ./src:/var/www/html
     depends_on:
