@@ -22,3 +22,37 @@ Containers created and their ports (if used) are as follows:
 - **npm**
 - **composer**
 - **artisan**
+
+**New features** :
+- a better php extensions installation with **[docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer)**
+- set user:group to 1000:1000 in both php and artisan containers to get around the permission issue in linux host.
+- added persistent data for mysql and composer (use the cache for composer).
+- an easy script to restore mysql data from a backup file (the backup file name must be "homestead.sql.gz") in case you got one, call it like that : 
+    ```sh
+    $ docker-compose exec mysql /bin/bash /backup_database/restore_database.sh
+    ```
+
+**Tips** :
+- make sure you have the right permissions (775) set on src folder otherwise you will get nginx 404 error.
+- in case you use a php extension not installed in the official composer image, be sure it's installed in php-fpm:alpine image via Dockerfile and specify the target platform / extension(s) in your composer.json:
+```sh
+    {
+        "config": {
+            "platform": {
+                "php": "MAJOR.MINOR.PATCH",
+                "ext-something": "1"
+            }
+        }
+    }
+```
+
+>     replace php version and extension name with whatever you need.
+
+
+- to call artisan tinker command use this line :
+
+    ```sh
+    $ docker-compose run --rm --user root:root artisan tinker 
+    ```
+
+
