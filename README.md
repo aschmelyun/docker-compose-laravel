@@ -33,6 +33,7 @@ Containers created and their ports (if used) are as follows:
     ```
 
 **Tips** :
+- make sure you have the right permissions (775) set on src folder otherwise you will get nginx 404 error.
 - in case you use a php extension not installed in the official composer image, be sure it's installed in php-fpm:alpine image via Dockerfile and specify the target platform / extension(s) in your composer.json:
 ```sh
     {
