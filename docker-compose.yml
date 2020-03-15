@@ -19,7 +19,7 @@ services:
       - laravel
 
   mysql:
-    image: mysql:5.7.22
+    image: mysql:5.7.29
     container_name: mysql
     restart: unless-stopped
     tty: true
