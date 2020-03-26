@@ -86,5 +86,18 @@ services:
     networks:
       - laravel
 
+  phpunit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: phpunit
+    user: 1000:1000
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['/var/www/html/vendor/bin/phpunit']
+    networks:
+      - laravel
+
 volumes:
   mysql_data:
