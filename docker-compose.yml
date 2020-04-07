@@ -34,6 +34,21 @@ services:
       SERVICE_NAME: mysql
     networks:
       - laravel
+      
+  app:
+     image: phpmyadmin/phpmyadmin
+     container_name: phpmyadmin
+     restart: always
+     environment:
+      - PMA_ARBITRARY=1
+     links:
+      - mysql
+     ports:
+      - 8085:80
+     volumes:
+      - /sessions
+     networks: 
+      - laravel
 
   php:
     build:
@@ -65,7 +80,6 @@ services:
       - ./src:/var/www/html
     working_dir: /var/www/html
     entrypoint: ['npm']
-
   artisan:
     build:
       context: .
@@ -76,6 +90,6 @@ services:
     depends_on:
       - mysql
     working_dir: /var/www/html
-    entrypoint: ['php', '/var/www/html/artisan']
+    entrypoint: ['/var/www/html/artisan']
     networks:
       - laravel
