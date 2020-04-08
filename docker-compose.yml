@@ -9,6 +9,8 @@ services:
     container_name: nginx
     ports:
       - "8080:80"
+      # Port for xdebug (ensure this matches the remote_port in the xdebug.ini)
+      - "9001:9001"
     volumes:
       - ./src:/var/www/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -42,6 +44,8 @@ services:
     container_name: php
     volumes:
       - ./src:/var/www/html
+      # Enable xdebug
+      - ./php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     ports:
       - "9000:9000"
     networks:
