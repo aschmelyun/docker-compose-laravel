@@ -19,6 +19,7 @@ Containers created and their ports (if used) are as follows:
 - **nginx** - `:8080`
 - **mysql** - `:3306`
 - **php** - `:9000`
+- **redis** - `:6379`
 - **npm**
 - **composer**
 - **artisan**
