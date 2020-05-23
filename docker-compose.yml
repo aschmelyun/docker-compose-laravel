@@ -82,7 +82,7 @@ services:
     depends_on:
       - mysql
     working_dir: /var/www/html
-    entrypoint: ['/var/www/html/artisan']
+    entrypoint: ['php', '/var/www/html/artisan']
     networks:
       - laravel
 
@@ -95,7 +95,7 @@ services:
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
-    entrypoint: ['/var/www/html/vendor/bin/phpunit']
+    entrypoint: ['php', '/var/www/html/vendor/bin/phpunit']
     networks:
       - laravel
 
