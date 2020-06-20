@@ -53,6 +53,7 @@ services:
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
+    command: "composer install"
     depends_on:
       - php
     networks:
