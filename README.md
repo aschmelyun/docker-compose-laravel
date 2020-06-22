@@ -34,3 +34,13 @@ By default, whenever you bring down the docker-compose network, your MySQL data 
 volumes:
   - ./mysql:/var/lib/mysql
 ```
+
+## Fix "Permission denied issue"
+
+```bash
+docker-compose run php chgrp -R www-data /var/www/html/storage /var/www/html/bootstrap/cache
+```
+
+```bash
+docker-compose run php chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
+```
