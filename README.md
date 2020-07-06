@@ -21,7 +21,6 @@ Containers created and their ports (if used) are as follows:
 - **php** - `:9000`
 - **npm**
 - **composer**
-- **artisan**
 
 ## Persistent MySQL Storage
 
