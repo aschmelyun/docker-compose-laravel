@@ -60,23 +60,10 @@ services:
       - laravel
 
   npm:
-    image: node:13.7
+    image: node:13.7.0-slim
     container_name: npm
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
     entrypoint: ['npm']
 
-  artisan:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: artisan
-    volumes:
-      - ./src:/var/www/html
-    depends_on:
-      - mysql
-    working_dir: /var/www/html
-    entrypoint: ['php', '/var/www/html/artisan']
-    networks:
-      - laravel
