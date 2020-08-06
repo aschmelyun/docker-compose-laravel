@@ -79,3 +79,17 @@ services:
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
       - laravel
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    container_name: phpmyadmin
+    depends_on:
+      - mysql
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: secret
+    networks:
+      - laravel
