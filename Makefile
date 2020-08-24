@@ -1,3 +1,12 @@
+THIS_FILE := $(lastword $(MAKEFILE_LIST))
+
+init:
+	@$(MAKE) -f $(THIS_FILE) docker-build
+	@$(MAKE) -f $(THIS_FILE) composer-install
+	docker-compose exec php cp .env.example .env
+	docker-compose exec php chown -R www-data:www-data /var/www/html
+	docker-compose run --rm artisan key:generate
+
 docker-up: memory
 	docker-compose up -d
 
@@ -5,10 +14,7 @@ docker-down:
 	docker-compose down
 
 docker-build: memory
-	docker-compose up --build -d
-
-artisan:
-	docker-compose run --rm artisan $(param)
+	docker-compose up -d --build site
 
 composer-install:
 	docker-compose run --rm composer install
@@ -24,3 +30,6 @@ memory:
 
 perm: 
 	sudo chown -R $(USER):$(USER) ./src/app
+	sudo chown -R $(USER):$(USER) ./src/database
+	sudo chown -R $(USER):$(USER) ./src/tests
+
