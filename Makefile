@@ -4,7 +4,6 @@ init:
 	@$(MAKE) -f $(THIS_FILE) docker-build
 	@$(MAKE) -f $(THIS_FILE) composer-install
 	docker-compose exec php cp .env.example .env
-	docker-compose exec php chown -R www-data:www-data /var/www/html
 	docker-compose run --rm artisan key:generate
 
 docker-up: memory
@@ -27,9 +26,4 @@ assets-dev:
 
 memory:
 	sudo sysctl -w vm.max_map_count=262144
-
-perm: 
-	sudo chown -R $(USER):$(USER) ./src/app
-	sudo chown -R $(USER):$(USER) ./src/database
-	sudo chown -R $(USER):$(USER) ./src/tests
 
