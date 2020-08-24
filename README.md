@@ -6,7 +6,7 @@ A pretty simplified Docker Compose workflow that sets up a LEMP network of conta
 
 To get started, make sure you have [Docker installed](https://docs.docker.com/docker-for-mac/install/) on your system, and then clone this repository.
 
-Next, clone your project or copy all of the files directly into  **src** directory and start initial recipe by running `make init`. This one will `build and up` docker-compose, also it makes some steps which are required by all laravel projects
+Next, clone your project or copy all of the files directly into  **src** directory and start initial recipe by running `make init`. This one will `build and up` docker-compose, also it makes some additional steps which are required by all laravel projects.
 
 Bringing up the Docker Compose network with `site` instead of just using `up`, ensures that only our site's containers are brought up at the start, instead of all of the command containers as well. The following are built for our web server, with their exposed ports detailed:
 
@@ -19,8 +19,3 @@ Three additional containers are included that handle Composer, NPM, and Artisan 
 - `docker-compose run --rm composer update`
 - `docker-compose run --rm npm run dev`
 - `docker-compose run --rm artisan migrate` 
-
-
-## Note
-
-Files generated from the containers (like: `docker-compose run --rm artisan make:controller`) will require superuser privelleges to edit them. To avoid this problem you can run `make perm`. 
