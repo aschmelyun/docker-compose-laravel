@@ -4,10 +4,10 @@ init:
 	@$(MAKE) -f $(THIS_FILE) docker-build
 	@$(MAKE) -f $(THIS_FILE) composer-install
 	docker-compose exec php cp .env.example .env
-	docker-compose run --rm artisan key:generate
+	docker-compose exec php php artisan key:generate
 
 docker-up: memory
-	docker-compose up -d
+	docker-compose up -d site
 
 docker-down:
 	docker-compose down
