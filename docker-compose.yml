@@ -57,6 +57,7 @@ services:
       - php
     networks:
       - laravel
+    entrypoint: ['composer', '--ignore-platform-reqs'] # Install without other php modules required
 
   npm:
     image: node:13.7
