@@ -10,7 +10,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:delegated
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
@@ -41,7 +41,7 @@ services:
       dockerfile: php.dockerfile
     container_name: php
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:delegated
     ports:
       - "9000:9000"
     networks:
@@ -73,7 +73,7 @@ services:
       dockerfile: php.dockerfile
     container_name: artisan
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:delegated
     depends_on:
       - mysql
     working_dir: /var/www/html
