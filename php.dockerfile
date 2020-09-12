@@ -1,8 +1,12 @@
 FROM php:7.4-fpm-alpine
 
-RUN addgroup -S 1000 && adduser -S 1000 -G 1000
-
 ADD ./php/www.conf /usr/local/etc/php-fpm.d/www.conf
+
+RUN addgroup -g 1000 laravel && adduser -G laravel -g laravel -s /bin/sh -D laravel
+
+RUN mkdir -p /var/www/html
+
+RUN chown laravel:laravel /var/www/html
 
 WORKDIR /var/www/html
 
