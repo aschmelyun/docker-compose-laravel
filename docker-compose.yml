@@ -49,16 +49,19 @@ services:
       - laravel
 
   composer:
-    image: composer:latest
+    build:
+      context: .
+      dockerfile: composer.dockerfile
     container_name: composer
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
     depends_on:
       - php
+    user: laravel
     networks:
       - laravel
-    entrypoint: ['composer', '--ignore-platform-reqs'] # Install without other php modules required
+    entrypoint: ['composer', '--ignore-platform-reqs']
 
   npm:
     image: node:13.7
@@ -78,6 +81,7 @@ services:
     depends_on:
       - mysql
     working_dir: /var/www/html
+    user: laravel
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
       - laravel
