@@ -4,14 +4,15 @@ networks:
   laravel:
 
 services:
-  nginx:
-    image: nginx:stable-alpine
+  site:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
     container_name: nginx
     ports:
       - "8080:80"
     volumes:
-      - ./src:/var/www/html
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/html:delegated
     depends_on:
       - php
       - mysql
@@ -19,7 +20,7 @@ services:
       - laravel
 
   mysql:
-    image: mysql:5.7.22
+    image: mysql:5.7.29
     container_name: mysql
     restart: unless-stopped
     tty: true
@@ -40,25 +41,29 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: php.dockerfile
     container_name: php
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:delegated
     ports:
       - "9000:9000"
     networks:
       - laravel
 
   composer:
-    image: composer:latest
+    build:
+      context: .
+      dockerfile: composer.dockerfile
     container_name: composer
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
     depends_on:
       - php
+    user: laravel
     networks:
       - laravel
+    entrypoint: ['composer', '--ignore-platform-reqs']
 
   npm:
     image: node:13.7
@@ -71,13 +76,14 @@ services:
   artisan:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: php.dockerfile
     container_name: artisan
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:delegated
     depends_on:
       - mysql
     working_dir: /var/www/html
-    entrypoint: ['/var/www/html/artisan']
+    user: laravel
+    entrypoint: ['php', '/var/www/html/artisan']
     networks:
       - laravel
