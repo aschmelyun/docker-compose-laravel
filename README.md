@@ -18,6 +18,7 @@ Bringing up the Docker Compose network with `site` instead of just using `up`, e
 
 Three additional containers are included that handle Composer, NPM, and Artisan commands *without* having to have these platforms installed on your local computer. Use the following command examples from your project root, modifying them to fit your particular use case.
 
+- `docker-compose run --rm artisan key:generate`
 - `docker-compose run --rm composer install`
 - `docker-compose run --rm composer update`
 - `docker-compose run --rm npm run dev`
@@ -34,3 +35,14 @@ By default, whenever you bring down the Docker network, your MySQL data will be 
 volumes:
   - ./mysql:/var/lib/mysql
 ```
+
+
+## Some useful code:
+- `docker ps -a`
+- `docker stop $(docker ps -a -q)`
+- `docker rm $(docker ps -a -q)`
+- `docker ps -a`
+- `docker images`
+- `docker rmi -f $(docker images -a -q)`
+- `docker images`
+- `docker-compose up -d --build site`
