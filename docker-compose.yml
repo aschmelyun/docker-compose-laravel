@@ -70,9 +70,9 @@ services:
     depends_on:
       - php
     user: laravel
+    entrypoint: ['composer', '--ignore-platform-reqs']
     networks:
       - laravel
-    entrypoint: ['composer', '--ignore-platform-reqs']
 
   npm:
     image: node:13.7
@@ -81,6 +81,8 @@ services:
       - ./src:/var/www/html
     working_dir: /var/www/html
     entrypoint: ['npm']
+    networks:
+      - laravel
 
   artisan:
     build:
