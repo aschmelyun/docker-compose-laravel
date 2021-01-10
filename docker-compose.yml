@@ -10,12 +10,13 @@ services:
       dockerfile: nginx.dockerfile
     container_name: nginx
     ports:
-      - "8080:80"
+      - 80:80
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
       - php
       - mysql
+      - mailhog
     networks:
       - laravel
 
@@ -25,7 +26,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3306:3306"
+      - 3306:3306
     environment:
       MYSQL_DATABASE: homestead
       MYSQL_USER: homestead
@@ -44,7 +45,7 @@ services:
     volumes:
       - ./src:/var/www/html:delegated
     ports:
-      - "9000:9000"
+      - 9000:9000
     networks:
       - laravel
 
@@ -83,5 +84,14 @@ services:
     working_dir: /var/www/html
     user: laravel
     entrypoint: ['php', '/var/www/html/artisan']
+    networks:
+      - laravel
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog
+    ports:
+      - 1025:1025
+      - 8025:8025
     networks:
       - laravel
