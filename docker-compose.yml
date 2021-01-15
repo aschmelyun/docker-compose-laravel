@@ -45,8 +45,6 @@ services:
     container_name: php
     volumes:
       - ./src:/var/www/html:delegated
-    ports:
-      - 9000:9000
     networks:
       - laravel
 
