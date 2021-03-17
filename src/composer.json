@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "inertiajs/inertia-laravel": "^0.4.0",
         "laravel/framework": "^8.12",
         "laravel/jetstream": "^2.2",
         "laravel/tinker": "^2.5"

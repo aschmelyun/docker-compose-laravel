@@ -22,7 +22,7 @@ services:
       - laravel
 
   mysql:
-    image: mysql
+    image: mysql:latest
     container_name: mysql
     restart: unless-stopped
     tty: true
