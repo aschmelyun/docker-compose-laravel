@@ -22,18 +22,19 @@ services:
       - laravel
 
   mysql:
-    image: mysql:5.7.29
+    image: mysql
     container_name: mysql
     restart: unless-stopped
     tty: true
     ports:
-      - 3306:3306
+      - 3308:3306
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: mydb
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: secret
+      MYSQL_PASSWORD: secret
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     networks:
