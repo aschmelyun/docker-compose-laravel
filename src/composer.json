@@ -15,6 +15,7 @@
         "inertiajs/inertia-laravel": "^0.4.0",
         "laravel/framework": "^8.12",
         "laravel/jetstream": "^2.2",
+        "laravel/sanctum": "^2.9",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
