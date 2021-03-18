@@ -1,4 +1,6 @@
 require('./bootstrap');
+import {Ziggy} from './ziggy';
+import route from 'ziggy';
 
 // Import modules...
 import { createApp, h } from 'vue';
@@ -14,7 +16,7 @@ createApp({
             resolveComponent: (name) => require(`./Pages/${name}`).default,
         }),
 })
-    .mixin({ methods: { route } })
+    .mixin({ methods: { route:(name,params,absolute,config = Ziggy) => route(name,params,absolute,config),} })
     .use(InertiaPlugin)
     .mount(el);
 
