@@ -7,6 +7,14 @@
         <jet-validation-errors class="mb-4" />
 
         <form @submit.prevent="submit">
+            <div class = "flex flex-row">
+                  <div class = "bg-green-600">
+                    <div id = "influencer" @click="setRole">Influencer</div>
+                  </div>
+                  <div class = "bg-black text-green-600">
+                    <div id = "brand" @click="setRole">Brand</div>
+                  </div>
+            </div>
             <div>
                 <jet-label for="name" value="Name" />
                 <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
@@ -80,6 +88,7 @@
                     password: '',
                     password_confirmation: '',
                     terms: false,
+                    role:''
                 })
             }
         },
@@ -89,7 +98,13 @@
                 this.form.post(this.route('register'), {
                     onFinish: () => this.form.reset('password', 'password_confirmation'),
                 })
+            },
+             setRole(e) {
+               var role = e.target.id
+               this.form.role = role;
+               console.log(role)
             }
+
         }
     }
 </script>

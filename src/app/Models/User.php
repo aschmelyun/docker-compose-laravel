@@ -27,6 +27,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'portfolio_path',
+        'influencer_description',
+        'employer_description'
     ];
 
     /**
