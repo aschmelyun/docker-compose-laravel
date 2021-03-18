@@ -7,14 +7,15 @@
         <jet-validation-errors class="mb-4" />
 
         <form @submit.prevent="submit">
-            <div class = "flex flex-row">
-                  <div class = "bg-green-600">
-                    <div id = "influencer" @click="setRole">Influencer</div>
+            <div class = "flex flex-row w-full justify-center" >
+                  <div class = "bg-green-600 p-2 rounded-l font-bold">
+                    <div v-bind:id="roles[0]" @click="form.role=roles[0]">Influencer</div>
                   </div>
-                  <div class = "bg-black text-green-600">
-                    <div id = "brand" @click="setRole">Brand</div>
+                  <div class = "bg-black text-green-600 p-2 rounded-r font-bold">
+                    <div v-bind:id="roles[1]" @click="form.role=roles[1]">Brand</div>
                   </div>
             </div>
+            <h3> You're signing up as a {{this.form.role}}</h3>
             <div>
                 <jet-label for="name" value="Name" />
                 <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
@@ -88,8 +89,9 @@
                     password: '',
                     password_confirmation: '',
                     terms: false,
-                    role:''
-                })
+                    role:'influencer'
+                }),
+                roles:['influencer', 'brand']
             }
         },
 
@@ -99,11 +101,7 @@
                     onFinish: () => this.form.reset('password', 'password_confirmation'),
                 })
             },
-             setRole(e) {
-               var role = e.target.id
-               this.form.role = role;
-               console.log(role)
-            }
+
 
         }
     }

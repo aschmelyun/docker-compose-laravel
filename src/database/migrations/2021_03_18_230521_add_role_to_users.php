@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRolesAndPortfolioToUsers extends Migration
+class AddRoleToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,11 @@ class AddRolesAndPortfolioToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->foreignId('role_id')->constrained();
-            $table->string('portfolio_path')->nullable();
-            $table->text('influencer_description')->nullable();
-            $table->text('employer_description')->nullable();
+               //
+               $table->foreignId('role_id')->constrained();
+               $table->string('portfolio_path')->nullable();
+               $table->text('influencer_description')->nullable();
+               $table->text('employer_description')->nullable();
         });
     }
 

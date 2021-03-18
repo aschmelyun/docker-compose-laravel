@@ -17507,7 +17507,8 @@ __webpack_require__.r(__webpack_exports__);
         password_confirmation: '',
         terms: false,
         role: ''
-      })
+      }),
+      roles: ['influencer', 'brand']
     };
   },
   methods: {
@@ -17519,11 +17520,6 @@ __webpack_require__.r(__webpack_exports__);
           return _this.form.reset('password', 'password_confirmation');
         }
       });
-    },
-    setRole: function setRole(e) {
-      var role = e.target.id;
-      this.form.role = role;
-      console.log(role);
     }
   }
 });
@@ -20926,13 +20922,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex flex-row"
+  "class": "flex flex-row w-full justify-center"
 };
 var _hoisted_2 = {
-  "class": "bg-green-600"
+  "class": "bg-green-600 p-2 rounded-l font-bold"
 };
 var _hoisted_3 = {
-  "class": "bg-black text-green-600"
+  "class": "bg-black text-green-600 p-2 rounded-r font-bold"
 };
 var _hoisted_4 = {
   "class": "mt-4"
@@ -20967,6 +20963,8 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Register ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+
   var _component_jet_authentication_card_logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-authentication-card-logo");
 
   var _component_jet_validation_errors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-validation-errors");
@@ -20995,16 +20993,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $options.submit && $options.submit.apply($options, arguments);
         }, ["prevent"]))
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-        id: "influencer",
-        onClick: _cache[1] || (_cache[1] = function () {
-          return $options.setRole && $options.setRole.apply($options, arguments);
+        id: $data.roles[0],
+        onClick: _cache[1] || (_cache[1] = function ($event) {
+          return $data.form.role = $data.roles[0];
         })
-      }, "Influencer")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-        id: "brand",
-        onClick: _cache[2] || (_cache[2] = function () {
-          return $options.setRole && $options.setRole.apply($options, arguments);
+      }, "Influencer", 8
+      /* PROPS */
+      , ["id"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+        id: $data.roles[1],
+        onClick: _cache[2] || (_cache[2] = function ($event) {
+          return $data.form.role = $data.roles[1];
         })
-      }, "Brand")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
+      }, "Brand", 8
+      /* PROPS */
+      , ["id"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", null, " You're signing up as a " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.form.role), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
         "for": "name",
         value: "Name"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
