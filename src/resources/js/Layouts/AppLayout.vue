@@ -23,6 +23,17 @@
                             </div>
                         </div>
 
+                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <div v-if="$page.props.user.role_id=1">
+                                   Influencer
+                                </div>
+                                <div v-else>
+                                   Brand
+                                </div>
+
+                            </div>
+
+
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <div class="ml-3 relative">
                                 <!-- Teams Dropdown -->

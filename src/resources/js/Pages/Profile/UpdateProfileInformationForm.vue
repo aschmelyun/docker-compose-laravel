@@ -41,6 +41,7 @@
                 <jet-input-error :message="form.errors.photo" class="mt-2" />
             </div>
 
+
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="name" value="Name" />
