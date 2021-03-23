@@ -10,10 +10,18 @@ module.exports = {
     ],
 
     theme: {
+        screens:{
+          'xxs':'360px',
+          'xs':'475px',
+          ...defaultTheme.screens,
+        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            colors:{
+                'dashboard':'#f4fdfd'
+            }
         },
     },
 
