@@ -21,7 +21,7 @@ module.exports = {
             },
             colors:{
                 'dashboard':'#f4fdfd'
-            }
+            },
         },
     },
 
