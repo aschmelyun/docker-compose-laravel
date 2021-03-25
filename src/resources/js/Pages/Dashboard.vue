@@ -1,12 +1,12 @@
 <template>
-    <div class = "h-screen w-screen">
+    <div class="h-screen w-screen">
        <dashboard-profile>
-         <profile-circle/>
+
        </dashboard-profile>
 
 
 
-        <div class="py-12">
+        <div class="py-12 ">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
@@ -19,8 +19,8 @@
 
 <script>
     import AppLayout from '@/Layouts/AppLayout'
-    import DashboardProfile from '@/Components/DashboardProfile'
-    import ProfileCircle from '@/Components/ProfileCircle'
+    import DashboardProfile from '@/Jetstream/DashboardProfile'
+
 
 
 
@@ -28,7 +28,7 @@
         components: {
             AppLayout,
             DashboardProfile,
-            ProfileCircle
+
 
 
         },

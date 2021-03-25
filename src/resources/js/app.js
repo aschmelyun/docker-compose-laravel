@@ -1,6 +1,7 @@
 require('./bootstrap');
 import {Ziggy} from './ziggy';
 import route from 'ziggy';
+import '../css/app.css'
 
 
 // Import modules...

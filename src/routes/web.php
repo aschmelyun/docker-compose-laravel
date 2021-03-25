@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -31,3 +32,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/projects', function(){
       return Inertia::render('Projects');
 
 })->name('projects');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/profile', function(){
+    return Inertia::render('ProfileView');
+
+})->name('profile');
