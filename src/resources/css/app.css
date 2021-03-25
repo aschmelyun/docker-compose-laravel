@@ -5,11 +5,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 
+.border-input {
+  filter: drop-shadow(0 0 6px rgba(60,60,60,0.21));
+  background-color: #ffffff;
+}
+
+.bg-profilemain{
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.73));
 
 
-.bg-profilecircle{
-    background-image: linear-gradient(88deg, #05ebbd 0%, #1177d3 100%);
   }
+
+.profiletext{
+    font-family: 'Poppins', sans-serif;
+    color: #363636;
+
+
+  }
+
+.icon{
+    filter: drop-shadow(0 0 6px rgba(59,59,59,0.39));
+
+}
+
+.instagramicon{
+    background-image: url('../assets/instagram.png');
+}
+
+.profilecircle{
+    background-image: linear-gradient(88deg, #05ebbd 0%, #1177d3 100%);
+
+  }
+
+.border-dashboardprofile {
+   border: 1px solid #dee9e9;
+}
+
 
 
 
