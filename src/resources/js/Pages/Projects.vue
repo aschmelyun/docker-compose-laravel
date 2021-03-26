@@ -28,9 +28,9 @@
             AppLayout,
 
         },
-        setup(){
+        /*setup(){
             const user = computed(()=> usePage().props.user)
             return {user}
-        }
+        }*/
     }
 </script>

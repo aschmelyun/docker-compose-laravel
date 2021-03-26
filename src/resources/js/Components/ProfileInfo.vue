@@ -1,11 +1,11 @@
 <template>
 
     <div class="w-1/2  relative bottom-10  xl:bottom-20 left-3">
-   <h2 class="profiletext font-bold xl:text-4xl text-sm xxs:text-lg md:text-2xl xxs:leading-8">
-     Sahara Santos
+   <h2 class="profiletext text-defaultcolor font-extrabold xl:text-4xl text-sm xxs:text-lg md:text-2xl xxs:leading-8">
+     Luana Santos
    </h2>
-   <p class="text-xs md:text-base lg:text-xl 2xl:text-3xl font-medium profiletext">
-     @saharasantos
+   <p class="text-xs text-defaultcolor md:text-base lg:text-xl 2xl:text-3xl font-medium profiletext">
+     @luamalakian
   </p>
   <div class="flex h-19 w-20 xl:w-28  m-1 xl:m-3">
 <svg v-for="n in 5" :key="n" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gold">
@@ -20,7 +20,7 @@
   <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
 </svg>
   </div>
-  <p class= "profiletext text-xs xxs:text-sm lg:text-xl 2xl:text-3xl md:text-base ml-1">New Jersey, United States</p>
+  <p class= "profiletext text-xs  text-defaultcolor xxs:text-sm lg:text-xl 2xl:text-3xl md:text-base ml-1">New Jersey, United States</p>
  </div>
 </div>
 

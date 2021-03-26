@@ -13,6 +13,7 @@ module.exports = {
         screens:{
           'xxs':'360px',
           'xs':'475px',
+          'asm':'540px',
           ...defaultTheme.screens,
         },
         extend: {
@@ -20,7 +21,10 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             colors:{
-                'dashboard':'#f4fdfd'
+                'dashboard':'#f4fdfd',
+                'defaultcolor':'#363636',
+                'navigationcolor':'#272b3d',
+                'customgrey':' #f2f3f8'
             },
         },
     },
