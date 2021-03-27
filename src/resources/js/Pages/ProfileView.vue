@@ -17,7 +17,7 @@
  <profile-info>
  </profile-info>
  <div class="flex flex-col w-1/2 right-3 space-y-2 items-end relative bottom-10  xl:bottom-20">
-      <div v-for="(category,i) in categories">
+      <div v-for="(category,i) in categories" v-bind:key="i">
        <category v-bind:category="category" v-bind:categoryColor="categoryColors[i]">
        </category>
       </div>
@@ -59,7 +59,7 @@ import ProfileMedia from '@/Components/ProfileMedia'
 
 export default {
   components:{
-      AppLayout, 
+      AppLayout,
       ProfileInfo,
       NavCircle,
       InstagramIcon,
@@ -73,10 +73,10 @@ export default {
            categories:['fitness','travel'],
            categoryColors:[1,2],
            backgroundImage:"background-image: url(/storage/profile-photos/sZDiTg7ubgQIXifuBZ1dZQ7L8aM3DOHPtsO2n3RJ.jpg)",
-           backgroundOverlay:"background: rgb(10,6,122);background: linear-gradient(0deg, rgba(10,6,122,1) 0%, rgba(6,235,190,1) 25%, rgba(18,119,211,0) 39%);"
+           backgroundOverlay:"background: rgb(10,6,122);background: linear-gradient(0deg, rgba(10,6,122,1) 0%, rgba(6,235,190,1) 25%, rgba(18,119,211,0) 39%); "
         }
     },
-   
-    
+
+
 }
 </script>

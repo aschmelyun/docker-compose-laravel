@@ -30,7 +30,12 @@ class User extends Authenticatable
         'role_id',
         'portfolio_path',
         'influencer_description',
-        'employer_description'
+        'employer_description',
+        'country',
+        'city',
+        'username',
+        'influencer_bio',
+        'social_media_info_id'
     ];
 
     /**
@@ -45,8 +50,24 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
+
+    public function social_media_info(){
+        return $this->hasOne(SocialMediaInfo::class);
+    }
+
+    public function portfolio_pictures(){
+        return $this->hasMany(PortfolioPictures::class);
+    }
+
+    public function categories(){
+        return $this->hasMany(Category::class);
+    }
+
     /**
      * The attributes that should be cast to native types.
+     *
+     *
+     *
      *
      * @var array
      */
