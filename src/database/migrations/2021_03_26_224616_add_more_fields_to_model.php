@@ -15,8 +15,8 @@ class AddMoreFieldsToModel extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('country');
-            $table->string('city');
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
             $table->string('username')->unique();
             $table->text('influencer_bio')->nullable();
             $table->foreignId('social_media_info_id')->nullable();
