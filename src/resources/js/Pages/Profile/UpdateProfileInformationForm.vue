@@ -30,6 +30,16 @@
                     </span>
                 </div>
 
+                <div class="mt-2" v-for="(picture_url,i) in user.portfolio_pictures" :key="i">
+                    <img :src="picture_url" :alt="i" >
+                </div>
+
+                <div class="mt-2" v-for="(picturePreviews,i) in portfolioPicturesPreviews" :key="i">
+                     <span class="block rounded-full w-20 h-20"
+                          :style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + picturePreviews + '\');'">
+                    </span>
+                </div>
+
                 <jet-secondary-button class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
                     Select A New Photo
                 </jet-secondary-button>
@@ -39,6 +49,17 @@
                 </jet-secondary-button>
 
                 <jet-input-error :message="form.errors.photo" class="mt-2" />
+
+              <!--Portfolio Pictures -->
+             <input type="file" class="hidden"
+                            ref="portfolioPictures"
+                            multiple
+                            @change="addNewPicturePreview">
+
+            <jet-secondary-button class="mt-2 mr-2" type="button" @click.prevent="addPortfolioPicture">
+                  Add new Picture
+            </jet-secondary-button>
+
             </div>
 
 
@@ -98,9 +119,12 @@
                     name: this.user.name,
                     email: this.user.email,
                     photo: null,
+                    portfolioPictures:[]
                 }),
 
                 photoPreview: null,
+                portfolioPicturesPreviews:[],
+                newFiles:[]
             }
         },
 
@@ -108,6 +132,9 @@
             updateProfileInformation() {
                 if (this.$refs.photo) {
                     this.form.photo = this.$refs.photo.files[0]
+                }
+                if (this.newFiles.length > 0){
+                    this.form.portfolioPictures = this.newFiles;
                 }
 
                 this.form.post(route('user-profile-information.update'), {
@@ -130,12 +157,31 @@
                 reader.readAsDataURL(this.$refs.photo.files[0]);
             },
 
+            addNewPicturePreview(ev){
+                  var file = ev.target.files[0]
+                  this.newFiles.push(file)
+                  console.log(file)
+                  const reader = new FileReader()
+                  reader.onload = (e) =>{
+                     this.portfolioPicturesPreviews.push(e.target.result);
+                 }
+                 reader.readAsDataURL(file);
+
+            }
+        ,
+
+
             deletePhoto() {
                 this.$inertia.delete(route('current-user-photo.destroy'), {
                     preserveScroll: true,
                     onSuccess: () => (this.photoPreview = null),
                 });
             },
+
+            addPortfolioPicture() {
+                this.$refs.portfolioPictures.click();
+            },
+
         },
     }
 </script>
