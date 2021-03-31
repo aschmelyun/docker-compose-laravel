@@ -5,14 +5,14 @@ networks:
 
 services:
   site:
-    build:
-      context: .
-      dockerfile: nginx.dockerfile
-    container_name: nginx
+    image: nginx:stable-alpine
+    container_name: site
     ports:
       - 80:80
     volumes:
-      - ./src:/var/www/html:delegated
+      - ./src:/var/www/html
+      - ./nginx/nginx.conf /etc/nginx/nginx.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
       - redis
@@ -60,17 +60,13 @@ services:
       - laravel
 
   composer:
-    build:
-      context: .
-      dockerfile: composer.dockerfile
+    image: composer:latest
     container_name: composer
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
     depends_on:
       - php
-    user: laravel
-    entrypoint: ['composer', '--ignore-platform-reqs']
     networks:
       - laravel
 
@@ -87,15 +83,14 @@ services:
   artisan:
     build:
       context: .
-      dockerfile: php.dockerfile
+      dockerfile: Dockerfile
     container_name: artisan
     volumes:
-      - ./src:/var/www/html:delegated
+      - ./src:/var/www/html
     depends_on:
       - mysql
     working_dir: /var/www/html
-    user: laravel
-    entrypoint: ['php', '/var/www/html/artisan']
+    entrypoint: ['/var/www/html/artisan']
     networks:
       - laravel
 
