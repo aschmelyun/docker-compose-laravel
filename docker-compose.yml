@@ -43,10 +43,12 @@ services:
   php:
     build:
       context: .
-      dockerfile: php.dockerfile
+      dockerfile: Dockerfile
     container_name: php
     volumes:
-      - ./src:/var/www/html:delegated
+      - ./src:/var/www/html
+    ports:
+      - "9000:9000"
     networks:
       - laravel
 
