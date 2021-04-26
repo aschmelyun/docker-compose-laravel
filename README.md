@@ -23,7 +23,7 @@ Three additional containers are included that handle Composer, NPM, and Artisan 
 - `docker-compose run --rm composer update`
 - `docker-compose run --rm npm run dev`
 - `docker-compose run --rm artisan migrate` 
-- To SSH into the MYSQL container `docker exec -it <mysql container ID>  /bin/bash`
+- To SSH into the MySql container `docker exec -it <mysql container ID>  /bin/bash`
 
 ## Persistent MySQL Storage
 
@@ -37,6 +37,7 @@ volumes:
   - ./mysql:/var/lib/mysql
 ```
 
+>It is available some startup MySql configuration at `docker-compose.yml` in the `mysql` session. By default it is created a database called `homestead`, a user called `homestead` with the password `secret`. The MySql root password is also created with a password `secret`. To get SSH access to the MySql container `docker exec -it <mysql container ID>  /bin/bash`
 
 ## Some useful code:
 - `docker ps -a`
