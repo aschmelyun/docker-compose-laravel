@@ -48,3 +48,4 @@ volumes:
 - `docker rmi -f $(docker images -a -q)`
 - `docker images`
 - `docker-compose up -d --build site`
+- `docker ps -a && docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && docker ps -a && docker images && docker rmi -f $(docker images -a -q) && docker images`
