@@ -12,4 +12,4 @@ ADD ./nginx/default.conf /etc/nginx/conf.d/
 
 RUN mkdir -p /var/www/html
 
-RUN addgroup -g 1000 ${NGINXGROUP} && adduser -g ${NGINXGROUP} -s /bin/sh -D ${NGINXUSER}; exit 0
+RUN adduser -g ${NGINXGROUP} -s /bin/sh -D ${NGINXUSER}; exit 0
