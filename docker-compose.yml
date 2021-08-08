@@ -67,6 +67,7 @@ services:
     working_dir: /var/www/html
     depends_on:
       - php
+    user: laravel
     entrypoint: ['composer', '--ignore-platform-reqs']
     networks:
       - laravel
@@ -93,6 +94,7 @@ services:
       - ./src:/var/www/html:delegated
     depends_on:
       - mysql
+    user: laravel
     working_dir: /var/www/html
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
