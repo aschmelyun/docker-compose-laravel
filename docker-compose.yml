@@ -8,6 +8,9 @@ services:
     build:
       context: .
       dockerfile: nginx.dockerfile
+      args:
+        - NGINXUSER=${NGINXUSER:-www-data}
+        - NGINXGROUP=${NGINXGROUP:-www-data}
     container_name: nginx
     ports:
       - 80:80
@@ -42,6 +45,9 @@ services:
     build:
       context: .
       dockerfile: php.dockerfile
+      args:
+        - PHPUSER=${PHPUSER:-www-data}
+        - PHPGROUP=${PHPGROUP:-www-data}
     container_name: php
     volumes:
       - ./src:/var/www/html:delegated
@@ -61,13 +67,16 @@ services:
     build:
       context: .
       dockerfile: composer.dockerfile
+      args:
+        - PHPUSER=${PHPUSER:-www-data}
+        - PHPGROUP=${PHPGROUP:-www-data}
     container_name: composer
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
     depends_on:
       - php
-    user: laravel
+    user: ${PHPUSER:-www-data}
     entrypoint: ['composer', '--ignore-platform-reqs']
     networks:
       - laravel
@@ -89,12 +98,14 @@ services:
     build:
       context: .
       dockerfile: php.dockerfile
+      args:
+        - PHPUSER=${PHPUSER:-www-data}
+        - PHPGROUP=${PHPGROUP:-www-data}
     container_name: artisan
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
       - mysql
-    user: laravel
     working_dir: /var/www/html
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
