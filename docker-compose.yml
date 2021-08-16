@@ -25,12 +25,14 @@ services:
       - laravel
 
   mysql:
-    image: mysql:5.7.29
+    image: mariadb:10.6
     container_name: mysql
     restart: unless-stopped
     tty: true
     ports:
       - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
     environment:
       MYSQL_DATABASE: homestead
       MYSQL_USER: homestead
