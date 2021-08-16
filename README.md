@@ -26,7 +26,7 @@ Three additional containers are included that handle Composer, NPM, and Artisan 
 
 ## Permissions Issues
 
-If you encounter any issues with filesystem permissions while visiting your application or running a container command, try doing the following:
+If you encounter any issues with filesystem permissions while visiting your application or running a container command, try completing the following steps:
 
 - Bring any container(s) down with `docker-compose down`
 - Copy the `.env.example` file in the root of this repo to `.env`
