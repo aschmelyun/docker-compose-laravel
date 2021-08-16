@@ -24,7 +24,7 @@ Three additional containers are included that handle Composer, NPM, and Artisan 
 - `docker-compose run --rm npm run dev`
 - `docker-compose run --rm artisan migrate`
 
-## Permission Issues
+## Permissions Issues
 
 If you encounter any issues with filesystem permissions while visiting your application or running a container command, try doing the following:
 
