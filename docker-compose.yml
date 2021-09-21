@@ -52,6 +52,7 @@ services:
       - 9090:80
     environment:
       MYSQL_ROOT_PASSWORD: secret
+      UPLOAD_LIMIT: 100M
     depends_on:
       - mysql
     networks:
