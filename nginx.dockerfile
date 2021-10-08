@@ -12,4 +12,5 @@ ADD ./nginx/default.conf /etc/nginx/conf.d/
 
 RUN mkdir -p /var/www/html
 
-RUN adduser -g ${NGINXGROUP} -s /bin/sh -D ${NGINXUSER}; exit 0
+RUN addgroup --system ${NGINXGROUP}; exit 0
+RUN adduser --system -G ${NGINXGROUP} -s /bin/sh -D ${NGINXUSER}; exit 0
