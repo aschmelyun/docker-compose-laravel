@@ -1,0 +1,27 @@
+.b-sidebar {
+  // Sidebar Width
+  &.sidebar-lg {
+    width: 30rem;
+
+    @include media-breakpoint-down(xs) {
+      width: 20rem;
+    }
+  }
+
+  // Fix sidebar close outline
+  .b-sidebar-header .close {
+    outline: none;
+  }
+
+  // header (Used in Apps)
+  .b-sidebar-body {
+    .content-sidebar-header {
+      background-color: $light;
+    }
+  }
+}
+
+// Update sidebar backdrop color
+.b-sidebar-backdrop {
+  background-color: rgba($black, 0.75) !important;
+}

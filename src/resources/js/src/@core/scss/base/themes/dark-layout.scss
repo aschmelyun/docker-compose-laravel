@@ -1,0 +1,2423 @@
+// ================================================================================================
+// 	File Name: dark-layout.scss
+// 	Description: SCSS file for dark layout.
+// 	----------------------------------------------------------------------------------------------
+// 	Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+// 	Author: PIXINVENT
+// 	Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+.dark-layout {
+  @at-root body#{&} {
+    color: $theme-dark-body-color;
+    background-color: $theme-dark-body-bg;
+  }
+  body {
+    color: $theme-dark-body-color;
+    background-color: $theme-dark-body-bg;
+  }
+  // universal elements
+  //heading tags
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $theme-dark-headings-color;
+  }
+
+  // border color
+  .border,
+  .border-top,
+  .border-right,
+  .border-bottom,
+  .border-left {
+    border-color: $theme-dark-border-color !important;
+  }
+
+  // other tags
+  a {
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  label {
+    color: $theme-dark-label-color;
+  }
+
+  .btn span {
+    color: inherit;
+  }
+
+  hr {
+    border-color: $theme-dark-border-color;
+  }
+
+  pre {
+    background-color: $theme-dark-body-bg !important;
+    border: 0;
+
+    code {
+      background-color: inherit;
+      text-shadow: none;
+
+      // .operator,
+      .url {
+        background-color: $theme-dark-body-bg;
+      }
+    }
+  }
+
+  code {
+    background-color: $theme-dark-body-bg;
+  }
+
+  kbd {
+    background-color: $theme-dark-body-bg;
+  }
+
+  // for dark text
+  .text-dark {
+    color: $gray-600 !important;
+  }
+
+  .text-muted {
+    color: $theme-dark-text-muted-color !important;
+  }
+
+  .text-body {
+    color: $theme-dark-body-color !important;
+  }
+  .text-body-heading {
+    color: $theme-dark-headings-color;
+  }
+
+  .section-label {
+    color: $theme-dark-text-muted-color;
+  }
+
+  // shadow
+  .shadow {
+    box-shadow: $theme-dark-box-shadow !important;
+  }
+
+  // blockquote footer
+  .blockquote-footer {
+    color: $theme-dark-text-muted-color;
+  }
+
+  // main navbar and header navbar shadow(generic navbar)
+  .header-navbar-shadow {
+    background: linear-gradient(180deg, rgba(22, 29, 49, 0.9) 44%, rgba(22, 29, 49, 0.43) 73%, rgba(22, 29, 49, 0));
+  }
+
+  // main header navbar dark style
+
+  .horizontal-layout {
+    .header-navbar {
+      background-color: $theme-dark-card-bg !important;
+    }
+    &.navbar-sticky,
+    &.navbar-static {
+      .header-navbar {
+        background-color: $theme-dark-body-bg !important;
+      }
+    }
+  }
+  .navbar-sticky {
+    .header-navbar {
+      &.navbar-shadow {
+        box-shadow: 0 4px 24px 0 rgba($black, 0.75);
+      }
+    }
+  }
+  .header-navbar {
+    background-color: $theme-dark-card-bg;
+
+    .navbar-container {
+      .nav {
+        .nav-item {
+          .nav-link {
+            color: $theme-dark-headings-color;
+            background-color: transparent;
+
+            i,
+            svg {
+              color: $theme-dark-headings-color;
+            }
+
+            &.bookmark-star {
+              i,
+              svg {
+                color: $white !important;
+              }
+            }
+          }
+
+          &.nav-search {
+            .search-input {
+              &.open {
+                background-color: $theme-dark-card-bg;
+
+                .input {
+                  border-color: $theme-dark-border-color;
+                }
+
+                .input,
+                .input::placeholder,
+                .search-input-close {
+                  color: $theme-dark-body-color;
+                }
+              }
+            }
+          }
+
+          .bookmark-input {
+            background-color: $theme-dark-card-bg;
+            .form-control {
+              background-color: $theme-dark-card-bg;
+            }
+          }
+
+          .search-list {
+            background-color: $theme-dark-card-bg;
+            li {
+              a {
+                color: $theme-dark-body-color;
+              }
+            }
+
+            .auto-suggestion.current_item {
+              background-color: $theme-dark-body-bg;
+            }
+          }
+        }
+
+        li i.ficon,
+        li svg.ficon {
+          color: $theme-dark-body-color;
+        }
+
+        .dropdown-cart,
+        .dropdown-notification {
+          .dropdown-menu.dropdown-menu-media {
+            overflow: hidden;
+
+            .media {
+              border-color: $theme-dark-border-color;
+
+              .media-meta {
+                color: $theme-dark-body-color;
+              }
+
+              &:hover {
+                background-color: $theme-dark-body-bg;
+              }
+            }
+            .dropdown-menu-header {
+              border-bottom: 1px solid $theme-dark-border-color;
+            }
+            .dropdown-menu-footer {
+              background-color: $theme-dark-card-bg;
+              border-top: 1px solid $theme-dark-border-color;
+              .dropdown-item {
+                border-color: $theme-dark-border-color;
+
+                &:hover {
+                  background-color: $theme-dark-card-bg;
+                }
+              }
+            }
+          }
+        }
+        .dropdown-cart {
+          &.empty-cart {
+            &:before {
+              background-color: $theme-dark-body-bg;
+            }
+          }
+          li {
+            color: $white;
+          }
+          .cart-item {
+            color: $theme-dark-body-color;
+          }
+          .dropdown-header {
+            span {
+              color: $white;
+            }
+          }
+          .media {
+            img {
+              background-color: $theme-dark-body-bg;
+            }
+          }
+          .media-heading .cart-item-by {
+            color: $theme-dark-text-muted-color;
+          }
+        }
+        .dropdown-notification {
+          .media-body .media-heading {
+            color: $theme-dark-headings-color;
+          }
+          .notification-text {
+            color: $theme-dark-text-muted-color;
+          }
+        }
+      }
+    }
+
+    &.navbar-static-top {
+      background-color: transparent !important;
+    }
+
+    &[class*='bg-'] {
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            background-color: inherit;
+          }
+        }
+      }
+    }
+  }
+
+  //Text color for Blank page with transparent card
+  .blank-page {
+    .card.bg-transparent {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $theme-dark-card-bg;
+      }
+
+      p {
+        color: $theme-dark-body-bg;
+      }
+    }
+  }
+
+  // main menu
+  .main-menu {
+    background-color: $theme-dark-card-bg;
+
+    .shadow-bottom {
+      background: linear-gradient(
+        180deg,
+        $theme-dark-card-bg 44%,
+        rgba($theme-dark-card-bg, 0.51) 73%,
+        rgba($theme-dark-card-bg, 0)
+      );
+    }
+
+    &:not(.expanded) {
+      .navigation {
+        .sidebar-group-active {
+          > a {
+            background-color: $theme-dark-body-bg;
+          }
+        }
+      }
+    }
+
+    &.menu-dark {
+      .navigation > li.open:not(.menu-item-closing) > a {
+        background-color: $theme-dark-body-bg;
+      }
+      .navigation > li.sidebar-group-active > a {
+        background-color: $theme-dark-body-bg;
+      }
+    }
+
+    .collapse-toggle-icon {
+      color: $primary !important;
+    }
+  }
+
+  // Perfect Scrollbar
+  .ps__thumb-x,
+  .ps__thumb-y {
+    background-color: $theme-dark-body-color;
+  }
+  .ps .ps__rail-x.ps--clicking,
+  .ps .ps__rail-x:focus,
+  .ps .ps__rail-x:hover,
+  .ps .ps__rail-y.ps--clicking,
+  .ps .ps__rail-y:focus,
+  .ps .ps__rail-y:hover {
+    background-color: $theme-dark-border-color;
+  }
+
+  .ps__rail-y.ps--clicking .ps__thumb-y,
+  .ps__rail-y:focus > .ps__thumb-y,
+  .ps__rail-y:hover > .ps__thumb-y {
+    background-color: $theme-dark-body-color;
+  }
+
+  // main menu content
+  .main-menu-content {
+    .navigation-main {
+      background-color: $theme-dark-card-bg;
+
+      .navigation-header {
+        color: $theme-dark-text-muted-color;
+      }
+
+      li {
+        a {
+          color: $theme-dark-headings-color !important;
+        }
+        ul {
+          .open,
+          .sidebar-group-active {
+            > a {
+              background-color: $theme-dark-body-bg;
+            }
+          }
+        }
+      }
+
+      .nav-item {
+        i,
+        svg {
+          color: $theme-dark-headings-color;
+        }
+
+        &.open {
+          > a {
+            background-color: $theme-dark-body-bg !important;
+          }
+        }
+
+        a:after {
+          color: $theme-dark-headings-color;
+        }
+
+        .menu-content {
+          background-color: $theme-dark-card-bg;
+
+          .active {
+            .menu-item {
+              color: $white;
+            }
+          }
+        }
+      }
+
+      .active {
+        .menu-title,
+        i,
+        svg {
+          color: $white;
+        }
+      }
+
+      .sidebar-group-active {
+        .menu-content {
+          background-color: $theme-dark-card-bg;
+
+          .active {
+            z-index: 1;
+
+            a {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // menu collapsed active item color
+  .menu-collapsed {
+    .main-menu:not(.expanded) {
+      .navigation-main {
+        li.active {
+          > a {
+            background: $theme-dark-body-bg !important;
+          }
+        }
+      }
+    }
+  }
+
+  /********* COMPONENTS *********/
+  // alerts
+  .alert {
+    .alert-heading,
+    p {
+      color: inherit;
+    }
+    .close {
+      text-shadow: none;
+    }
+    &.alert-dark {
+      .alert-heading,
+      .alert-body,
+      p {
+        color: $gray-600;
+      }
+      &.alert-dismissible .close {
+        color: $gray-600 !important;
+      }
+    }
+  }
+
+  // breadcrumbs
+
+  // Header breadcrumb
+  .content-header-left {
+    .breadcrumbs-top {
+      .content-header-title {
+        color: $theme-dark-headings-color;
+        border-color: $theme-dark-border-color;
+      }
+    }
+  }
+  // Breadcrumb dark style
+  .breadcrumb {
+    .breadcrumb-item {
+      color: $theme-dark-body-color;
+      + .breadcrumb-item::before {
+        color: $theme-dark-body-color;
+      }
+    }
+    &:not([class*='breadcrumb-']) {
+      .breadcrumb-item + .breadcrumb-item {
+        &:before {
+          background-image: url(str-replace(
+            str-replace($chevron-right, 'currentColor', $theme-dark-body-color),
+            '#',
+            '%23'
+          ));
+        }
+      }
+    }
+  }
+
+  // Breadcrumb with Chevron
+  .breadcrumb-chevron {
+    &.breadcrumb {
+      .breadcrumb-item + .breadcrumb-item:before {
+        background-image: url(str-replace(
+          str-replace($chevron-right, 'currentColor', $theme-dark-body-color),
+          '#',
+          '%23'
+        ));
+      }
+    }
+  }
+
+  // collapse
+
+  [class*='collapse-'] .card:not(:last-of-type) {
+    border-color: $theme-dark-border-color;
+  }
+  // for shadow and bordered
+  .collapse-border {
+    .card {
+      border-color: $theme-dark-border-color;
+    }
+  }
+
+  // Collapse shadow
+  .collapse-shadow {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.24);
+  }
+
+  // margin collapse
+  .collapse-margin {
+    .card {
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.24) !important;
+    }
+  }
+
+  // if there is an anchor tag inside
+  .collapse-icon {
+    .card-header {
+      a {
+        color: $theme-dark-body-color;
+      }
+    }
+    [data-toggle='collapse'] {
+      &:after {
+        background-image: url(str-replace(
+          str-replace($chevron-down, 'currentColor', $theme-dark-body-color),
+          '#',
+          '%23'
+        ));
+      }
+      &:before {
+        background-image: url(str-replace(
+          str-replace($chevron-up, 'currentColor', $theme-dark-body-color),
+          '#',
+          '%23'
+        ));
+      }
+    }
+  }
+
+  // buttons
+  .btn {
+    &:not([class*='btn-']) {
+      color: $theme-dark-body-color;
+    }
+
+    &.btn-dark,
+    &.btn-outline-dark,
+    &.btn-flat-dark {
+      color: $gray-600;
+    }
+
+    &.btn-dark {
+      background-color: $dark !important;
+    }
+
+    &.btn-outline-dark {
+      border-color: $dark;
+      color: $gray-600;
+      &:hover:not(.disabled):not(:disabled) {
+        color: $gray-600;
+      }
+    }
+
+    &.btn-flat-dark {
+      &:active,
+      &:focus {
+        background: $dark;
+      }
+    }
+  }
+
+  .btn-group-toggle {
+    label[class*='btn-outline-'] {
+      color: $primary !important;
+    }
+  }
+
+  // dropdown
+  .dropdown-menu {
+    background-color: $theme-dark-card-bg;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.24);
+
+    .dropdown-header {
+      color: $theme-dark-headings-color;
+    }
+
+    .dropdown-item {
+      color: $theme-dark-body-color;
+      &:hover,
+      &:focus {
+        background: $dropdown-link-hover-bg;
+        color: $dropdown-link-hover-color;
+      }
+      &:active,
+      &.active {
+        color: $dropdown-link-active-color;
+        background-color: $dropdown-link-active-bg;
+      }
+      &.disabled,
+      &:disabled {
+        color: $theme-dark-text-muted-color;
+      }
+    }
+  }
+  .dropdown-divider {
+    border-color: $theme-dark-border-color;
+  }
+
+  // modal
+  .modal {
+    .modal-header,
+    .modal-header[class*='bg-'] {
+      // why removed !important? Not working if added bg-COLOR class with modal-header
+      // background-color: $theme-dark-card-bg !important;
+      background-color: $theme-dark-body-bg;
+    }
+
+    // close button
+    .modal-header .close {
+      text-shadow: none;
+      background-color: $theme-dark-card-bg !important;
+      color: $theme-dark-body-color;
+      box-shadow: 0 3px 8px 0 rgba(11, 10, 25, 0.49) !important;
+    }
+
+    .modal-content,
+    .modal-body,
+    .modal-footer {
+      background-color: $theme-dark-card-bg;
+      border-color: $theme-dark-border-color;
+    }
+  }
+
+  //pagination
+  .pagination {
+    &:not([class*='pagination-']) {
+      .page-item {
+        &.active {
+          background-color: $theme-dark-pagination-bg;
+
+          .page-link {
+            background-color: $primary;
+
+            &:hover {
+              color: $white;
+            }
+          }
+        }
+
+        .page-link {
+          background-color: $theme-dark-pagination-bg;
+          color: $theme-dark-body-color;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+
+        &.prev-item,
+        &.next-item {
+          .page-link:hover {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    &[class*='pagination-'] {
+      .page-item:not(.active) {
+        .page-link {
+          background-color: $theme-dark-pagination-bg;
+        }
+
+        &:not(:hover) {
+          .page-link {
+            color: $white;
+          }
+        }
+      }
+
+      .page-item {
+        &:not(.active) {
+          .page-link:hover {
+            background-color: $theme-dark-pagination-bg;
+          }
+        }
+
+        &.active {
+          background-color: $theme-dark-pagination-bg;
+        }
+      }
+    }
+
+    .page-item {
+      &.prev-item,
+      &.previous,
+      &.prev {
+        .page-link:before {
+          background-image: url(str-replace(
+            str-replace($chevron-left, 'currentColor', $theme-dark-body-color),
+            '#',
+            '%23'
+          ));
+        }
+        &.disabled {
+          .page-link {
+            &:before {
+              background-image: url(str-replace(
+                str-replace($chevron-left, 'currentColor', $theme-dark-text-muted-color),
+                '#',
+                '%23'
+              ));
+            }
+          }
+        }
+      }
+      &.next-item,
+      &.next {
+        .page-link::after {
+          background-image: url(str-replace(
+            str-replace($chevron-right, 'currentColor', $theme-dark-body-color),
+            '#',
+            '%23'
+          ));
+        }
+        &.disabled {
+          .page-link {
+            &:after {
+              background-image: url(str-replace(
+                str-replace($chevron-right, 'currentColor', $theme-dark-text-muted-color),
+                '#',
+                '%23'
+              ));
+            }
+          }
+        }
+      }
+      &.disabled {
+        .page-link {
+          color: $theme-dark-text-muted-color;
+        }
+      }
+    }
+  }
+
+  // nav tabs
+  .nav-tabs,
+  .nav-pills,
+  .nav-tabs.nav-justified {
+    .nav-item {
+      .nav-link {
+        color: $theme-dark-headings-color;
+        &.active {
+          background-color: $theme-dark-card-bg;
+          color: $primary;
+        }
+
+        &.disabled {
+          color: $theme-dark-text-muted-color;
+        }
+      }
+    }
+  }
+
+  // bordered nav
+  .nav.wrap-border {
+    border-color: $theme-dark-border-color;
+  }
+
+  // nav pills
+  .nav-pills {
+    .nav-item {
+      .nav-link {
+        &.active {
+          color: $white;
+          background-color: $primary;
+        }
+      }
+    }
+  }
+
+  // media
+  .media-bordered {
+    .media:not(:first-child) {
+      border-color: $theme-dark-border-color;
+    }
+  }
+
+  // popover
+  .popover {
+    &[x-placement='top'] {
+      .arrow {
+        &:before {
+          border-top-color: $theme-dark-border-color;
+        }
+        &:after {
+          border-top-color: $theme-dark-card-bg;
+        }
+      }
+    }
+
+    &[x-placement='left'] {
+      .arrow {
+        &:before {
+          border-left-color: $theme-dark-border-color;
+        }
+        &:after {
+          border-left-color: $theme-dark-card-bg;
+        }
+      }
+    }
+
+    &[x-placement='right'] {
+      .arrow {
+        &:before {
+          border-right-color: $theme-dark-border-color;
+        }
+        &:after {
+          border-right-color: $theme-dark-card-bg;
+        }
+      }
+    }
+    .popover-header {
+      color: $white;
+    }
+
+    .popover-body {
+      background-color: $theme-dark-card-bg;
+      color: $theme-dark-body-color;
+      border-color: $theme-dark-border-color !important;
+    }
+  }
+
+  // BS toast
+  .toast {
+    background-color: rgba($theme-dark-card-bg, 0.85);
+    box-shadow: $theme-dark-box-shadow;
+    color: $theme-dark-body-color;
+
+    .toast-header {
+      background-color: $theme-dark-card-bg;
+      color: $theme-dark-body-color;
+
+      .close {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none;
+      }
+    }
+  }
+
+  // list group
+  .list-group {
+    .list-group-item {
+      &:not([class*='list-group-item-']),
+      &.list-group-item-action:not(.active):not(:active) {
+        background-color: $theme-dark-card-bg;
+        border-color: $theme-dark-border-color;
+        &:not(.disabled) {
+          color: $theme-dark-body-color;
+        }
+      }
+      &.list-group-item-action {
+        &:not(.active):not(:active) {
+          &:hover,
+          &:focus {
+            background-color: $theme-dark-body-bg;
+          }
+        }
+        &.active,
+        &:active {
+          background-color: $primary;
+          color: $white;
+        }
+      }
+
+      &.active {
+        p,
+        small {
+          color: $white;
+        }
+      }
+
+      &.disabled {
+        color: $theme-dark-text-muted-color;
+      }
+    }
+
+    &.list-group-circle .list-group-item:after {
+      background-image: url(str-replace(str-replace($circle, 'currentColor', $theme-dark-body-color), '#', '%23'));
+    }
+  }
+
+  // spinners
+  .spinner-border {
+    border-color: currentColor !important;
+    border-right-color: transparent !important;
+  }
+
+  // avatar
+  .avatar {
+    background-color: $theme-dark-body-bg;
+
+    [class*='avatar-status-'] {
+      border-color: $theme-dark-card-bg;
+    }
+  }
+  .avatar-group {
+    .avatar {
+      img,
+      .avatar-content {
+        box-shadow: 0 0 0 2px $theme-dark-card-bg, inset 0 0 0 1px rgba($theme-dark-card-bg, 0.07);
+      }
+    }
+  }
+
+  // divider
+  .divider {
+    .divider-text {
+      color: $theme-dark-body-color;
+
+      &::before,
+      &::after {
+        border-color: $theme-dark-border-color;
+      }
+    }
+
+    &.divider-dark {
+      .divider-text {
+        &::before,
+        &::after {
+          border-color: $theme-dark-border-color !important;
+        }
+      }
+    }
+  }
+
+  // Timeline
+  .timeline {
+    .timeline-item {
+      border-color: $theme-dark-border-color;
+
+      .timeline-point:not(.timeline-point-indicator) {
+        background-color: $theme-dark-card-bg;
+      }
+      .timeline-event {
+        .timeline-event-time {
+          color: $theme-dark-text-muted-color;
+        }
+      }
+      &:last-of-type:after {
+        background: linear-gradient($theme-dark-border-color, transparent);
+      }
+    }
+  }
+
+  // card
+  .card {
+    background-color: $theme-dark-card-bg;
+    box-shadow: $theme-dark-box-shadow;
+    .card-footer {
+      border-color: $theme-dark-border-color;
+    }
+
+    &.overlay-img-card {
+      .card-img-overlay {
+        span,
+        p,
+        .card-body {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  //--------------- Advance Cards ---------------
+  //---------------------------------------------
+
+  // Developer Meetup Card
+  .card-developer-meetup {
+    .meetup-header .meetup-day {
+      border-right-color: $theme-dark-input-border-color;
+    }
+  }
+
+  // Profile Card
+  .card-profile {
+    .profile-image-wrapper .profile-image {
+      background-color: $theme-dark-body-bg;
+    }
+  }
+
+  // Business Card
+  .business-card {
+    .business-items .business-item {
+      border-color: $theme-dark-border-color;
+    }
+  }
+
+  // App Design Card
+  .card-app-design {
+    .design-planning-wrapper .design-planning {
+      background-color: $theme-dark-body-bg;
+    }
+  }
+
+  //--------------- Statistics Card ---------------
+  //------------------------------------------------
+
+  .card-tiny-line-stats {
+    .apexcharts-series-markers {
+      .apexcharts-marker {
+        stroke: $info;
+      }
+
+      &:last-child {
+        .apexcharts-marker {
+          fill: $theme-dark-card-bg;
+        }
+      }
+    }
+  }
+
+  //-------------- Analytics Cards --------------
+  //---------------------------------------------
+
+  // Revenue Report Card
+  .card-revenue-budget {
+    .revenue-report-wrapper {
+      border-right-color: $theme-dark-border-color;
+    }
+    .budget-wrapper {
+      .apexcharts-series:not(:first-child) {
+        path {
+          stroke: $theme-dark-body-color;
+        }
+      }
+    }
+  }
+
+  // Earnings Card
+  .earnings-card {
+    .apexcharts-canvas .apexcharts-pie {
+      .apexcharts-datalabel-label {
+        fill: $theme-dark-body-color !important;
+      }
+
+      .apexcharts-datalabel-value {
+        fill: $theme-dark-headings-color;
+      }
+    }
+  }
+
+  // Company Table Card
+  .card-company-table {
+    .avatar {
+      background-color: $theme-dark-body-bg;
+    }
+  }
+
+  /********** FORMS **********/
+
+  // Autofill style
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px $theme-dark-card-bg inset !important;
+    -webkit-text-fill-color: $theme-dark-body-color !important;
+  }
+
+  // input
+  input.form-control,
+  textarea.form-control {
+    background-color: $theme-dark-input-bg;
+    color: $theme-dark-body-color;
+
+    &:not(.is-valid):not(.is-invalid):not(:focus) {
+      border-color: $theme-dark-input-border-color;
+    }
+
+    &::placeholder {
+      color: $theme-dark-input-placeholder-color;
+    }
+
+    &:disabled,
+    &[readonly='readonly'] {
+      opacity: 0.5;
+    }
+  }
+
+  // custom file input label background
+  .custom-file-input {
+    ~ .custom-file-label {
+      background-color: $theme-dark-input-bg;
+      color: $theme-dark-body-color;
+    }
+
+    &:disabled {
+      ~ .custom-file-label {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  // text area counter
+  .char-textarea {
+    &.active {
+      color: $theme-dark-body-color !important;
+    }
+
+    &.max-limit {
+      color: $danger !important;
+    }
+  }
+
+  // file uploader default
+  .custom-file-label {
+    &:after {
+      background-color: $theme-dark-body-bg;
+      color: $theme-dark-body-color;
+    }
+  }
+
+  // custom input file border color
+  .custom-file-label {
+    border-color: $theme-dark-border-color;
+  }
+
+  // custom control like checkbox, radio and switch
+  .custom-control-input {
+    &:not(:checked) {
+      ~ .custom-control-label:before {
+        background-color: $theme-dark-card-bg;
+      }
+    }
+    &:not(:checked):not(:indeterminate):not(:invalid):not(.is-invalid):not(:valid):not(.is-valid) {
+      ~ .custom-control-label:before {
+        border-color: $theme-dark-input-border-color;
+      }
+    }
+    &:disabled {
+      ~ .custom-control-label:before {
+        background-color: $theme-dark-input-disabled-border-color;
+        border-color: $theme-dark-input-disabled-border-color;
+      }
+    }
+  }
+
+  .custom-switch {
+    .custom-control-input:not(:checked) {
+      ~ .custom-control-label:before {
+        background-color: $theme-dark-switch-bg;
+      }
+    }
+    .custom-control-input:disabled {
+      ~ .custom-control-label:before {
+        background-color: $theme-dark-switch-bg-disabled;
+      }
+    }
+  }
+
+  // select
+  select.form-control,
+  .custom-select {
+    background-color: $theme-dark-input-bg;
+    color: $theme-dark-body-color;
+    border-color: $theme-dark-border-color;
+
+    option:checked {
+      background-color: $theme-dark-card-bg;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+    &:focus {
+      border-color: $primary;
+    }
+  }
+
+  select.form-control {
+    &:not([multiple='multiple']) {
+      background-image: url(str-replace(
+        str-replace($chevron-down, 'currentColor', $theme-dark-body-color),
+        '#',
+        '%23'
+      ));
+    }
+  }
+
+  // Added for override
+  .was-validated {
+    .form-control:invalid,
+    .form-control.is-invalid {
+      border-color: $danger !important;
+    }
+    .form-control:valid,
+    .form-control.is-valid {
+      border-color: $success !important;
+    }
+  }
+
+  // form wizard
+  .wizard {
+    .steps {
+      ul {
+        .disabled,
+        .done {
+          a {
+            color: $theme-dark-body-color !important;
+
+            &:hover {
+              color: $theme-dark-body-color;
+            }
+
+            .step {
+              background-color: $theme-dark-body-bg !important;
+              color: $white !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // input groups
+  .input-group {
+    .input-group-text {
+      background-color: $theme-dark-input-bg;
+      border-color: $theme-dark-border-color;
+      color: $theme-dark-body-color;
+    }
+
+    &:focus-within {
+      .form-control,
+      .input-group-text {
+        border-color: $primary;
+        box-shadow: none;
+      }
+    }
+  }
+
+  // floating label
+  .form-label-group {
+    & > input:not(:focus):not(:placeholder-shown) ~ label,
+    & > textarea:not(:focus):not(:placeholder-shown) ~ label {
+      color: $theme-dark-body-color !important;
+    }
+  }
+
+  .counter-value {
+    color: white;
+  }
+
+  /********** TABLE **********/
+
+  // table
+  .table {
+    // background-color: $theme-dark-table-bg;
+
+    td,
+    th {
+      color: $theme-dark-body-color;
+      border-color: $theme-dark-border-color !important;
+    }
+
+    .thead,
+    tbody {
+      tr:not([class*='table-']) {
+        th,
+        td {
+          border-color: $theme-dark-border-color;
+          color: $theme-dark-body-color;
+
+          code {
+            background-color: $theme-dark-table-row-bg;
+          }
+        }
+      }
+    }
+
+    thead,
+    tfoot {
+      tr {
+        th {
+          border-color: $theme-dark-border-color;
+          background-color: $theme-dark-table-header-bg;
+          color: $theme-dark-headings-color;
+        }
+      }
+      &.thead-dark th {
+        background-color: $white;
+        color: $dark !important;
+      }
+    }
+
+    // if table not light/dark and thead not have dark class
+    &:not(.table-dark):not(.table-light) thead:not(.thead-dark) th,
+    &:not(.table-dark):not(.table-light) tfoot:not(.thead-dark) th {
+      background-color: $theme-dark-table-header-bg;
+    }
+
+    // table-dark style
+    &.table-dark {
+      background-color: $white;
+      &.table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba($dark, 0.05);
+        td {
+          background-color: inherit;
+        }
+      }
+      td,
+      th {
+        border-color: #f8f9fa !important;
+        color: $dark !important;
+        background-color: $white;
+        .text-white {
+          color: $dark !important;
+        }
+      }
+    }
+    tbody {
+      tr {
+        // for contextual classes
+        &[class*='table-'] {
+          td,
+          th {
+            background-color: unset;
+          }
+        }
+
+        &.table-dark {
+          td,
+          th {
+            color: $white;
+          }
+        }
+
+        &.table-active {
+          td,
+          th {
+            color: $theme-dark-body-color;
+          }
+        }
+      }
+    }
+
+    // bordered table
+    &.table-bordered {
+      border-color: $theme-dark-border-color;
+    }
+
+    // table hover row color
+    &.table-hover {
+      tbody {
+        tr {
+          &:hover {
+            background-color: $theme-dark-table-hover-bg;
+          }
+
+          th,
+          td {
+            background-color: unset;
+          }
+        }
+      }
+    }
+
+    // table striped
+    &.table-striped {
+      tbody {
+        tr {
+          &:nth-of-type(odd) {
+            background-color: $theme-dark-table-striped-bg;
+          }
+        }
+      }
+    }
+  }
+
+  // datatable
+  .dataTables_wrapper {
+    .dt-buttons {
+      .buttons-copy,
+      .buttons-excel,
+      .buttons-pdf,
+      .buttons-print,
+      .btn-secondary,
+      .dt-button-collection [class*='buttons-'] {
+        background-color: $theme-dark-body-bg !important;
+        &:active {
+          background-color: $primary !important;
+          color: $white;
+        }
+      }
+    }
+    .dt-button-collection {
+      > div[role='menu'] {
+        box-shadow: $theme-dark-box-shadow;
+      }
+    }
+
+    .table.dataTable {
+      tr {
+        &.group {
+          td {
+            background-color: $theme-dark-table-striped-bg;
+            color: $theme-dark-headings-color;
+          }
+        }
+      }
+
+      // Sorting Icons Change
+      thead {
+        .sorting,
+        .sorting_asc,
+        .sorting_desc {
+          &:before {
+            background-image: url(str-replace(
+              str-replace($chevron-up, 'currentColor', $theme-dark-body-color),
+              '#',
+              '%23'
+            ));
+          }
+          &:after {
+            background-image: url(str-replace(
+              str-replace($chevron-down, 'currentColor', $theme-dark-body-color),
+              '#',
+              '%23'
+            ));
+          }
+        }
+        .sorting {
+          &:before,
+          &:after {
+            opacity: 0.5;
+          }
+        }
+        .sorting_asc {
+          &:before {
+            opacity: 1;
+          }
+          &:after {
+            opacity: 0.5;
+          }
+        }
+        .sorting_desc {
+          &:after {
+            opacity: 1;
+          }
+          &:before {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  // agGrid Page Btn
+  .ag-grid-btns {
+    .filter-btn {
+      background-color: transparent !important;
+    }
+  }
+
+  // agGrid Main
+  .aggrid {
+    .ag-input-wrapper input {
+      color: $theme-dark-body-color;
+    }
+  }
+  .aggrid,
+  .ag-header {
+    background-color: $theme-dark-card-bg;
+    color: $theme-dark-body-color;
+    border-color: $theme-dark-border-color;
+
+    .ag-row-hover,
+    .ag-row-selected {
+      background-color: $theme-dark-table-hover-bg !important;
+    }
+
+    .ag-icon {
+      color: $theme-dark-input-border-color;
+    }
+    .ag-header-cell.ag-column-hover {
+      background: transparent !important;
+    }
+
+    .ag-header-cell,
+    .ag-cell,
+    .ag-row,
+    .ag-pinned-left-header,
+    .ag-pinned-left-cols-container,
+    .ag-horizontal-left-spacer,
+    .ag-paging-panel,
+    .ag-floating-filter-input {
+      border-color: $theme-dark-border-color !important;
+      color: $theme-dark-body-color;
+    }
+    .ag-cell.ag-cell-inline-editing {
+      border-color: $theme-dark-border-color;
+      background: $theme-dark-body-bg;
+      height: auto;
+      padding-top: 0;
+    }
+
+    .ag-paging-panel {
+      .ag-paging-button {
+        background-color: $theme-dark-body-bg;
+      }
+      .ag-disabled {
+        background: $theme-dark-card-bg;
+      }
+
+      span[ref='lbTotal'] {
+        background-color: $theme-dark-pagination-bg;
+        color: $theme-dark-body-color !important;
+      }
+    }
+
+    ::-webkit-scrollbar-track {
+      background: $theme-dark-body-bg;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: $primary;
+    }
+  }
+
+  /********** PAGES **********/
+
+  // coming soon
+  .getting-started {
+    .clockCard {
+      p {
+        color: $theme-dark-body-color !important;
+      }
+    }
+  }
+
+  // profile page
+  #user-profile {
+    .profile-header {
+      .navbar {
+        background-color: $theme-dark-card-bg;
+        .navbar-toggler {
+          color: $theme-dark-body-color;
+          border-color: $theme-dark-border-color;
+        }
+      }
+    }
+  }
+
+  // Search page
+  .search-bar {
+    .form-control {
+      background-color: $theme-dark-card-bg;
+    }
+  }
+
+  // Blog Edit Page
+  .blog-edit-wrapper {
+    .border {
+      border-color: $theme-dark-border-color !important;
+    }
+  }
+  // Knowledge Base
+  .kb-search-content-info {
+    .kb-search-content {
+      .card-img-top {
+        background-color: #3f4860;
+      }
+    }
+  }
+
+  // list group circle for kb
+  .list-group-circle {
+    .list-group-item:not([class*='list-group-item-']),
+    .list-group-item-action {
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  /********** APPLICATIONS **********/
+
+  // App common sidebar and content dark style
+  .content-area-wrapper {
+    border-color: $theme-dark-border-color !important;
+
+    .sidebar {
+      .sidebar-content {
+        background-color: $theme-dark-card-bg !important;
+      }
+    }
+    .app-fixed-search {
+      background-color: $theme-dark-card-bg !important;
+      border-color: $theme-dark-border-color !important;
+    }
+    .content-right {
+      border-color: $theme-dark-border-color !important;
+    }
+  }
+
+  // email application
+  .email-application {
+    .content-area-wrapper {
+      // Email list
+      .email-app-list {
+        .app-action {
+          border-color: $theme-dark-border-color;
+          background-color: $theme-dark-card-bg;
+          .action-right {
+            .list-inline-item {
+              .dropdown-toggle {
+                color: $theme-dark-body-color;
+              }
+            }
+          }
+        }
+
+        .email-user-list {
+          .media {
+            border-color: $theme-dark-border-color;
+            background-color: $theme-dark-card-bg;
+
+            &:hover {
+              box-shadow: 0 3px 10px 0 $theme-dark-card-bg;
+            }
+
+            &.selected-row-bg {
+              background-color: rgba($primary, 0.06);
+              border-color: $theme-dark-border-color;
+            }
+          }
+
+          .media {
+            .user-details,
+            .mail-message {
+              p,
+              .mail-date {
+                color: $theme-dark-text-muted-color;
+              }
+            }
+          }
+
+          .mail-read {
+            background-color: $theme-dark-table-hover-bg;
+          }
+        }
+      }
+
+      // app email details
+      .email-app-details {
+        border-color: $theme-dark-border-color;
+        .email-scroll-area {
+          background-color: $theme-dark-body-bg;
+        }
+
+        .email-detail-header {
+          background-color: $theme-dark-card-bg;
+          border-color: $theme-dark-border-color;
+
+          .email-header-right {
+            .list-inline-item {
+              .dropdown-toggle,
+              .action-icon {
+                color: $theme-dark-body-color;
+              }
+            }
+          }
+        }
+        .email-info-dropup {
+          .dropdown-toggle::after {
+            background-image: url(str-replace(
+              str-replace($chevron-down, 'currentColor', $theme-dark-text-muted-color),
+              '#',
+              '%23'
+            ));
+          }
+        }
+
+        .mail-message-wrapper,
+        .email-detail-head {
+          border-color: $theme-dark-border-color !important;
+        }
+      }
+
+      // Compose mail
+      #compose-mail {
+        .compose-mail-form-field,
+        .ql-toolbar,
+        .ql-container {
+          border-color: $theme-dark-border-color;
+        }
+        label {
+          color: $theme-dark-body-color;
+        }
+        .modal-body {
+          border-bottom-left-radius: $modal-content-border-radius;
+          border-bottom-right-radius: $modal-content-border-radius;
+        }
+      }
+    }
+  }
+
+  // chat application
+  .chat-application {
+    .content-area-wrapper {
+      border-color: $theme-dark-border-color;
+    }
+    // left sidebar
+    .sidebar {
+      .chat-profile-sidebar {
+        background-color: $theme-dark-card-bg;
+        border-color: $theme-dark-border-color;
+      }
+
+      .sidebar-content {
+        border-color: $theme-dark-border-color;
+
+        .chat-fixed-search {
+          border-color: $theme-dark-border-color;
+        }
+
+        .chat-user-list-wrapper {
+          .chat-users-list {
+            li {
+              &:not(.active):hover {
+                background: $theme-dark-body-bg;
+              }
+              .chat-info .card-text,
+              .chat-time {
+                color: $theme-dark-text-muted-color;
+              }
+              &.active {
+                .chat-info .card-text,
+                .chat-time {
+                  color: $white;
+                }
+              }
+              img {
+                border-color: $theme-dark-border-color;
+              }
+            }
+          }
+        }
+      }
+    }
+    .avatar-border {
+      img {
+        border-color: $theme-dark-border-color;
+      }
+    }
+
+    // Right side content area
+    .content-right {
+      .chat-app-window {
+        .start-chat-area {
+          background-color: $theme-dark-card-bg;
+
+          .start-chat-icon,
+          .start-chat-text {
+            background: $theme-dark-card-bg;
+            color: $theme-dark-body-color;
+          }
+        }
+        .start-chat-area,
+        .user-chats {
+          background-image: url($chat-bg-dark);
+          background-color: #1e232f;
+        }
+        .user-chats {
+          .divider .divider-text {
+            background: $theme-dark-card-bg;
+            &:before,
+            &:after {
+              border-color: $theme-dark-border-color;
+            }
+          }
+          .avatar img {
+            border-color: $theme-dark-border-color;
+          }
+        }
+        // Active conversation style
+        .active-chat {
+          .chat-left {
+            .chat-content {
+              background-color: $theme-dark-card-bg;
+              p {
+                color: $theme-dark-body-color;
+              }
+            }
+          }
+
+          .chat-content {
+            p {
+              color: $white;
+            }
+          }
+          // Chat form
+          .chat-header .dropdown-toggle {
+            color: $theme-dark-body-color;
+          }
+          .chat-header,
+          .chat-app-form {
+            background-color: $theme-dark-card-bg;
+            border-color: $theme-dark-border-color;
+          }
+        }
+      }
+
+      .user-profile-sidebar {
+        background-color: $theme-dark-card-bg;
+        border-color: $theme-dark-border-color;
+      }
+    }
+  }
+
+  // Chat widget dark style
+  .chat-widget {
+    .user-chats {
+      background-color: $theme-dark-widget-bg !important;
+    }
+    .card-header,
+    .chat-app-form {
+      background-color: $theme-dark-card-bg;
+    }
+    .chat-app-window .user-chats .chat-left .chat-content {
+      background-color: $theme-dark-card-bg !important;
+      color: $theme-dark-body-color !important;
+    }
+    .chat-app-window .user-chats .avatar img {
+      border-color: $theme-dark-body-bg;
+    }
+  }
+
+  // Kanban application
+  .kanban-application {
+    .kanban-wrapper {
+      .kanban-container {
+        .kanban-board {
+          .kanban-board-header {
+            .kanban-title-board {
+              color: $white;
+
+              &:hover,
+              &:focus {
+                background-color: $theme-dark-card-bg;
+              }
+            }
+          }
+          .kanban-item {
+            background-color: $theme-dark-card-bg;
+            .item-dropdown i.dropdown-toggle,
+            .item-dropdown svg.dropdown-toggle {
+              stroke: $white;
+            }
+            .kanban-title-button {
+              color: $theme-dark-body-color;
+            }
+            i,
+            svg {
+              stroke: $theme-dark-body-color;
+            }
+          }
+        }
+      }
+    }
+    .update-item-sidebar {
+      .nav-tabs .nav-item .nav-link,
+      .tab-content .tab-pane {
+        background-color: transparent;
+      }
+    }
+  }
+  .kanban-item.gu-mirror {
+    background-color: $theme-dark-card-bg;
+  }
+
+  // Todo application
+  .todo-application {
+    .content-area-wrapper {
+      .sidebar {
+        .todo-form {
+          .todo-item-action {
+            color: $theme-dark-body-color;
+          }
+        }
+      }
+      .content-right {
+        .todo-task-list-wrapper {
+          background-color: $theme-dark-card-bg !important;
+          border-color: $theme-dark-border-color;
+        }
+        .todo-task-list {
+          .todo-item {
+            &:not(:first-child) {
+              border-color: $theme-dark-border-color;
+            }
+            &.completed {
+              .todo-title {
+                color: $theme-dark-text-muted-color;
+              }
+            }
+            &:hover {
+              box-shadow: $theme-dark-box-shadow;
+            }
+
+            .todo-item-action {
+              .todo-item-favorite:not(.text-warning) {
+                i,
+                svg {
+                  color: $theme-dark-body-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .todo-item-action {
+      .close {
+        background-color: transparent !important;
+      }
+    }
+  }
+  .todo-item.gu-mirror {
+    background-color: $theme-dark-card-bg;
+    border-color: $theme-dark-border-color;
+    box-shadow: $theme-dark-box-shadow;
+    &.completed {
+      .todo-title {
+        color: $theme-dark-text-muted-color;
+      }
+    }
+  }
+
+  // E-commerce application
+  .ecommerce-application {
+    .ecommerce-card {
+      .btn-light {
+        background-color: $theme-dark-body-bg !important;
+        color: $white;
+        border-color: transparent;
+      }
+    }
+
+    // main content
+    .content-right,
+    .content-body {
+      // header items
+      .ecommerce-header-items {
+        .result-toggler {
+          .search-results {
+            color: $theme-dark-headings-color;
+          }
+
+          .shop-sidebar-toggler {
+            i,
+            svg {
+              color: $theme-dark-headings-color;
+            }
+          }
+        }
+      }
+
+      // list and grid view
+      .grid-view,
+      .list-view {
+        .ecommerce-card {
+          .card-body {
+            border-color: $theme-dark-border-color;
+          }
+          .item-options {
+            .wishlist {
+              span {
+                color: $headings-color;
+              }
+            }
+
+            .cart {
+              span {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+    .grid-view {
+      .item-name a,
+      .item-price {
+        color: $theme-dark-body-color;
+      }
+    }
+
+    // wishlist-items
+    .wishlist-items {
+      .ecommerce-card {
+        .move-cart {
+          .move-to-cart {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    // checkout
+    .product-checkout {
+      .checkout-options {
+        .coupons {
+          input {
+            color: $theme-dark-body-color;
+            &::placeholder {
+              color: $theme-dark-body-color;
+            }
+          }
+        }
+      }
+    }
+    // Ecommerce details
+    .app-ecommerce-details {
+      .item-features,
+      .swiper-responsive-breakpoints.swiper-container .swiper-slide {
+        background-color: $theme-dark-body-bg;
+      }
+    }
+  }
+
+  // file manager app
+  .file-manager-application {
+    .sidebar-file-manager {
+      background-color: $theme-dark-card-bg !important;
+      .jstree {
+        .jstree-container-ul {
+          .jstree-anchor {
+            color: $theme-dark-body-color;
+          }
+        }
+      }
+      .storage-status {
+        i,
+        svg {
+          color: $theme-dark-body-color !important;
+        }
+      }
+
+      .file-manager-title {
+        color: $theme-dark-label-color;
+      }
+
+      &.show {
+        border: 1px solid $theme-dark-border-color !important;
+      }
+    }
+
+    .content-area-wrapper {
+      border: 1px solid $theme-dark-border-color !important;
+    }
+
+    // File Manager App
+    .file-manager-main-content {
+      border: 1px solid $theme-dark-border-color !important;
+
+      .file-manager-app-searchbar {
+        background-color: transparent !important;
+        border-bottom: 1px solid $theme-dark-border-color !important;
+
+        .file-manager-toggler {
+          color: $theme-dark-body-color !important;
+        }
+      }
+
+      .file-manager-content-header,
+      .file-manager-content-body {
+        background-color: $theme-dark-card-bg !important;
+      }
+
+      .file-manager-content-header {
+        border-color: $theme-dark-border-color !important;
+      }
+
+      .file-manager-content-body {
+        .drives {
+          .card {
+            background-color: $theme-dark-table-bg;
+          }
+        }
+
+        .view-container {
+          .file-manager-item {
+            .file-logo-wrapper {
+              background-color: $theme-dark-body-bg !important;
+            }
+            &:not(.selected) {
+              border-color: $theme-dark-border-color !important;
+            }
+          }
+          &:not(.list-view) {
+            .file-manager-item {
+              .file-size,
+              .file-accessed {
+                color: $theme-dark-text-muted-color !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #app-file-manager-info-sidebar {
+      .nav-tabs .nav-link,
+      .tab-content .tab-pane {
+        background-color: transparent;
+      }
+
+      .nav-tabs {
+        .nav-item:not(.active) {
+          .nav-link {
+            color: $theme-dark-body-color;
+          }
+        }
+      }
+    }
+  }
+
+  // calendar
+  .app-calendar {
+    .app-calendar-sidebar {
+      background-color: $theme-dark-card-bg;
+      border-color: $theme-dark-border-color;
+
+      .sidebar-content-title {
+        color: $theme-dark-label-color;
+      }
+      .select-all,
+      .input-filter {
+        ~ label {
+          color: $theme-dark-label-color;
+        }
+      }
+    }
+    .fc {
+      .fc-day-today {
+        background: $theme-dark-body-bg !important;
+        background-color: $theme-dark-body-bg !important;
+      }
+
+      .fc-timegrid {
+        .fc-scrollgrid-section {
+          .fc-col-header-cell,
+          .fc-timegrid-axis,
+          .fc-daygrid-day {
+            background-color: $theme-dark-card-bg;
+            border-color: $theme-dark-border-color;
+          }
+          .fc-day-today {
+            background-color: rgba($color: $gray-100, $alpha: 0.12) !important;
+
+            &.fc-col-header-cell {
+              background-color: $theme-dark-card-bg !important;
+            }
+          }
+        }
+      }
+      .fc-popover {
+        background: $theme-dark-card-bg;
+        border-color: $theme-dark-border-color;
+      }
+      .fc-popover-header {
+        .fc-popover-title,
+        .fc-popover-close {
+          color: $theme-dark-body-color;
+        }
+      }
+      tbody td,
+      thead th {
+        border-color: $theme-dark-border-color;
+      }
+
+      .fc-scrollgrid {
+        border-color: $theme-dark-border-color;
+      }
+
+      .fc-list,
+      th {
+        border-color: $theme-dark-border-color;
+        .fc-list-day-cushion {
+          background: $theme-dark-body-bg;
+        }
+        .fc-list-event:hover td {
+          background-color: $theme-dark-body-bg;
+        }
+        .fc-list-event-time {
+          color: $theme-dark-body-color;
+        }
+        .fc-list-event {
+          td {
+            border-color: $theme-dark-border-color;
+          }
+        }
+      }
+    }
+
+    .fc-timegrid-event-harness-inset .fc-timegrid-event,
+    .fc-timegrid-event.fc-event-mirror,
+    .fc-timegrid-more-link {
+      box-shadow: 0 0 0 1px $theme-dark-border-color;
+    }
+  }
+
+  // Invoice Application
+  .invoice-list-wrapper {
+    .dataTables_wrapper {
+      .invoice-list-dataTable-header {
+        background-color: $theme-dark-card-bg;
+        border-color: $theme-dark-border-color;
+      }
+      .invoice-data-table {
+        background-color: $theme-dark-card-bg;
+        tbody .selected-row-bg {
+          background-color: $theme-dark-border-color;
+        }
+        td {
+          background-color: inherit;
+        }
+      }
+    }
+  }
+  .invoice-edit,
+  .invoice-add {
+    .invoice-preview-card {
+      .invoice-product-details {
+        background-color: $theme-dark-body-bg;
+        .product-details-border {
+          background-color: $theme-dark-card-bg;
+          border-color: $theme-dark-border-color;
+        }
+      }
+    }
+  }
+  .invoice-print {
+    .form-control {
+      background-color: $theme-dark-card-bg;
+    }
+  }
+
+  // Users Application
+  .app-user-view {
+    .plan-card {
+      border-color: $primary !important;
+    }
+  }
+  .app-user-edit {
+    .form-control.error {
+      border-color: $danger !important;
+    }
+  }
+
+  /********** CUSTOMIZER **********/
+
+  .customizer {
+    background-color: $theme-dark-card-bg;
+
+    .customizer-close {
+      i,
+      svg {
+        color: $theme-dark-body-color;
+      }
+    }
+  }
+
+  .footer-fixed {
+    .footer {
+      background-color: $theme-dark-card-bg;
+    }
+  }
+
+  /********** HORIZONTAL LAYOUT **********/
+  .horizontal-layout {
+    &.navbar-sticky .horizontal-menu-wrapper .navbar-horizontal.header-navbar.fixed-top {
+      box-shadow: 0 4px 24px 0 rgba($black, 0.75) !important;
+    }
+    .horizontal-menu-wrapper {
+      background: linear-gradient(
+        to bottom,
+        rgba(37, 43, 71, 0.76) 44%,
+        rgba(56, 53, 53, 0.46) 73%,
+        rgba($white, 0) 100%
+      ) !important;
+      .header-navbar {
+        background: $theme-dark-card-bg !important;
+        &.navbar-shadow {
+          box-shadow: 0 4px 24px 0 rgba($black, 0.75);
+        }
+        &.navbar-horizontal {
+          ul#main-menu-navigation > li:hover:not(.active) > a {
+            background: $theme-dark-body-bg;
+          }
+
+          .active {
+            .nav-link {
+              &.dropdown-toggle::after {
+                background-image: url(str-replace(str-replace($chevron-down, 'currentColor', $white), '#', '%23'));
+              }
+            }
+          }
+          &.navbar-dark {
+            background: $theme-dark-card-bg !important;
+          }
+
+          .nav-link {
+            &.dropdown-toggle::after {
+              background-image: url(str-replace(
+                str-replace($chevron-down, 'currentColor', $theme-dark-body-color),
+                '#',
+                '%23'
+              ));
+            }
+          }
+        }
+      }
+    }
+    .main-menu-content {
+      .navbar-nav {
+        .dropdown-submenu {
+          &.show {
+            background-color: $theme-dark-card-bg !important;
+            color: $theme-dark-body-color;
+          }
+        }
+        .dropdown-menu {
+          a {
+            &:hover {
+              color: $theme-dark-headings-color !important;
+            }
+          }
+          .disabled a {
+            color: $theme-dark-text-muted-color;
+          }
+          .dropdown-item {
+            color: $theme-dark-headings-color;
+          }
+          .dropdown-toggle {
+            &::after {
+              background-image: url(str-replace(
+                str-replace($chevron-right, 'currentColor', $theme-dark-body-color),
+                '#',
+                '%23'
+              ));
+            }
+            &:hover,
+            &:active {
+              &::after {
+                background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $white), '#', '%23'));
+              }
+            }
+          }
+        }
+
+        > li.active {
+          > a {
+            > i,
+            > svg {
+              color: $white !important;
+            }
+          }
+
+          .dropdown-menu {
+            li.active > a {
+              background: $theme-dark-body-bg !important;
+              color: $theme-dark-body-color;
+              &:hover {
+                color: $primary !important;
+              }
+            }
+          }
+
+          .dropdown-menu {
+            li.open.active {
+              > a {
+                color: $theme-dark-body-color !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

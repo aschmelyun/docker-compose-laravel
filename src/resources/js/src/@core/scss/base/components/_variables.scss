@@ -1,0 +1,137 @@
+//  ================================================================================================
+//  File Name: variables.scss
+//  Description: Custom component variable
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+//  ================================================================================================
+
+//  ================================================================================================
+//  WARNING: PLEASE DO NOT CHANGE THIS VARIABLE FILE.
+//  THIS FILE WILL GET OVERWRITTEN WITH EACH VUEXY HTML TEMPLATE RELEASE.
+//  TIP:
+//  We suggest you to use this (assets/scss/variables/_variables-components.scss) file for overriding components variables.
+//  ================================================================================================
+
+$base-font-size: 14px !default;
+$body-direction: ltr !default; // Default ltr, change it to rtl for Right To Left support.
+$content-padding: 2rem !default;
+
+//  ------------------------------
+//    Colors
+//  ------------------------------
+$nav-component-border-color: #ddd !default;
+
+$swiper-bg: #f2f4f4 !default;
+
+//  ------------------------------
+//    Navbar
+//  ------------------------------
+$navbar-height: 4.45rem !default;
+$horizontal-menu-height: 4.45rem !default;
+$footer-height: 3.35rem !default;
+
+//  ------------------------------
+//    Main Menu
+//  ------------------------------
+
+//main menu dark
+$menu-dark-color: #dcdcdc !default;
+$menu-dark-bg-color: #10163a !default;
+
+$menu-padding: 10px 15px 10px 15px !default;
+$menu-second-level-padding: 10px 15px 10px 20px !default;
+$menu-third-level-padding: 10px 15px 10px 53px !default;
+$menu-forth-level-padding: 10px 15px 10px 53px !default;
+
+// vertical menu
+$menu-expanded-width: 260px !default;
+$menu-collapsed-width: 80px !default;
+
+//  ------------------------------
+//    Sidebar
+//  -------------------------------
+$sidebar-width: 260px !default;
+$chat-sidebar-width: 360px !default;
+
+//  -------------------------------
+//    Avatar
+//  -------------------------------
+
+$avatar-size: 32px !default;
+$avatar-status-size: 11px !default;
+$avatar-status-size-lg: 17px !default;
+
+$avatar-size-xl: 70px !default;
+$avatar-size-lg: 50px !default;
+$avatar-size-sm: 24px !default;
+
+$avatar-bg: #c3c3c3;
+$avatar-group-border: $white;
+
+//  -------------------------------
+//  Progress
+//  -------------------------------
+$progress-size-xl: 1.14rem !default;
+$progress-size-lg: 0.857rem !default;
+$progress-size-md: 0.57rem !default;
+$progress-size-sm: 0.143rem !default;
+
+//  -------------------------------
+//  Form
+//  -------------------------------
+
+// $input-height, $input-height-lg, $input-height-sm are in variables
+$font-size-xs: 0.75rem !default;
+$font-size-xl: ($font-size-base + 0.5) !default;
+$line-height-xl: 1.7 !default;
+$line-height-xs: 1.5 !default;
+$input-padding-y-xl: 0.5rem !default;
+$input-padding-x-xl: 0.5rem !default;
+
+$input-padding-y-xs: 0.2rem !default;
+$input-padding-x-xs: 0.275rem !default;
+
+$border-radius-xl: 0.35rem !default;
+$border-radius-xs: 0.12rem !default;
+$input-border-radius-xl: $border-radius-xl !default;
+$input-border-radius-xs: $border-radius-xs !default;
+
+$input-height-xl: (($font-size-xl * $line-height-xl) + ($input-padding-y-xl * 2)) !default;
+$input-height-xs: (($font-size-xs * $line-height-xs) + ($input-padding-y-xs * 2)) !default;
+$input-height-sm: (($font-size-sm * $line-height-sm) + ($input-padding-y-sm * 2)) !default;
+
+//  -------------------------------
+//  Blank Page Bg Color
+//  -------------------------------
+
+$blank-bg-color: #eff2f7 !default;
+
+//  -------------------------------
+//  Data Tables Bg Color
+//  -------------------------------
+
+$datatable-bg-color: #f8f8f8 !default;
+
+//  -------------------------------
+//  Switch
+//  -------------------------------
+$switch-bg-color: #e2e2e2 !default;
+$switch-indicator-color: $white !default;
+
+//  -------------------------------
+//  Timeline
+//  -------------------------------
+$timeline-border-color: $border-color !default;
+
+$timeline-point-size: 1.75rem !default;
+$timeline-point-indicator-size: 12px !default;
+$timeline-point-indicator-color: $primary !default;
+$timeline-point-indicator-wrapper-size: 20px !default;
+
+$timeline-item-min-height: 4rem !default;
+$timeline-item-icon-font-size: 0.85rem !default;
+
+$timeline-event-time-size: 0.85rem !default;
+$timeline-event-time-color: $text-muted !default;

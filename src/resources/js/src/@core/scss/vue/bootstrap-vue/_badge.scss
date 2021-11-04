@@ -1,0 +1,16 @@
+// Color palettes
+@import '~@core/scss/base/core/colors/palette-variables.scss';
+
+@each $color_name, $color in $colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type== 'base' {
+      // pill badge
+      a.badge-#{$color_name} {
+        &:focus,
+        &.focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

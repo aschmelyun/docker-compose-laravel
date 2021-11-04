@@ -1,0 +1,126 @@
+// Overrides user _variables-components
+@import '../../bootstrap-extended/include';
+
+// Google Color Palette defined: http://www.google.com/design/spec/style/color.html
+
+$white-color: (
+  'base': #ffffff
+);
+$black-color: (
+  'base': #000000
+);
+$dark-color: (
+  'base': theme-color('dark'),
+  'darken-1': #343434,
+  'darken-2': #1e1e1e,
+  'darken-3': #626262
+);
+$light-color: (
+  'base': theme-color('light')
+);
+
+$primary-color: (
+  'lighten-5': lighten(theme-color('primary'), 25%),
+  'lighten-4': lighten(theme-color('primary'), 20%),
+  'lighten-3': lighten(theme-color('primary'), 15%),
+  'lighten-2': lighten(theme-color('primary'), 10%),
+  'lighten-1': lighten(theme-color('primary'), 5%),
+  'base': theme-color('primary'),
+  'darken-1': darken(theme-color('primary'), 5%),
+  'darken-2': darken(theme-color('primary'), 10%),
+  'darken-3': darken(theme-color('primary'), 15%),
+  'darken-4': darken(theme-color('primary'), 20%),
+  'accent-1': #bdfdff,
+  'accent-2': #8afbff,
+  'accent-3': #57faff,
+  'accent-4': #3df9ff
+);
+$secondary-color: (
+  'lighten-5': lighten(theme-color('secondary'), 25%),
+  'lighten-4': lighten(theme-color('secondary'), 20%),
+  'lighten-3': lighten(theme-color('secondary'), 15%),
+  'lighten-2': lighten(theme-color('secondary'), 10%),
+  'lighten-1': lighten(theme-color('secondary'), 5%),
+  'base': theme-color('secondary'),
+  'darken-1': darken(theme-color('secondary'), 5%),
+  'darken-2': darken(theme-color('secondary'), 10%),
+  'darken-3': darken(theme-color('secondary'), 15%),
+  'darken-4': darken(theme-color('secondary'), 20%)
+);
+$success-color: (
+  'lighten-5': lighten(theme-color('success'), 25%),
+  'lighten-4': lighten(theme-color('success'), 20%),
+  'lighten-3': lighten(theme-color('success'), 15%),
+  'lighten-2': lighten(theme-color('success'), 10%),
+  'lighten-1': lighten(theme-color('success'), 5%),
+  'base': theme-color('success'),
+  'darken-1': darken(theme-color('success'), 5%),
+  'darken-2': darken(theme-color('success'), 10%),
+  'darken-3': darken(theme-color('success'), 15%),
+  'darken-4': darken(theme-color('success'), 20%),
+  'accent-1': #e1fff1,
+  'accent-2': #aeffd9,
+  'accent-3': #7bffc1,
+  'accent-4': #62ffb5
+);
+$info-color: (
+  'lighten-5': lighten(theme-color('info'), 25%),
+  'lighten-4': lighten(theme-color('info'), 20%),
+  'lighten-3': lighten(theme-color('info'), 15%),
+  'lighten-2': lighten(theme-color('info'), 10%),
+  'lighten-1': lighten(theme-color('info'), 5%),
+  'base': theme-color('info'),
+  'darken-1': darken(theme-color('info'), 5%),
+  'darken-2': darken(theme-color('info'), 10%),
+  'darken-3': darken(theme-color('info'), 15%),
+  'darken-4': darken(theme-color('info'), 20%),
+  'accent-1': #feffff,
+  'accent-2': #cbf5ff,
+  'accent-3': #98ecff,
+  'accent-4': #7fe7ff
+);
+$warning-color: (
+  'lighten-5': lighten(theme-color('warning'), 25%),
+  'lighten-4': lighten(theme-color('warning'), 20%),
+  'lighten-3': lighten(theme-color('warning'), 15%),
+  'lighten-2': lighten(theme-color('warning'), 10%),
+  'lighten-1': lighten(theme-color('warning'), 5%),
+  'base': theme-color('warning'),
+  'darken-1': darken(theme-color('warning'), 5%),
+  'darken-2': darken(theme-color('warning'), 10%),
+  'darken-3': darken(theme-color('warning'), 15%),
+  'darken-4': darken(theme-color('warning'), 20%),
+  'accent-1': #fff5ef,
+  'accent-2': #ffe5d8,
+  'accent-3': #fff6f3,
+  'accent-4': #ffe3da
+);
+$danger-color: (
+  'lighten-5': lighten(theme-color('danger'), 25%),
+  'lighten-4': lighten(theme-color('danger'), 20%),
+  'lighten-3': lighten(theme-color('danger'), 15%),
+  'lighten-2': lighten(theme-color('danger'), 10%),
+  'lighten-1': lighten(theme-color('danger'), 5%),
+  'base': theme-color('danger'),
+  'darken-1': darken(theme-color('danger'), 5%),
+  'darken-2': darken(theme-color('danger'), 10%),
+  'darken-3': darken(theme-color('danger'), 15%),
+  'darken-4': darken(theme-color('danger'), 20%),
+  'accent-1': #ffeef1,
+  'accent-2': #ffd6db,
+  'accent-3': #ffecee,
+  'accent-4': #ffd3d7
+);
+
+$colors: (
+  'white': $white-color,
+  'black': $black-color,
+  'dark': $dark-color,
+  'light': $light-color,
+  'primary': $primary-color,
+  'secondary': $secondary-color,
+  'success': $success-color,
+  'info': $info-color,
+  'warning': $warning-color,
+  'danger': $danger-color
+);

@@ -1,0 +1,101 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+/********* CONTEXT MENU *********/
+
+.context-menu-list {
+  margin: 0;
+  padding: $dropdown-padding-y 0;
+  border-radius: $dropdown-border-radius;
+  border: $dropdown-border-width solid $dropdown-border-color;
+  box-shadow: $dropdown-box-shadow;
+  min-width: $dropdown-min-width;
+
+  .context-menu-item {
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    color: $dropdown-color;
+
+    &.context-menu-submenu:after {
+      border-color: transparent transparent transparent $dropdown-color;
+    }
+
+    &.context-menu-hover,
+    &:hover,
+    &:focus {
+      background-color: $dropdown-link-hover-bg !important;
+      color: $primary;
+
+      &.context-menu-submenu:after {
+        border-color: transparent transparent transparent $primary !important;
+      }
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+// Dark Layout
+.dark-layout {
+  .context-menu-list {
+    background-color: $theme-dark-body-bg;
+    border-color: $theme-dark-border-color;
+
+    .context-menu-item {
+      background-color: $theme-dark-body-bg;
+
+      span {
+        color: $theme-dark-body-color;
+      }
+
+      &.context-menu-hover {
+        > span {
+          color: $primary;
+        }
+      }
+
+      &.context-menu-submenu:after {
+        border-color: transparent transparent transparent $theme-dark-body-color;
+      }
+    }
+  }
+}
+
+// RTL
+[data-textdirection='rtl'] {
+  .context-menu-list {
+    z-index: 1031 !important;
+
+    .context-menu-item {
+      &.context-menu-submenu:after {
+        transform: rotate(180deg);
+        top: 1.2rem;
+        right: 1rem;
+        left: auto;
+        border-color: transparent $dropdown-color transparent transparent;
+      }
+
+      &.context-menu-hover {
+        &.context-menu-submenu:after {
+          border-color: transparent $primary transparent transparent !important;
+        }
+      }
+
+      > .context-menu-list {
+        left: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .dark-layout {
+    .context-menu-list {
+      .context-menu-item {
+        &.context-menu-submenu:after {
+          border-color: transparent $theme-dark-body-color transparent transparent;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+.swal2-container {
+  .swal2-popup {
+    border-radius: $card-border-radius;
+    padding-bottom: 1.5rem;
+
+    // close button
+    .swal2-close:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    // content
+    .swal2-content {
+      color: $body-color;
+    }
+
+    // header styling
+    .swal2-title {
+      font-size: $h3-font-size;
+      font-weight: $headings-font-family;
+      color: $headings-color;
+    }
+
+    // remove box-shadow on focus of buttons
+    button.swal2-confirm:focus {
+      box-shadow: none;
+    }
+
+    // input
+    input.swal2-input {
+      height: $input-height;
+      font-size: $font-size-base;
+      padding: $input-padding-y $input-padding-x;
+      color: $body-color;
+      border-color: $custom-control-border-color;
+      border-radius: $border-radius;
+      line-height: $line-height-base;
+      &:focus {
+        border-color: $primary !important;
+        box-shadow: $input-focus-box-shadow;
+      }
+    }
+
+    // steps
+    .swal2-progress-steps {
+      .swal2-progress-step {
+        background-color: $primary;
+        &.swal2-active-progress-step {
+          ~ .swal2-progress-step-line,
+          ~ .swal2-progress-step {
+            background-color: lighten(theme-color('primary'), 15%);
+          }
+        }
+      }
+      .swal2-progress-step-line {
+        background-color: $primary;
+      }
+    }
+
+    // pre code
+    pre {
+      min-height: 1.35rem;
+      margin-top: 0.5rem;
+    }
+
+    // footer
+    .swal2-footer {
+      border-color: $border-color;
+      color: $body-color;
+    }
+  }
+}
+
+// Dark Layout
+.dark-layout {
+  .swal2-container {
+    .swal2-popup .swal2-title {
+      color: $theme-dark-headings-color;
+    }
+    .swal2-modal {
+      background-color: $theme-dark-card-bg;
+      .swal2-header {
+        .swal2-title {
+          color: $theme-dark-headings-color;
+        }
+        .swal2-icon-text {
+          color: inherit;
+        }
+
+        .swal2-success-circular-line-left,
+        .swal2-success-circular-line-right,
+        .swal2-success-fix,
+        .swal2-animate-success-icon {
+          background-color: $theme-dark-card-bg !important;
+        }
+      }
+
+      input.swal2-input {
+        border-color: $theme-dark-border-color;
+        color: $theme-dark-body-color;
+      }
+
+      .swal2-content,
+      .swal2-html-container {
+        color: $theme-dark-body-color;
+      }
+
+      pre,
+      code {
+        color: $theme-dark-body-color;
+      }
+      .swal2-input {
+        background-color: $theme-dark-card-bg;
+      }
+
+      // footer
+      .swal2-footer {
+        border-color: $theme-dark-border-color;
+        color: $theme-dark-body-color;
+      }
+    }
+    .swal2-validation-message {
+      background-color: $theme-dark-body-bg;
+      color: $theme-dark-body-color;
+    }
+  }
+}

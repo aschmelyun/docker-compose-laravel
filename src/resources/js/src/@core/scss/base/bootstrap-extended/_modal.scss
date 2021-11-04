@@ -1,0 +1,175 @@
+// Modals
+
+.modal {
+  // Modal Header
+
+  .modal-header {
+    background-color: $body-bg;
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    // close button
+
+    .close {
+      padding: 0.2rem 0.62rem;
+      box-shadow: 0 5px 20px 0 rgba($black, 0.1);
+      border-radius: $border-radius;
+      background: $white;
+      opacity: 1;
+      transition: all 0.23s ease 0.1s;
+      position: relative;
+      transform: translate(8px, -2px);
+
+      // For hover effect of close btn
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 1;
+        outline: none;
+        transform: translate(5px, 3px);
+        box-shadow: none;
+      }
+    }
+  }
+  // Modal Content
+  .modal-content {
+    border: none;
+    // overflow: unset; updated to "visible" as close icon is not visible in IE
+    overflow: visible;
+    box-shadow: 0 5px 20px 0 rgba($black, 0.1);
+  }
+
+  .modal-footer {
+    padding: $modal-inner-padding;
+  }
+
+  // modal sticky for apps
+  &.modal-sticky {
+    bottom: 0;
+    right: 0;
+    top: auto;
+    left: auto;
+    height: auto;
+    position: fixed;
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-dialog {
+      margin-right: #{$content-padding} !important;
+      box-shadow: 0px 0px 24px 0 rgba($black, 0.25);
+      border-radius: $border-radius;
+    }
+    .modal-actions {
+      background: transparent;
+      box-shadow: none;
+      line-height: 0;
+    }
+  }
+}
+
+// Modal XS
+.modal-xs {
+  max-width: 300px;
+}
+
+// Modal XL
+@media (min-width: 1200px) {
+  .modal-xl {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+}
+
+// Slide In Modal //
+.modal-slide-in,
+.modal-slide-in .modal {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.modal-slide-in {
+  .modal-dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    margin: 0;
+    max-width: none;
+    width: ($modal-slide-in-width-sm - 5);
+
+    .modal-content {
+      padding-bottom: ($modal-title-line-height * $close-font-size) + $modal-header-padding-y;
+      padding-top: ($modal-title-line-height * $close-font-size) + $modal-header-padding-y;
+      overflow: auto;
+      border-radius: 0;
+      height: 100%;
+    }
+
+    .modal-body {
+      padding-bottom: 0;
+      padding-top: 0;
+      margin: auto 0;
+      flex-grow: 0;
+    }
+
+    @media (min-width: (map-get($grid-breakpoints, sm))) {
+      width: $modal-slide-in-width;
+    }
+
+    &.sidebar-sm {
+      width: $modal-slide-in-width-sm;
+    }
+    &.sidebar-lg {
+      @media (min-width: (map-get($grid-breakpoints, sm))) {
+        width: $modal-slide-in-width-lg;
+      }
+    }
+  }
+
+  .close {
+    top: $modal-header-padding-y / 2;
+    z-index: 10;
+    transform: none;
+    position: absolute;
+    top: 1.5rem;
+    right: $modal-header-padding-x;
+    margin: 0;
+    padding: 0 !important;
+    line-height: 0.5;
+    transform: translate(0, -50%);
+  }
+}
+
+// Slide from Right
+.modal-slide-in.fade .modal-dialog,
+.modal-slide-in .modal.fade .modal-dialog {
+  transform: translateX(100%);
+  transition: transform 0.1s ease-out;
+}
+
+.modal-slide-in.show .modal-dialog,
+.modal-slide-in .modal.show .modal-dialog {
+  transform: translateX(0) !important;
+  transition: transform 0.1s ease-out;
+}
+
+// To remove Max-width of XS Modal in Small Screen
+
+@media (max-width: 576px) {
+  .modal {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    .modal-xs,
+    .modal-sm {
+      max-width: unset;
+    }
+    &.modal-sticky .modal-dialog {
+      margin-right: 0.2rem !important;
+      margin-left: 0.2rem;
+      margin-bottom: 3rem;
+    }
+  }
+}

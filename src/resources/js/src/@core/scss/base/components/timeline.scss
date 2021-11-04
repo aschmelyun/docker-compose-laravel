@@ -1,0 +1,101 @@
+// =========================================================================================
+//   File Name: timeline.scss
+//   Description: Timeline style.
+//   ----------------------------------------------------------------------------------------
+//   Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//   Author: PIXINVENT
+//   Author URL: http://www.themeforest.net/user/pixinvent
+// ==========================================================================================
+
+// Component: Timeline
+// ========================================================================
+
+.timeline {
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: 1rem;
+  list-style: none;
+
+  // Timeline Item
+  .timeline-item {
+    position: relative;
+    padding-left: 2.5rem;
+    border-left: 1px solid $timeline-border-color;
+
+    &:not(:last-child) {
+      padding-bottom: 1.8rem;
+    }
+
+    // Timeline Point
+    .timeline-point {
+      position: absolute;
+      left: -0.85rem;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: $timeline-point-size;
+      width: $timeline-point-size;
+      text-align: center;
+      border-radius: 50%;
+      border: 1px solid $timeline-point-indicator-color;
+      background-color: $white;
+
+      // Timeline Point Indicator
+      &.timeline-point-indicator {
+        left: -0.412rem;
+        top: 0.07rem;
+        height: $timeline-point-indicator-size;
+        width: $timeline-point-indicator-size;
+        border: 0;
+        background-color: $timeline-point-indicator-color;
+
+        &:before {
+          content: '';
+          background: rgba($color: $timeline-point-indicator-color, $alpha: 0.12);
+          height: $timeline-point-indicator-wrapper-size;
+          width: $timeline-point-indicator-wrapper-size;
+          display: block;
+          position: absolute;
+          top: -0.285rem;
+          left: -0.285rem;
+          border-radius: 50%;
+        }
+      }
+
+      // Icons
+      i,
+      svg {
+        color: $timeline-point-indicator-color;
+        font-size: $timeline-item-icon-font-size;
+        vertical-align: baseline;
+      }
+    }
+
+    .timeline-event {
+      position: relative;
+      width: 100%;
+      min-height: $timeline-item-min-height;
+      // background-color: transparent;
+
+      .timeline-event-time {
+        font-size: $timeline-event-time-size;
+        color: $timeline-event-time-color;
+      }
+    }
+
+    &:last-of-type {
+      border-left-color: transparent !important;
+      &:after {
+        content: '';
+        position: absolute;
+        left: -1px;
+        bottom: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient($border-color, transparent);
+      }
+    }
+  }
+}

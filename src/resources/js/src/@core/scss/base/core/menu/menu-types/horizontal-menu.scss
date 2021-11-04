@@ -1,0 +1,597 @@
+/*=========================================================================================
+	File Name: horizontal-menu.scss
+	Description: A classic horizontal menu for easy navigation & support all devices.
+	It support light & dark version, flipped layout, right side icons, borders menu for
+	item separation.
+	----------------------------------------------------------------------------------------
+	Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard TemplateTheme
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+
+@import '../../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../../components/include'; // Components includes
+
+// Import first main menu mixin
+@import '../../mixins/main-menu-mixin';
+
+// Horizontal Menu
+//=========================
+.horizontal-menu {
+  // Content Area margin
+  .content {
+    margin-left: 0;
+    &.show-overlay {
+      .content-overlay {
+        z-index: 998 !important;
+      }
+    }
+  }
+
+  // Navbar container spacing for all
+  .navbar.header-navbar {
+    .navbar-container {
+      padding: 0.8rem #{$content-padding};
+    }
+  }
+
+  .horizontal-menu-wrapper {
+    .header-navbar {
+      min-height: $horizontal-menu-height;
+    }
+  }
+
+  footer {
+    position: static;
+  }
+
+  //---------------//
+  // Navbar Header //
+  //---------------//
+  .horizontal-menu-wrapper {
+    position: fixed;
+    top: 62px;
+    z-index: 990;
+    width: 100%;
+
+    .header-navbar {
+      .navbar-container {
+        padding: 0 1rem;
+        width: 100%;
+      }
+      .navbar-header {
+        display: none;
+      }
+    }
+  }
+  .header-navbar {
+    background: $white;
+    z-index: 999 !important;
+    line-height: 1;
+    min-height: auto;
+    &.navbar-light {
+      background: $white;
+    }
+
+    // Navbar- Brand Center - Logo
+    &.navbar-horizontal.floating-nav {
+      left: 0;
+      top: 62px;
+      width: calc(100vw - (100vw - 100%) - calc(#{$content-padding} * 2));
+      background: $white;
+    }
+    .navbar-container {
+      border-radius: $border-radius;
+    }
+    &.navbar-fixed {
+      position: fixed;
+      width: 100%;
+    }
+    &.navbar-brand-center {
+      .navbar-header {
+        position: absolute;
+        left: calc(50% - 56px); // left 50% - branding width
+        padding: 0;
+        z-index: 1000;
+        .navbar-brand {
+          display: flex;
+          align-items: center;
+          margin-right: 0;
+          font-size: inherit;
+          .brand-logo img {
+            max-width: 36px;
+          }
+
+          // Brand Text Scss
+          .brand-text {
+            color: $primary;
+            padding-left: 1rem;
+            margin-bottom: 0;
+            font-weight: 600;
+            letter-spacing: 0.01rem;
+            font-size: 1.45rem;
+          }
+        }
+      }
+    }
+
+    &.navbar-horizontal {
+      .nav-link {
+        &.dropdown-toggle {
+          &::after {
+            left: 0.4rem;
+            background-image: url(str-replace(str-replace($chevron-down, 'currentColor', $body-color), '#', '%23'));
+          }
+        }
+      }
+      .sidebar-group-active {
+        .dropdown-toggle {
+          &::after {
+            background-image: url(str-replace(str-replace($chevron-down, 'currentColor', $white), '#', '%23'));
+          }
+        }
+      }
+      .dropdown-menu::before {
+        display: none;
+      }
+      .dropdown-menu {
+        min-width: 215px;
+        border: none;
+        margin-top: 0;
+        min-height: 52px;
+        .disabled {
+          pointer-events: none !important;
+          a {
+            color: $gray-600;
+          }
+        }
+        .dropdown-toggle::after {
+          left: auto;
+          position: absolute;
+          top: 50%;
+          margin-top: -7px;
+          right: 1rem;
+          // content: '\e844' !important;
+          background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $body-color), '#', '%23'));
+        }
+        .dropdown-item {
+          font-size: 1rem;
+          padding-top: 0.68rem;
+          padding-bottom: 0.68rem;
+          display: flex;
+          align-items: center;
+        }
+        .dropdown-submenu {
+          position: relative;
+
+          &.openLeft {
+            .dropdown-menu {
+              left: auto !important;
+              right: 100% !important;
+            }
+          }
+
+          &.sidebar-group-active {
+            background: $body-bg;
+          }
+
+          & > .dropdown-menu {
+            position: absolute;
+            top: 0 !important;
+            left: 100% !important;
+            i,
+            svg {
+              height: 11px !important;
+              width: 11px !important;
+              font-size: 11px !important;
+            }
+          }
+        }
+      }
+      ul#main-menu-navigation > li {
+        padding-top: 0.857rem;
+        padding-bottom: 0.857rem;
+
+        > .dropdown-menu {
+          a {
+            & > * {
+              transition: all 0.2s ease;
+            }
+            &:hover {
+              background-color: transparent;
+              color: $body-color;
+              & > * {
+                transform: translateX(5px);
+                transition: transform 0.2s ease;
+              }
+            }
+          }
+          .active > a {
+            background: $body-bg;
+            color: $primary;
+            font-weight: 500;
+          }
+          .open {
+            &.active {
+              > a {
+                color: $body-color;
+                font-weight: normal;
+              }
+            }
+          }
+        }
+        i,
+        svg {
+          margin-right: 0.5rem;
+          height: 17px;
+          width: 17px;
+          font-size: 1.2rem;
+        }
+        > a {
+          padding: 0.715rem 1.25rem;
+          display: flex;
+          margin-right: 0.715rem;
+        }
+        &:hover {
+          > a {
+            background: $body-bg;
+            border-radius: 4px;
+          }
+        }
+        &.active {
+          > a {
+            background: linear-gradient(118deg, rgba($primary, 1), rgba($primary, 0.7));
+            box-shadow: 0px 0px 6px 1px rgba($primary, 0.6);
+            color: $white;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .navigation-header {
+    font-family: inherit;
+    color: #929292;
+    padding: 8px 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  .navbar-dark {
+    .nav-item {
+      &.active > a {
+        border-bottom: 2px solid $primary;
+        background-color: #313c50;
+      }
+    }
+  }
+}
+
+.horizontal-layout {
+  // navbar floating
+  &.navbar-floating {
+    // Horizontal layout navbar shadow position and height fix
+    .header-navbar-shadow {
+      height: 80px;
+    }
+    @include media-breakpoint-up(xl) {
+      .header-navbar-shadow {
+        top: 45px;
+      }
+    }
+    &:not(.blank-page) {
+      .app-content {
+        // padding-top: 9.75rem;
+        padding: calc(#{$content-padding} + #{$navbar-height}* 2 + #{$floating-nav-margin}) #{$content-padding} 0 #{$content-padding}; // * 2  as we have 2 navbar (menu + navbar)  in horizontal layout.
+      }
+    }
+    .horizontal-menu-wrapper {
+      background: linear-gradient(
+        to bottom,
+        rgba(248, 248, 248, 0.95) 44%,
+        rgba(248, 248, 248, 0.46) 73%,
+        rgba($white, 0) 100%
+      );
+      background-repeat: repeat-x;
+      .navbar-horizontal.floating-nav {
+        // margin-top: $floating-nav-margin;
+        // margin-left: auto;
+        // margin-right: auto;
+      }
+    }
+
+    // App content area wrapper height
+    &.footer-static {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            #{$footer-height},
+            #{$floating-nav-margin},
+            #{$horizontal-menu-height},
+            1,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+    &.footer-hidden {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            0rem,
+            #{$floating-nav-margin},
+            #{$horizontal-menu-height},
+            2,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+    &.footer-fixed {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            #{$footer-height},
+            #{$floating-nav-margin},
+            #{$horizontal-menu-height},
+            2,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+  }
+
+  // navbar sticky
+  &.navbar-sticky {
+    .app-content {
+      padding: calc(#{$content-padding} + #{$navbar-height}* 2) #{$content-padding} 0 #{$content-padding};
+    }
+    .header-navbar {
+      background-color: $body-bg;
+      box-shadow: none;
+    }
+    .horizontal-menu-wrapper {
+      .navbar-horizontal.header-navbar.fixed-top {
+        left: 0;
+        top: 62px;
+        background-color: $white;
+        box-shadow: 0 4px 24px 0 rgba($black, 0.1);
+      }
+    }
+
+    // App content area wrapper height
+    &.footer-static {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            #{$footer-height},
+            0rem,
+            #{$horizontal-menu-height},
+            1,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+    &.footer-hidden {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            0rem,
+            0rem,
+            #{$horizontal-menu-height},
+            2,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+    &.footer-fixed {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            #{$footer-height},
+            0rem,
+            #{$horizontal-menu-height},
+            2,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+  }
+  // navbar static
+  &.navbar-static {
+    .app-content {
+      padding: calc(#{$content-padding} + #{$horizontal-menu-height}) #{$content-padding} 0 #{$content-padding};
+    }
+    .content {
+      min-height: calc(100% - calc(#{$horizontal-menu-height} + calc(#{$footer-height} + 0.2rem)));
+    }
+    .header-navbar {
+      background-color: $body-bg;
+      box-shadow: none;
+    }
+    .horizontal-menu-wrapper {
+      position: relative;
+      .navbar-horizontal.header-navbar {
+        background: $white;
+        // ? Added for angular fix as it adds this class to navbar in hz layout
+        &.navbar-static-top {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+    // App content area wrapper height
+    &.footer-static {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            calc(#{$footer-height} + 0.2rem),
+            0rem,
+            #{$horizontal-menu-height},
+            1,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+    &.footer-hidden {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            0rem,
+            0rem,
+            #{$horizontal-menu-height},
+            2,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+    &.footer-fixed {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            #{$navbar-height},
+            #{$footer-height},
+            0rem,
+            #{$horizontal-menu-height},
+            2,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+  }
+
+  // navbar Hidden
+  &.navbar-hidden {
+    &.footer-static {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            0rem,
+            #{$footer-height},
+            0rem,
+            #{$horizontal-menu-height},
+            1,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+    &.footer-hidden {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            0rem,
+            0rem,
+            0rem,
+            #{$horizontal-menu-height},
+            2,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+    &.footer-fixed {
+      .app-content {
+        .content-area-wrapper,
+        .kanban-wrapper {
+          @include content-area-wrapper-height(
+            #{$content-padding},
+            0rem,
+            #{$footer-height},
+            0rem,
+            #{$horizontal-menu-height},
+            2,
+            $horizontalLayout: true
+          );
+        }
+      }
+    }
+  }
+
+  &.vertical-overlay-menu {
+    #main-menu-navigation {
+      > li {
+        > ul {
+          > li {
+            > a {
+              i,
+              svg {
+                height: 1rem;
+                width: 1rem;
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Initially menu & content width for md and down screen
+@include media-breakpoint-down(lg) {
+  .horizontal-layout {
+    &.horizontal-menu {
+      .horizontal-menu-wrapper {
+        .header-navbar {
+          display: none;
+        }
+      }
+    }
+    .header-navbar {
+      background: $white;
+    }
+    .app-content {
+      padding: calc(#{$navbar-height} + calc(#{$content-padding} - 0.8rem)) calc(#{$content-padding} - 0.8rem) 0
+        calc(#{$content-padding} - 0.8rem) !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  // For static navbar
+  html body.horizontal-layout.navbar-static .app-content {
+    padding: calc(#{$content-padding} - 0.8rem + #{$navbar-height}) calc(#{$content-padding} - 0.8rem) 0
+      calc(#{$content-padding} - 0.8rem) !important; // - 0.8rem to reduce padding in small screen
+  }
+}
+// Import vertical-overlay-menu.scss for small screen support
+@import 'vertical-overlay-menu.scss';

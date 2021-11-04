@@ -1,0 +1,71 @@
+// Color palettes
+@import '~@core/scss/base/core/colors/palette-variables.scss';
+
+.popover.b-popover {
+  //popover top position
+  &.bs-popover-top {
+    .arrow {
+      &::before {
+        border-top-color: $border-color;
+      }
+      &::after {
+        border-top-color: $white;
+      }
+    }
+  }
+  //popover left position
+  &.bs-popover-left {
+    .arrow {
+      &::before {
+        border-left-color: $border-color;
+      }
+      &::after {
+        border-left-color: $white;
+      }
+    }
+  }
+  //popover right position
+  &.bs-popover-right {
+    .arrow {
+      &::before {
+        border-right-color: $border-color;
+      }
+      &::after {
+        border-right-color: $white;
+      }
+    }
+  }
+}
+
+//--------- popover variant ---------//
+@each $color_name, $color in $colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type== 'base' {
+      .popover.b-popover {
+        &.b-popover-#{$color_name} {
+          background-color: $white;
+          border-color: $border-color;
+          z-index: 9999;
+          position: relative;
+          .popover-header {
+            background-color: $color_value;
+            border-color: $color_value;
+            color: $white;
+          }
+
+          // arrow color change according to variant
+          &.bs-popover-bottom {
+            .arrow {
+              &::before {
+                border-bottom-color: $color_value;
+              }
+              &::after {
+                border-bottom-color: $color_value;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

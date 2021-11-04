@@ -1,0 +1,340 @@
+// ================================================================================================
+//   File Name: app-chat.scss
+//   Description: SCC file for chat application page.
+//   ----------------------------------------------------------------------------------------------
+//   Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//   Author: PIXINVENT
+//   Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+@import '../core/colors/palette-variables';
+
+@import 'bootstrap/scss/mixins/_gradients';
+@import 'bootstrap/scss/mixins/gradients';
+
+//Variables
+$chat-image-back-color: #f2f0f7;
+$chat-head-footer-height: 65px;
+$chat-profile-sidebar-head-height: 200px;
+
+.chat-application {
+  .content-area-wrapper {
+    border: 1px solid $border-color;
+    border-radius: $card-border-radius;
+  }
+
+  // chat admin profile sidebar
+  .chat-profile-sidebar {
+    border-right: 1px solid $border-color;
+    height: inherit;
+    width: $chat-sidebar-width;
+    border-radius: $border-radius-sm;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: absolute;
+    background-color: $white;
+    transform: translateX(-110%);
+    transition: all 0.3s ease, background 0s, border 0s, color 0s;
+    z-index: 6;
+    &.show {
+      transform: translateX(0);
+      transition: all 0.3s ease, background 0s, border 0s, color 0s;
+    }
+
+    // admin profile header section
+    .chat-profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: $chat-profile-sidebar-head-height;
+      text-align: center;
+      .avatar {
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    //  Admin profile scroll area
+    .profile-sidebar-area {
+      height: calc(100% - #{$chat-profile-sidebar-head-height});
+      position: relative;
+      padding: 0 2rem 1.5rem;
+    }
+  }
+
+  // close icon style for all chat sidebars
+  .close-icon {
+    position: absolute;
+    top: 0.85rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+  .sidebar-close-icon,
+  .close-icon {
+    svg,
+    i {
+      font-size: 1.143rem;
+      height: 1.143rem;
+      width: 1.143rem;
+    }
+  }
+
+  // for avatar border
+  .avatar-border {
+    img {
+      border: 2px solid $white;
+    }
+  }
+
+  // Main Sidebar Content
+  .sidebar-content {
+    background-color: $white;
+    border-right: 1px solid $border-color;
+    height: inherit;
+    width: $chat-sidebar-width;
+    border-radius: $border-radius-sm;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+    box-shadow: none;
+    // Close Icon
+    .sidebar-close-icon {
+      position: absolute;
+      right: 0.25rem;
+      top: 0.25rem;
+      font-size: 1.25rem;
+      z-index: 1;
+      cursor: pointer;
+      visibility: hidden;
+    }
+    // Chat search area
+    .chat-fixed-search {
+      width: $chat-sidebar-width;
+      border-bottom: 1px solid $border-color;
+      padding: 0 1.286rem;
+      height: $chat-head-footer-height;
+      display: flex;
+      .sidebar-profile-toggle {
+        .avatar {
+          display: inline-table;
+        }
+      }
+      .input-group {
+        &:focus-within {
+          background-color: transparent;
+          box-shadow: none;
+        }
+      }
+    }
+    .chat-list-title {
+      color: $primary;
+      margin: 2rem 1.286rem 0.5rem;
+    }
+    // Sidebar chat list
+    .chat-user-list-wrapper {
+      position: relative;
+      height: calc(100% - #{$chat-head-footer-height});
+      width: $chat-sidebar-width;
+      border-radius: 0;
+      // Specific alignment for avatar status
+      .avatar {
+        height: 42px;
+        [class*='avatar-status-'] {
+          right: 1px;
+          bottom: 1px;
+        }
+      }
+      .contact-list {
+        .chat-info {
+          width: calc(100% - 46px); // ? avatar size with 2px border = 42+2+2 =46px
+          padding-right: 0;
+        }
+      }
+      .no-results {
+        padding: 0.786rem 1.286rem;
+        display: none !important;
+        &.show {
+          display: block !important;
+        }
+      }
+      ul {
+        padding-left: 0;
+        margin-bottom: 0;
+      }
+      li {
+        display: flex;
+        padding: 0.786rem 1.286rem;
+        .chat-info {
+          margin-top: 0.3rem;
+          width: calc(100% - 46px - 46px); // ? avatar size with 2px border = 42+2+2 =46px & date area width = 46px
+          padding: 0 0.75rem;
+          .card-text,
+          p {
+            color: $text-muted;
+          }
+        }
+
+        .chat-time {
+          color: $text-muted;
+        }
+        &:hover {
+          cursor: pointer;
+          background: $body-bg;
+        }
+        &.active {
+          @include gradient-directional(map-get($primary-color, 'base'), map-get($primary-color, 'lighten-2'), 80deg);
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          .card-text,
+          .chat-time {
+            color: $white;
+          }
+        }
+        img {
+          border: 2px solid $white;
+        }
+      }
+    }
+  }
+
+  // User chat window css
+  .chat-app-window {
+    height: 100%;
+
+    // Before starting chat
+    .start-chat-area,
+    .user-chats {
+      background-image: url($chat-bg-light);
+      background-color: $chat-image-back-color;
+      background-repeat: repeat;
+      background-size: 210px;
+    }
+    .start-chat-area {
+      height: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .start-chat-icon,
+      .start-chat-text {
+        background: $white;
+        box-shadow: 0 4px 8px 0 rgba($black, 0.12) !important;
+        color: $body-color;
+      }
+      .start-chat-text {
+        padding: 0.5rem 1rem;
+        border-radius: calc(#{$border-radius} * 4);
+        cursor: pointer;
+      }
+      .start-chat-icon {
+        border-radius: 50%;
+        padding: 2rem;
+        svg,
+        i {
+          height: 4rem;
+          width: 4rem;
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+
+  // User Profile right sidebar
+  .user-profile-sidebar {
+    width: $chat-sidebar-width;
+    border-radius: $border-radius-sm;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: $white;
+    position: absolute;
+    transform: translateX(110%);
+    transition: all 0.3s ease, background 0s, border 0s, color 0s;
+    z-index: 6;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    &.show {
+      transform: translateX(0%);
+      transition: all 0.3s ease, background 0s, border 0s, color 0s;
+    }
+    .user-profile-header {
+      .header-profile-sidebar {
+        height: $chat-profile-sidebar-head-height;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+      }
+      .avatar {
+        margin-bottom: 1.25rem;
+      }
+    }
+    .user-profile-sidebar-area {
+      position: relative;
+      height: calc(100% - #{$chat-profile-sidebar-head-height});
+      padding: 0 2rem 1.5rem;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .content-right {
+    width: 100%;
+  }
+  .chat-application {
+    .sidebar-content {
+      transform: translateX(-110%);
+      transition: all 0.3s ease-in-out;
+      position: absolute;
+      z-index: 5;
+      &.show {
+        transform: translateX(0);
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .chat-application {
+    .sidebar-content {
+      .sidebar-close-icon {
+        visibility: visible;
+        top: 15px;
+        right: 0;
+        padding: 0.65rem;
+        line-height: 1;
+      }
+      .chat-fixed-search {
+        padding-right: 2.5rem;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .chat-application {
+    .sidebar {
+      position: unset !important;
+    }
+    .sidebar-content {
+      width: 100%;
+      .chat-fixed-search,
+      .chat-user-list-wrapper {
+        width: 100%;
+      }
+    }
+    .chat-profile-sidebar {
+      width: 100%;
+    }
+    .user-profile-sidebar {
+      width: 100%;
+    }
+  }
+}

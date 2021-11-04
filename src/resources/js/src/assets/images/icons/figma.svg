@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="27px" viewBox="0 0 18 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>figma</title>
+    <g id="⚙️-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="29)-Table/Table-Hover" transform="translate(-31.000000, -253.000000)" fill-rule="nonzero">
+            <g id="Table-Hover" transform="translate(-1.000000, 0.000000)">
+                <g id="Table-Row" transform="translate(1.000000, 238.000000)">
+                    <g id="figma" transform="translate(31.000000, 15.000000)">
+                        <path d="M4.5,27 C6.984,27 9,24.984 9,22.5 L9,18 L4.5,18 C2.016,18 0,20.016 0,22.5 C0,24.984 2.016,27 4.5,27 Z" id="path0_fill" fill="#0ACF83"></path>
+                        <path d="M0,13.5 C0,11.016 2.016,9 4.5,9 L9,9 L9,18 L4.5,18 C2.016,18 0,15.984 0,13.5 Z" id="path1_fill" fill="#A259FF"></path>
+                        <path d="M0,4.5 C0,2.016 2.016,0 4.5,0 L9,0 L9,9 L4.5,9 C2.016,9 0,6.984 0,4.5 Z" id="path1_fill_1_" fill="#F24E1E"></path>
+                        <path d="M9,0 L13.5,0 C15.984,0 18,2.016 18,4.5 C18,6.984 15.984,9 13.5,9 L9,9 L9,0 Z" id="path2_fill" fill="#FF7262"></path>
+                        <path d="M18,13.5 C18,15.984 15.984,18 13.5,18 C11.016,18 9,15.984 9,13.5 C9,11.016 11.016,9 13.5,9 C15.984,9 18,11.016 18,13.5 Z" id="path3_fill" fill="#1ABCFE"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

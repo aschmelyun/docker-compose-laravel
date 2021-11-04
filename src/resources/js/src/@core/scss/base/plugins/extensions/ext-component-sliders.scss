@@ -1,0 +1,145 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+$slider_width: 6px;
+$handle-size: 1rem;
+
+.noUi-target {
+  background-color: rgba($primary, 0.12);
+  border-width: 0;
+  box-shadow: none;
+  border-radius: 1rem;
+  &.noUi-connect {
+    box-shadow: none;
+  }
+}
+
+// horizontal slider and it's sizes
+.noUi-horizontal {
+  height: $slider_width;
+  .noUi-handle {
+    width: $handle-size;
+    height: $handle-size;
+    cursor: pointer;
+    right: -($handle-size - ($handle-size/2));
+    top: -4px;
+  }
+  .noUi-tooltip {
+    bottom: 135% !important;
+  }
+}
+// pips, marker and value
+.noUi-pips {
+  color: $text-muted;
+}
+.noUi-marker {
+  background: $border-color;
+}
+.noUi-value {
+  font-size: 0.857rem;
+}
+.noUi-marker-horizontal.noUi-marker,
+.noUi-marker-horizontal.noUi-marker-large {
+  height: 8px;
+}
+
+// slider handle styles
+.noUi-handle {
+  box-shadow: none;
+  border: none;
+
+  &:after,
+  &:before {
+    display: none;
+  }
+  border-radius: 50%;
+  background: $white;
+  border: 2px solid $primary;
+}
+
+// default selected slide area style
+.noUi-connect {
+  background: $primary;
+  box-shadow: none;
+}
+
+// Tooltip style
+.noUi-tooltip {
+  transform: translate(-10%, -50%);
+  font-size: 0.857rem;
+  border: none;
+  color: $body-color;
+  background-color: $body-bg;
+  padding: 0.1718rem 0.35rem;
+  font-weight: $font-weight-bold;
+}
+
+// noUi Vertical customization
+.noUi-vertical {
+  display: inline-block;
+  width: $slider_width;
+
+  .noUi-origin {
+    right: auto;
+  }
+
+  .noUi-handle {
+    width: 1rem;
+    height: 1rem;
+    top: -0.375rem;
+    left: -0.3rem;
+  }
+  .noUi-tooltip {
+    right: 135% !important;
+  }
+}
+
+// for example value of noUI Hover
+.hover_val {
+  font: 400 12px Arial;
+  color: $body-color;
+  display: block;
+  margin: 15px 0;
+}
+
+// to remove outline on focus
+.noUi-handle:focus {
+  outline: 0;
+}
+
+// IE SPECIFIC FOR SLIDER WITH INPUT
+_:-ms-lang(x),
+.slider-select {
+  flex: 0 0 10%;
+  max-width: 10%;
+}
+
+// Dark Layout
+// -------------
+.dark-layout {
+  .noUi-handle {
+    background-color: $theme-dark-card-bg;
+  }
+  .noUi-tooltip {
+    background-color: $theme-dark-body-bg;
+    color: $theme-dark-body-color;
+  }
+  .noUi-pips,
+  .noUi-value {
+    color: $theme-dark-body-color;
+  }
+  .noUi-marker {
+    background: $theme-dark-border-color;
+  }
+}
+
+// RTL
+// -------------
+[data-textdirection='rtl'] {
+  .noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
+    right: auto;
+  }
+  .noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
+    left: -3px;
+  }
+}

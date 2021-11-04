@@ -1,0 +1,341 @@
+$options-padding-x: 20px;
+$options-padding-y: 7px;
+
+@import '~@core/scss/base/bootstrap-extended/include';
+// Overrides user variable
+@import '~@core/scss/base/components/include';
+@import 'vue-select/src/scss/global/_variables.scss';
+
+//  Global Component Variables
+$vs-component-line-height: 1.8;
+$vs-component-placeholder-color: $body-color;
+
+//  Active State
+$vs-state-active-bg: rgba($primary, 0.12);
+$vs-state-active-color: $primary !important;
+
+// Border
+$vs-border-width: $input-border-width;
+$vs-border-radius: $input-border-radius;
+$vs-border-color: $input-border-color;
+
+//  Selected
+$vs-selected-bg: $primary;
+$vs-selected-border-width: 0;
+
+// Dropdown
+$vs-dropdown-box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
+
+@import 'vue-select/src/scss/vue-select.scss';
+
+.vs__open-indicator {
+  fill: none;
+  margin-top: 0.15rem;
+}
+
+// Matches height of input element for consistency
+.vs__dropdown-toggle {
+  padding: 0.59px 0 4px 0;
+  transition: all 0.25s ease-in-out;
+
+  .vs--single & {
+    padding-left: 6px;
+  }
+}
+
+.vs__dropdown-option--disabled {
+  &.vs__dropdown-option--selected {
+    background: $primary !important;
+  }
+  opacity: 0.5;
+}
+
+// Options list color
+.vs__dropdown-option {
+  color: $body-color;
+}
+.vs__dropdown-option,
+.vs__no-options {
+  // We have only update Y padding
+  padding: $options-padding-y $options-padding-x;
+}
+
+/* rtl:begin:ignore */
+.vs__dropdown-option--selected {
+  background-color: $primary;
+  color: $white;
+  position: relative;
+
+  &::after {
+    content: '';
+    height: 1.1rem;
+    width: 1.1rem;
+    display: inline-block;
+    position: absolute;
+
+    // vertically center icon
+    top: 50%;
+    transform: translateY(-50%);
+    right: $options-padding-x;
+
+    [dir='rtl'] & {
+      left: $options-padding-x;
+      right: unset;
+    }
+
+    // Icon
+    background-image: url(str-replace(str-replace($check, 'currentColor', $white), '#', '%23'));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.1rem;
+  }
+
+  // Because, highlight get primary color and if item is selected we want to keep white color even if it's hovered/highlighted
+  &.vs__dropdown-option--highlight {
+    color: $white !important;
+    background-color: $primary !important;
+  }
+}
+/* rtl:end:ignore */
+
+// Update color of clear icon
+.vs__clear {
+  svg {
+    color: $body-color;
+  }
+}
+
+// Selected Color. It don't have any variable to override. (text in tag)
+.vs__selected {
+  color: $white;
+
+  // Single select selected text
+  .v-select.vs--single & {
+    color: $body-color;
+    margin-top: 5px;
+
+    // Add transition when selected option is moved when focus
+    transition: transform 0.2s ease;
+
+    input {
+      padding-left: 0;
+    }
+  }
+
+  // Slide selected option to right on focus
+  // * Just like on input focus we get placeholder moved
+  .vs--single.vs--open & {
+    transform: translateX(5px);
+  }
+
+  // Close icon in tag
+  .vs__deselect {
+    color: inherit;
+  }
+}
+
+// Tag/Multi Select
+.v-select {
+  &:not(.vs--single) {
+    .vs__selected {
+      border-radius: 3px;
+
+      padding: 0 0.6em;
+      font-size: 0.9rem;
+      margin: 5px 2px 2px 5px;
+    }
+
+    .vs__deselect {
+      svg {
+        transform: scale(0.8);
+        vertical-align: text-top;
+      }
+    }
+  }
+}
+
+// Dropdown Position
+.vs__dropdown-menu {
+  top: calc(100% + 1rem);
+  border: none;
+  border-radius: 6px;
+  padding: 0;
+}
+
+// Input style when dropdown is open
+.vs--open .vs__dropdown-toggle {
+  border-color: $input-focus-border-color;
+  border-bottom-color: $input-focus-border-color;
+  border-bottom-left-radius: $vs-border-radius;
+  border-bottom-right-radius: $vs-border-radius;
+  box-shadow: $input-focus-box-shadow;
+}
+
+// Tag styling
+// .v-select:not(.vs--single) {
+//   .vs__selected-options {
+//     .vs__selected {
+//       background-color: $primary;
+//       border: none;
+//       color: #fff;
+//       button {
+//         svg {
+//           fill: white;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// ------------------------------------------------
+// Size: Large
+// ------------------------------------------------
+.select-size-lg {
+  .vs__selected {
+    font-size: 1rem !important;
+  }
+
+  &.vs--single.vs--open .vs__selected {
+    margin-top: 6px;
+  }
+
+  .vs__dropdown-toggle,
+  .vs__selected {
+    font-size: 1.25rem;
+  }
+
+  .vs__dropdown-toggle {
+    padding: 5px;
+
+    input {
+      margin-top: 0;
+    }
+  }
+
+  .vs__deselect {
+    svg {
+      transform: scale(1) !important;
+      vertical-align: middle !important;
+    }
+  }
+}
+
+// ------------------------------------------------
+// Size: Small
+// ------------------------------------------------
+.select-size-sm {
+  // Remove toggle padding from medium size
+  .vs__dropdown-toggle {
+    padding-bottom: 0;
+
+    padding: 1px;
+  }
+  &.vs--single .vs__dropdown-toggle {
+    padding: 2px;
+  }
+
+  // set line-height and font size for sm
+  .vs__dropdown-toggle,
+  .vs__selected {
+    // line-height: 1.8;
+    font-size: 0.9rem;
+  }
+
+  // Set close and dropdown icon position in center
+  .vs__actions {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .vs__deselect {
+    svg {
+      vertical-align: middle !important;
+    }
+  }
+
+  // Remove mt from search
+  .vs__search {
+    margin-top: 0;
+  }
+
+  // Selected options size
+  &.v-select .vs__selected {
+    padding: 0 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  // Only set margin for multi/tag select
+  &.v-select:not(.vs--single) .vs__selected {
+    margin: 4px 5px;
+  }
+
+  // Selected options size for single selection
+  &.v-select.vs--single .vs__selected {
+    margin-top: 1px;
+  }
+
+  // Set margin-top for selected when input is selected
+  &.vs--single.vs--open {
+    .vs__selected {
+      margin-top: 4px;
+    }
+  }
+}
+
+// ------------------------Dark Layout------------------//
+
+.dark-layout {
+  //vue select
+  .vs__dropdown-toggle {
+    background: $theme-dark-input-bg;
+    color: $theme-dark-body-color;
+    border-color: $theme-dark-input-border-color;
+  }
+  .vs__selected-options {
+    input {
+      color: $theme-dark-body-color;
+      &::placeholder {
+        color: $theme-dark-input-placeholder-color;
+      }
+    }
+  }
+  .vs__actions {
+    svg {
+      fill: $theme-dark-input-border-color;
+    }
+  }
+  .vs__dropdown-menu {
+    background: $theme-dark-input-bg;
+    li {
+      color: $theme-dark-body-color;
+    }
+  }
+
+  .v-select {
+    &:not(.vs--single) {
+      .vs__selected {
+        background-color: rgba($primary, 0.12);
+        color: $primary;
+      }
+    }
+
+    // For single select
+    &.vs--single {
+      .vs__selected {
+        color: $theme-dark-body-color !important;
+      }
+    }
+  }
+
+  // Disabled styles
+  .vs--disabled {
+    .vs__dropdown-toggle,
+    .vs__clear,
+    .vs__search,
+    .vs__selected,
+    .vs__open-indicator {
+      background-color: $theme-dark-input-bg;
+      opacity: 0.5;
+    }
+  }
+}

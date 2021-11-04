@@ -1,0 +1,80 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+.shepherd-element {
+  border-radius: $border-radius;
+  width: 350px;
+  &[data-popper-placement='bottom'] {
+    margin-top: 1rem !important;
+    .shepherd-arrow:before {
+      background-color: $primary !important;
+    }
+  }
+  &[data-popper-placement='top'] {
+    margin-bottom: 1rem !important;
+  }
+  &[data-popper-placement='left'] {
+    margin-right: 1rem !important;
+  }
+  &[data-popper-placement='right'] {
+    margin-left: 1rem !important;
+  }
+
+  .shepherd-content {
+    border-radius: $border-radius;
+    // header
+    .shepherd-header {
+      background-color: $primary;
+      padding: 0.38rem 1.2rem;
+      border-radius: $border-radius $border-radius 0 0;
+      .shepherd-title {
+        color: $white;
+        font-weight: 500;
+        font-size: 1.1rem;
+      }
+      .shepherd-cancel-icon {
+        color: $white;
+        font-size: 1.7rem;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    // body or text
+    .shepherd-text {
+      color: $body-color;
+      padding: 0.8rem 1.2rem;
+    }
+
+    // footer
+    .shepherd-footer {
+      padding: 0 1.2rem 1rem;
+      justify-content: space-between;
+      .shepherd-button {
+        padding: 0.5rem 1.3rem;
+      }
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    width: 300px;
+  }
+}
+
+// Dark layout
+.dark-layout {
+  .shepherd-element {
+    background-color: $theme-dark-card-bg;
+    &:not([data-popper-placement='bottom']) {
+      .shepherd-arrow:before {
+        background-color: $theme-dark-card-bg;
+      }
+    }
+    .shepherd-content {
+      .shepherd-text {
+        color: $theme-dark-body-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.breadcrumb {
+  &:not([class*='breadcrumb-']) {
+    .breadcrumb-item + .breadcrumb-item {
+      &:before {
+        content: ' ';
+        background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $body-color), '#', '%23'));
+        background-repeat: no-repeat;
+        background-position: center;
+        color: $body-color;
+        margin-right: $breadcrumb-item-padding;
+        background-size: 14px;
+      }
+    }
+  }
+  .breadcrumb-item + .breadcrumb-item {
+    &:before {
+      height: 20px;
+    }
+  }
+}
+
+/* Component Specific */
+.breadcrumb-slash {
+  &.breadcrumb {
+    .breadcrumb-item + .breadcrumb-item:before {
+      content: '/';
+    }
+  }
+}
+.breadcrumb-dots {
+  &.breadcrumb {
+    .breadcrumb-item + .breadcrumb-item:before {
+      content: '.';
+      position: relative;
+      top: -4px;
+    }
+  }
+}
+.breadcrumb-dashes {
+  &.breadcrumb {
+    .breadcrumb-item + .breadcrumb-item:before {
+      content: '-';
+    }
+  }
+}
+.breadcrumb-pipes {
+  &.breadcrumb {
+    .breadcrumb-item + .breadcrumb-item:before {
+      content: '|';
+    }
+  }
+}
+.breadcrumb-chevron {
+  &.breadcrumb {
+    .breadcrumb-item + .breadcrumb-item:before {
+      content: ' ';
+      background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $body-color), '#', '%23'));
+      background-repeat: no-repeat;
+      background-position: center;
+      color: $body-color;
+      margin-right: $breadcrumb-item-padding;
+      background-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 648px) {
+  .content-header .breadcrumb {
+    display: none;
+  }
+  .breadcrumbs-top {
+    .content-header-title {
+      display: contents !important;
+    }
+  }
+}

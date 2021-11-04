@@ -1,0 +1,23 @@
+// Apply BSV validation style to extensions
+.form-group {
+  &.is-invalid {
+    // Vue Select
+    .v-select {
+      .vs__dropdown-toggle {
+        border-color: $danger;
+      }
+    }
+
+    // Flatpickr
+    .flatpickr-input {
+      border-color: $danger;
+    }
+  }
+}
+
+// Fix Tooltip positioning issue
+// https://github.com/bootstrap-vue/bootstrap-vue/issues/1732
+// .fix-tooltip-position-top {
+.tooltip {
+  top: 0;
+}

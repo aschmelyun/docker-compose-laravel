@@ -1,0 +1,51 @@
+// Core variables and mixins
+@import '~@core/scss/base/bootstrap-extended/include';
+// Overrides user variable
+@import '~@core/scss/base/components/include';
+
+$vt-toast-min-height: unset;
+$vt-toast-max-height: unset;
+$vt-toast-max-width: 400px;
+
+$vt-color-default: $white;
+$vt-color-info: $white;
+$vt-color-success: $white;
+$vt-color-warning: $white;
+$vt-color-error: $white;
+
+$vt-text-color-default: $primary;
+$vt-text-color-info: $info;
+$vt-text-color-success: $success;
+$vt-text-color-warning: $warning;
+$vt-text-color-error: $danger;
+$vt-font-family: inherit;
+
+// Import the regular Vue Toastification stylesheets (or create your own)
+@import 'vue-toastification/src/scss/_variables';
+@import 'vue-toastification/src/scss/_toastContainer';
+@import 'vue-toastification/src/scss/_toast';
+@import 'vue-toastification/src/scss/_closeButton';
+@import 'vue-toastification/src/scss/_progressBar';
+@import 'vue-toastification/src/scss/_icon';
+@import 'vue-toastification/src/scss/animations/fade';
+
+.#{$vt-namespace}__toast {
+  padding: 1rem;
+  box-shadow: $box-shadow;
+  border-radius: $card-border-radius;
+}
+
+@media only screen and (max-width: 600px) {
+  .Vue-Toastification__container {
+    .Vue-Toastification__toast {
+      width: 90%;
+    }
+  }
+}
+
+// ------------Dark Layout -----------//
+.dark-layout {
+  .#{$vt-namespace}__toast {
+    background-color: $theme-dark-card-bg;
+  }
+}

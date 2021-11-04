@@ -1,0 +1,100 @@
+// ===============================================================================================
+//  File Name: pricing.scss
+//  Description: pricing Page Content SCSS
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+// pricing card
+.pricing-card {
+  // card active border
+  .card {
+    &.popular {
+      border: 1px solid $primary;
+    }
+  }
+  // list group circle
+  .list-group-circle {
+    font-weight: $font-weight-bold;
+    color: $headings-color;
+  }
+  // plan price value
+  .annual-plan {
+    margin-bottom: 1.7rem;
+    .plan-price {
+      sup {
+        top: -1.5rem;
+        left: 0.2rem;
+      }
+      span {
+        font-size: 3.5rem;
+        line-height: 0.8;
+      }
+      sub {
+        bottom: 0;
+        right: 0.14rem;
+      }
+    }
+
+    // annual pricing value
+    .annual-pricing {
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+// trial free card
+.pricing-free-trial {
+  height: 16.71rem;
+  background-color: rgba(186, 191, 199, 0.12);
+  margin-right: -$content-padding;
+  margin-left: -$content-padding;
+  margin-top: 7.5rem;
+  margin-bottom: 6.3rem;
+
+  // row default margin zero because it cause the horizontal scroll bar
+  .row {
+    margin: 0;
+  }
+  // content container
+  .pricing-trial-content {
+    padding: 0 1rem;
+    // image
+    img {
+      position: relative;
+      top: -3.1rem;
+    }
+  }
+}
+
+// price trial ad card in small screen
+@include media-breakpoint-down(sm) {
+  .pricing-free-trial {
+    height: auto;
+    .pricing-trial-content {
+      flex-direction: column;
+      align-items: center;
+      .pricing-trial-img {
+        top: 0;
+        margin-top: 2rem;
+        height: 150px;
+      }
+    }
+  }
+}
+
+// free trial div margin change on below screen
+@include media-breakpoint-down(xs) {
+  .pricing-free-trial {
+    margin-right: -1.2rem;
+    margin-left: -1.2rem;
+  }
+}

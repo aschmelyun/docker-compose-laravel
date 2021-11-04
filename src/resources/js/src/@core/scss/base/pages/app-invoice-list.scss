@@ -1,0 +1,96 @@
+// ================================================================================================
+//  File Name: app-invoice-list.scss
+//  Description: Invoice Layout page layouts SCSS.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy HTML Admin Template
+//  Version: 1.0
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+.invoice-list-wrapper {
+  .dataTables_wrapper {
+    .dataTables_length,
+    .dataTables_filter {
+      label {
+        margin-top: 0.55rem;
+      }
+    }
+    .dataTables_length {
+      select {
+        margin-left: 0.5rem;
+      }
+    }
+    .invoice-list-table {
+      thead {
+        th {
+          &:before,
+          &:after {
+            left: auto;
+          }
+
+          &:last-child {
+            &:before,
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+      tbody {
+        .control:before {
+          background-color: $primary;
+          line-height: 1rem;
+          font-family: $font-family-base;
+        }
+        .col-actions {
+          a:not(.dropdown-item) {
+            color: $body-color;
+          }
+          .dropdown {
+            .dropdown-item {
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 470px) {
+    .invoice_status {
+      margin-top: 1rem;
+      width: 100%;
+      select {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}
+
+// Datatables Responsive Modal
+.dtr-bs-modal {
+  .modal-header {
+    flex-direction: row-reverse;
+  }
+  .modal-body {
+    padding-left: 0;
+    padding-right: 0;
+    .table {
+      tr {
+        td {
+          border-color: $border-color;
+          .col-actions {
+            a:not(.dropdown-item) {
+              color: $body-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

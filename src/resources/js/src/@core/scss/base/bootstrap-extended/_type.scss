@@ -1,0 +1,22 @@
+// ================================================================================================
+//     File Name: type.scss
+//     Description: Type pages custom scss
+//     ----------------------------------------------------------------------------------------------
+//     Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//     Author: PIXINVENT
+//     Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+// text heading color
+.text-body-heading {
+  color: $headings-color;
+  &:hover {
+    color: inherit !important;
+  }
+}
+// text body hover color if have link
+.text-body {
+  &[href]:hover {
+    color: $link-hover-color !important;
+  }
+}

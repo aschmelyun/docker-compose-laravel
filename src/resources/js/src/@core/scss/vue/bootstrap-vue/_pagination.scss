@@ -1,0 +1,43 @@
+.page-item {
+  &.prev-item,
+  &.next-item {
+    .page-link {
+      padding: 0.5rem 0;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+// pill
+.pagination {
+  &.b-pagination-pills {
+    .page-item.active {
+      background-color: transparent;
+    }
+  }
+}
+
+.page-item.prev-item {
+  .page-link {
+    &:before {
+      display: none;
+    }
+    svg {
+      transform: translateX(-1px);
+    }
+  }
+}
+
+.page-item.next-item {
+  .page-link {
+    &:after {
+      display: none;
+    }
+    svg {
+      transform: translateX(1px);
+    }
+  }
+}

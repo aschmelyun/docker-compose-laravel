@@ -1,0 +1,213 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+/* Set dropdown font-families */
+.ql-toolbar .ql-font span[data-label='Sailec Light']::before {
+  font-family: 'Sailec Light';
+}
+.ql-toolbar .ql-font span[data-label='Sofia Pro']::before {
+  font-family: 'Sofia';
+}
+.ql-toolbar .ql-font span[data-label='Slabo 27px']::before {
+  font-family: 'Slabo 27px';
+}
+.ql-toolbar .ql-font span[data-label='Roboto Slab']::before {
+  font-family: 'Roboto Slab';
+}
+.ql-toolbar .ql-font span[data-label='Inconsolata']::before {
+  font-family: 'Inconsolata';
+}
+.ql-toolbar .ql-font span[data-label='Ubuntu Mono']::before {
+  font-family: 'Ubuntu Mono';
+}
+
+/* Set content font-families */
+.ql-font-sofia {
+  font-family: 'Sofia';
+}
+.ql-font-slabo {
+  font-family: 'Slabo 27px';
+}
+.ql-font-roboto {
+  font-family: 'Roboto Slab';
+}
+.ql-font-inconsolata {
+  font-family: 'Inconsolata';
+}
+.ql-font-ubuntu {
+  font-family: 'Ubuntu Mono';
+}
+
+// Quill Editor
+.ql-toolbar {
+  border-color: $custom-control-border-color !important;
+  .ql-formats {
+    &:focus,
+    *:focus {
+      outline: 0;
+    }
+    // button and label hover
+    .ql-picker-label,
+    button {
+      &:hover,
+      &:focus {
+        color: $primary !important;
+        .ql-stroke {
+          stroke: $primary !important;
+        }
+        .ql-fill {
+          fill: $primary !important;
+        }
+      }
+      &.ql-active {
+        color: $primary !important;
+      }
+    }
+    .ql-picker-item.ql-selected {
+      color: $primary !important;
+    }
+    // quill dropdown item hover
+    .ql-picker-options {
+      .ql-picker-item:hover {
+        color: $primary !important;
+      }
+      .ql-active {
+        color: $primary !important;
+      }
+    }
+  }
+}
+.ql-bubble {
+  .ql-picker {
+    color: $white !important;
+  }
+  // stroke options color
+  .ql-stroke {
+    stroke: $white !important;
+  }
+  // fill options color
+  .ql-fill {
+    fill: $white !important;
+  }
+}
+.ql-container {
+  border-color: $custom-control-border-color !important;
+  font-family: $font-family-monospace;
+}
+.ql-editor {
+  a {
+    color: $primary;
+  }
+}
+// default picker options
+.ql-picker {
+  color: $headings-color !important;
+}
+// stroke options color
+.ql-stroke {
+  stroke: $headings-color !important;
+}
+.ql-active {
+  .ql-stroke {
+    stroke: $primary !important;
+  }
+  .ql-fill {
+    fill: $primary !important;
+  }
+}
+// fill options color
+.ql-fill {
+  fill: $headings-color !important;
+}
+// Border rounded for editor
+.ql-toolbar,
+.ql-container {
+  border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+}
+.ql-toolbar {
+  + .ql-container,
+  .ql-container + & {
+    // ? If container/toolbar is below container/toolbar add bottom radius
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    // ? If container/toolbar is above container/toolbar remove top radius
+    border-top-right-radius: unset;
+    border-top-left-radius: unset;
+  }
+}
+
+// Dark Layout
+.dark-layout {
+  // Quill Editor
+  .quill-toolbar,
+  .ql-toolbar {
+    background-color: $theme-dark-input-bg;
+    border-color: $theme-dark-border-color !important;
+
+    // toolbar color
+    .ql-picker {
+      color: $white !important;
+    }
+
+    .ql-stroke {
+      stroke: $white !important;
+    }
+
+    .ql-fill {
+      fill: $white !important;
+    }
+
+    // toolbar options colors
+    .ql-picker-options,
+    .ql-picker-label {
+      background-color: $theme-dark-input-bg;
+      .ql-active {
+        color: $primary !important;
+      }
+    }
+  }
+  .ql-active {
+    .ql-stroke {
+      stroke: $primary !important;
+    }
+    .ql-fill {
+      fill: $primary !important;
+    }
+  }
+  .ql-bubble {
+    .ql-toolbar {
+      background: $theme-dark-border-color;
+      border-radius: 2rem;
+    }
+  }
+
+  .ql-container {
+    border-color: $theme-dark-border-color !important;
+    background-color: $theme-dark-input-bg;
+  }
+
+  // syntax color
+  .ql-editor {
+    .ql-syntax {
+      background-color: $theme-dark-body-bg;
+    }
+
+    &.ql-blank {
+      &:before {
+        color: $theme-dark-body-color;
+      }
+    }
+  }
+}
+
+// RTL
+[data-textdirection='rtl'] {
+  .ql-snow .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) {
+    i,
+    svg {
+      left: auto !important;
+      right: 0;
+    }
+  }
+}

@@ -1,0 +1,106 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+.dropzone {
+  min-height: 350px;
+  border: 2px dashed $primary;
+  background: $body-bg;
+  position: relative;
+  // dropzone message customization
+  .dz-message {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #7367f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  // dropzone message icon
+  .dz-message:before {
+    content: '';
+    background-image: url(str-replace(str-replace($download, 'currentColor', $primary), '#', '%23'));
+    font-size: 80px;
+    position: absolute;
+    top: 14rem;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    line-height: 1;
+    z-index: 2;
+    color: $primary;
+    text-indent: 0px;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  // for preview of files
+  .dz-preview {
+    // background: transparent !important;
+
+    .dz-error-mark,
+    .dz-success-mark {
+      z-index: 10;
+    }
+
+    .dz-image {
+      border-radius: $border-radius;
+    }
+
+    .dz-error-message {
+      background: $danger;
+      &:after {
+        border-bottom: 6px solid $danger;
+      }
+    }
+    &.dz-image-preview{
+      background: transparent !important;
+    }
+  }
+
+  // for dropzone preview and remove icon
+  .dz-preview .dz-remove {
+    font-size: 1.1rem;
+    color: $danger;
+    line-height: 2rem;
+
+    &:before {
+      content: '';
+      background-image: url(str-replace(str-replace($remove, 'currentColor', $danger), '#', '%23'));
+      display: inline-block;
+      line-height: 1;
+      z-index: 2;
+      text-indent: 0px;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: darken($danger, 10%);
+    }
+  }
+}
+
+// For Small Screen drop Logo
+@media (max-width: 576px) {
+  .dropzone {
+    .dz-message {
+      &:before {
+        top: 15rem;
+      }
+    }
+  }
+}
+
+// dark layout
+.dark-layout {
+  .dropzone {
+    background-color: lighten($theme-dark-card-bg, 3%);
+  }
+}

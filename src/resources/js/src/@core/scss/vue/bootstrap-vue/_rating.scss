@@ -1,0 +1,4 @@
+// Reason: Form Rating get box-shadow due to form-control:focus on focus
+output.b-rating.form-control:focus {
+  box-shadow: none;
+}

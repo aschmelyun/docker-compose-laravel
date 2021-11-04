@@ -1,0 +1,173 @@
+// Core variables and mixins
+@import '~@core/scss/base/bootstrap-extended/include';
+// Overrides user variable
+@import '~@core/scss/base/components/include';
+// good table variable override to change the color of table
+$text-color: $body-color;
+$thead-bg-color-1: transparent;
+$thead-bg-color-2: transparent;
+
+// sorting icons
+.vgt-wrap {
+  .vgt-table {
+    th.sortable {
+      &:before {
+        border-top-color: $border-color;
+      }
+      &:after {
+        border-bottom-color: $border-color;
+      }
+    }
+    thead {
+      th {
+        &.sorting-desc {
+          &::before {
+            border-top-color: $primary;
+          }
+        }
+        &.sorting-asc {
+          &::after {
+            border-bottom-color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+// pagination in rtl
+.vgt-wrap.rtl {
+  .vgt-table {
+    th.sortable {
+      &::after,
+      &::before {
+        left: 2rem;
+      }
+    }
+  }
+  .pagination {
+    .page-item:last-child:not(.next-item) {
+      .page-link {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 1.428rem;
+        border-bottom-left-radius: 1.428rem;
+      }
+    }
+    .page-item:first-child:not(.prev-item) {
+      .page-link {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 1.428rem;
+        border-bottom-right-radius: 1.428rem;
+      }
+    }
+  }
+}
+
+//--------- dark layout -----------//
+body {
+  &.dark-layout {
+    .vgt-wrap {
+      .vgt-table {
+        background-color: $theme-dark-card-bg;
+        border-color: $theme-dark-border-color;
+        th,
+        td,
+        tr {
+          border-color: $theme-dark-border-color;
+          background-color: $theme-dark-card-bg;
+          span {
+            color: $theme-dark-body-color;
+          }
+          input {
+            background-color: $theme-dark-input-bg;
+            color: $theme-dark-body-color;
+            border-color: $theme-dark-input-border-color;
+            &::placeholder {
+              color: $theme-dark-body-color;
+            }
+          }
+        }
+        th.sortable {
+          &::after {
+            border-bottom-color: $theme-dark-body-color;
+          }
+          &::before {
+            border-top-color: $theme-dark-body-color;
+          }
+        }
+        thead th.sorting-desc::before {
+          border-top-color: $primary;
+        }
+        thead th.sorting-asc::after {
+          border-bottom-color: $primary;
+        }
+      }
+    }
+  }
+}
+
+// ------------------------------------------------
+// RTL
+// ------------------------------------------------
+
+html[dir='rtl'] {
+  .b-pagination {
+    .page-item {
+      &.prev-item {
+        margin-right: 0.3571rem;
+        margin-left: 0;
+        .page-link {
+          svg {
+            transform: rotate(360deg);
+          }
+        }
+        ~ .page-item:nth-child(2):not(.active) {
+          .page-link {
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            border-top-left-radius: 5rem;
+            border-bottom-left-radius: 5rem;
+          }
+        }
+        ~ .page-item:nth-last-child(2):not(.active) {
+          .page-link {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-top-right-radius: 5rem;
+            border-bottom-right-radius: 5rem;
+          }
+        }
+        ~ .page-item:nth-child(2) {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          border-top-left-radius: 5rem;
+          border-bottom-left-radius: 5rem;
+        }
+        ~ .page-item:nth-last-child(2) {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 5rem;
+          border-bottom-right-radius: 5rem;
+        }
+      }
+      &.next-item {
+        margin-right: 0;
+        margin-left: 0.3571rem;
+        .page-link {
+          svg {
+            transform: rotate(360deg);
+          }
+        }
+      }
+      &.active {
+        .page-link {
+          border-top-right-radius: 5rem !important;
+          border-bottom-right-radius: 5rem !important;
+        }
+      }
+    }
+  }
+}
+@import '~vue-good-table/src/styles/style.scss';

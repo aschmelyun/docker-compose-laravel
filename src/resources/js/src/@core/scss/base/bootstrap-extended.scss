@@ -1,0 +1,47 @@
+// ================================================================================================
+//  File Name: bootstrap-extended.scss
+//  Description: List of modified Bootstrap files. This is an actual copy of bootstrap.scss
+//                excluding files that have not been modified.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import 'bootstrap-extended/include'; // Bootstrap includes
+@import 'components/include'; // Components includes
+
+// Custom template mixins
+@import 'core/mixins/alert'; // Template custom mixins
+
+// Core CSS
+@import 'bootstrap-extended/reboot';
+@import 'bootstrap-extended/helper';
+@import 'bootstrap-extended/type';
+@import 'bootstrap-extended/code';
+@import 'bootstrap-extended/tables';
+@import 'bootstrap-extended/forms';
+@import 'bootstrap-extended/buttons';
+@import 'bootstrap-extended/button-group';
+
+// Components
+@import 'bootstrap-extended/dropdown';
+@import 'bootstrap-extended/navbar';
+@import 'bootstrap-extended/card';
+@import 'bootstrap-extended/breadcrumb';
+@import 'bootstrap-extended/badge';
+@import 'bootstrap-extended/nav';
+@import 'bootstrap-extended/alert';
+@import 'bootstrap-extended/media';
+@import 'bootstrap-extended/progress';
+@import 'bootstrap-extended/list-group';
+@import 'bootstrap-extended/toast';
+@import 'bootstrap-extended/collapse';
+@import 'bootstrap-extended/pagination';
+
+// Components w/ JavaScript
+@import 'bootstrap-extended/modal';
+@import 'bootstrap-extended/popover';
+
+// Utility classes
+@import 'bootstrap-extended/utilities';

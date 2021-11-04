@@ -1,0 +1,632 @@
+// ================================================================================================
+// 	File Name: app-ecommerce.scss
+// 	Description: SCSS file for ecommerce shop, wishlist and checkout page.
+// 	----------------------------------------------------------------------------------------------
+// 	Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+// 	Author: PIXINVENT
+// 	Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+$search-bar-height: 48px;
+
+.ecommerce-application {
+  .content-body {
+    position: relative;
+  }
+  // To overlay in whole page
+  .body-content-overlay {
+    position: fixed !important;
+    z-index: 12 !important;
+  }
+
+  // Shop Sidebar
+  .sidebar-shop {
+    margin-top: 0.85rem;
+    width: $sidebar-width;
+    z-index: 998;
+
+    // for heading
+    .filter-heading {
+      margin-bottom: 1.75rem;
+    }
+
+    // for title
+    .filter-title {
+      margin-bottom: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    // Sidebar price range and categories list
+    .price-range,
+    .categories-list {
+      li:not(:last-child) {
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    // Sidebar brand list
+    .brand-list {
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    // Sidebar for slider
+    .range-slider.noUi-horizontal {
+      .noUi-handle {
+        .noUi-tooltip {
+          opacity: 0;
+          transform: translate(-50%, -15%);
+
+          &:before {
+            content: '$ ';
+          }
+        }
+        &:active {
+          .noUi-tooltip {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    // for stars in rating
+    .ratings-list {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      &:last-child {
+        margin-bottom: 2.5rem;
+      }
+      ul {
+        margin-bottom: 0;
+        .ratings-list-item {
+          svg,
+          i {
+            width: 1.25rem;
+            height: 1.25rem;
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+
+  // ratings style
+  .filled-star {
+    fill: $warning;
+    stroke: $warning;
+    color: $warning;
+  }
+  .unfilled-star {
+    stroke: $gray-100;
+    color: $gray-100;
+  }
+
+  // E-commerce shop main content area
+
+  //ecommerce header
+  .ecommerce-header-items {
+    display: flex;
+    justify-content: space-between;
+
+    .result-toggler {
+      display: flex;
+      align-items: center;
+
+      // Sidebar toggler
+      .shop-sidebar-toggler {
+        padding-left: 0;
+
+        &:active,
+        &:focus {
+          outline: 0;
+        }
+
+        .navbar-toggler-icon {
+          height: auto;
+          i,
+          svg {
+            color: $body-color;
+            height: 1.5rem;
+            width: 1.5rem;
+            font-size: 1.5rem;
+          }
+        }
+      }
+      // Search result title
+      .search-results {
+        font-weight: $font-weight-bold;
+        color: $headings-color;
+      }
+    }
+  }
+
+  // Product search bar
+  .ecommerce-searchbar {
+    .input-group {
+      box-shadow: 0 2px 8px 0 rgba($black, 0.14);
+      border-radius: 0.3rem;
+    }
+  }
+
+  // Search bar
+  .search-product,
+  .input-group-text {
+    height: $search-bar-height;
+    border: none;
+    font-size: 0.95rem;
+    padding-left: 1.25rem;
+
+    &::placeholder {
+      font-size: 0.95rem;
+    }
+  }
+
+  // main Products
+  .ecommerce-card {
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 25px 0 rgba($black, 0.25);
+    }
+
+    // ratings
+    .item-rating {
+      ul {
+        margin-bottom: 0;
+      }
+      svg,
+      i {
+        height: 1.143rem;
+        width: 1.143rem;
+        font-size: 1.143rem;
+      }
+    }
+
+    // Item name
+    .item-name {
+      margin-bottom: 0;
+      a {
+        font-weight: $font-weight-bolder;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .item-description {
+      font-size: 0.875rem;
+    }
+
+    // buttons style
+    .btn-wishlist,
+    .btn-cart {
+      span {
+        vertical-align: text-top;
+      }
+      i,
+      svg {
+        margin-right: 0.25rem;
+        vertical-align: text-top;
+        &.text-danger {
+          fill: $danger;
+        }
+      }
+    }
+  }
+
+  // margin for both views
+  .grid-view,
+  .list-view {
+    &:not(.wishlist-items) {
+      margin-top: 2rem;
+    }
+  }
+
+  // Grid View Specific style
+  .grid-view {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+    &.wishlist-items {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .ecommerce-card {
+      overflow: hidden;
+
+      // Item Image
+      .item-img {
+        padding-top: 0.5rem;
+        min-height: 15.85rem;
+        display: flex;
+        align-items: center;
+      }
+
+      // Item content wrapper
+      .item-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      // Hiding list view items
+      .shipping,
+      .item-company,
+      .item-options .item-price {
+        display: none;
+      }
+
+      .item-options {
+        display: flex;
+        flex-wrap: wrap;
+
+        .btn-cart,
+        .btn-wishlist {
+          flex-grow: 1;
+          border-radius: 0;
+        }
+      }
+
+      .item-name {
+        margin-top: 0.75rem;
+      }
+
+      // Item Description
+      .item-description {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-top: 0.2rem;
+      }
+
+      .item-price {
+        font-weight: $font-weight-bolder;
+      }
+
+      .card-body {
+        padding: 1rem;
+      }
+    }
+  }
+
+  // List View Specific style
+  .list-view {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .ecommerce-card {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+
+      // list view image
+      .item-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .card-body {
+        padding: 1.5rem 1rem;
+        border-right: 1px solid $border-color;
+        display: flex;
+        flex-direction: column;
+
+        // item name and ratings order
+        .item-wrapper {
+          order: 2;
+        }
+        .item-name {
+          order: 1;
+        }
+        // List view description
+        .item-description {
+          order: 3;
+          display: -webkit-box;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        // .item-rating,
+        .item-price {
+          display: none;
+        }
+        // ratings
+        .item-rating {
+          margin-bottom: 0.3rem;
+        }
+      }
+      // Common for list-view, checkout and wishlist
+      .item-company {
+        display: inline-flex;
+        font-weight: $font-weight-normal;
+        margin: 0.3rem 0 0.5rem;
+        font-size: 0.875rem;
+
+        .company-name {
+          font-weight: $font-weight-bolder;
+          margin-left: 0.25rem;
+        }
+      }
+
+      // price and btn area of list view
+      .item-options {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .item-wrapper {
+          position: relative;
+
+          .item-cost {
+            .item-price {
+              color: $primary;
+              margin-bottom: 0;
+            }
+          }
+        }
+        // Shipping free tag
+        .shipping {
+          margin-top: 0.75rem;
+        }
+        // List view btn spacing
+        .btn-wishlist,
+        .btn-cart {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  // for checkout-items and options
+  // Remove padding from stepper header & content area
+  .checkout-tab-steps {
+    .bs-stepper-header,
+    .bs-stepper-content {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  // Checkout items list
+  .checkout-items {
+    .ecommerce-card {
+      .item-img {
+        img {
+          width: 200px;
+        }
+      }
+      // adding order as we have updated order for shop list view
+      .item-name {
+        order: 0 !important;
+      }
+      .item-company,
+      .item-rating {
+        margin-bottom: 0.4rem !important;
+      }
+      .item-quantity {
+        display: flex;
+        align-items: center;
+      }
+
+      .delivery-date {
+        margin-top: 1.2rem;
+        margin-bottom: 0.25rem;
+      }
+      // Item options button
+      .item-options {
+        .btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .checkout-options {
+    .coupons {
+      &:focus-within {
+        box-shadow: none;
+      }
+      input {
+        border: none;
+        padding-left: 0;
+        color: $body-color;
+        font-weight: $font-weight-bolder;
+        &::placeholder {
+          color: $body-color;
+          font-weight: $font-weight-bolder;
+        }
+      }
+      .input-group-append {
+        margin: 0;
+      }
+      .input-group-text {
+        height: auto;
+        font-weight: $font-weight-bolder;
+        padding: inherit;
+      }
+    }
+    .price-details {
+      .price-title {
+        font-weight: $font-weight-bolder;
+        margin-bottom: 0.75rem;
+        margin-top: 1.5rem;
+      }
+      .price-detail {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+
+        .detail-title {
+          &.detail-total {
+            font-weight: $font-weight-bolder;
+          }
+        }
+      }
+    }
+  }
+  .payment-type {
+    .gift-card {
+      cursor: pointer;
+    }
+  }
+
+  // checkout wizard
+
+  .checkout-tab-steps {
+    background-color: transparent !important;
+    box-shadow: none !important;
+
+    .bs-stepper-header {
+      border: none;
+    }
+  }
+
+  // To hide toggler on lg and up and grid view for btn-wishlist and list view for checkout
+  @include media-breakpoint-up(lg) {
+    .ecommerce-header-items {
+      // Hide toggler in > lg screen
+      .shop-sidebar-toggler {
+        display: none;
+      }
+    }
+
+    // Checkout list view
+    .product-checkout {
+      &.list-view {
+        grid-template-columns: 2fr 1fr;
+        column-gap: 2rem;
+      }
+    }
+  }
+}
+// Media queries to change grid columns in different Screens and to hide search results below 768px
+@include media-breakpoint-down(lg) {
+  .ecommerce-application {
+    // Header item area
+    .ecommerce-header-items {
+      .btn-group {
+        align-items: center;
+        .btn-icon {
+          padding: 0.6rem 0.736rem;
+        }
+      }
+    }
+    .grid-view.wishlist-items {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    // overlay style for e-commerce page
+    .body-content-overlay {
+      position: fixed;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      &.show {
+        opacity: 1;
+      }
+    }
+
+    // Horizontal Menu scss
+    &.horizontal-layout {
+      .body-content-overlay {
+        z-index: 998 !important;
+      }
+      .sidebar-shop {
+        z-index: 999 !important;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .ecommerce-application {
+    .sidebar-left {
+      .sidebar {
+        // removed radius and margin as showing sidebar in full height
+        .card {
+          border-radius: 0;
+          margin: 0;
+        }
+        // Sidebar style
+        .sidebar-shop {
+          transform: translateX(-112%);
+          transition: all 0.25s ease;
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          overflow-y: scroll;
+          margin: 0;
+
+          &.show {
+            transition: all 0.25s ease;
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+    // Grid view for responsive
+    .grid-view {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    // to hide search results
+    .ecommerce-header-items {
+      .result-toggler {
+        .search-results {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .ecommerce-application {
+    .grid-view.wishlist-items {
+      grid-template-columns: 1fr 1fr;
+    }
+    // List View
+    .list-view {
+      .ecommerce-card {
+        grid-template-columns: 1fr;
+
+        .item-img {
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+        }
+
+        // to remove card-body border
+        .card-body {
+          border: none;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .ecommerce-application {
+    // Grid View
+    .grid-view,
+    .grid-view.wishlist-items {
+      grid-template-columns: 1fr;
+    }
+  }
+}

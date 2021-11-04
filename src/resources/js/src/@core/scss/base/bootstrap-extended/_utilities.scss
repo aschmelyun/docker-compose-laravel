@@ -1,0 +1,465 @@
+// ================================================================================================
+// 	File Name: utilities.scss
+// 	Description: Utility classes provides color, width, position & background etc..
+// 				 related customization.
+// 	----------------------------------------------------------------------------------------------
+// 	Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+// 	Author: PIXINVENT
+// 	Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+// Sizes Variable for height and width mixins
+$sizes-px: (
+  // in px
+  50: 50px,
+  100: 100px,
+  150: 150px,
+  200: 200px,
+  250: 250px,
+  300: 300px,
+  350: 350px,
+  400: 405px,
+  450: 455px,
+  500: 500px,
+  550: 550px,
+  600: 600px,
+  650: 650px,
+  700: 700px,
+  750: 750px,
+  800: 800px
+) !default;
+
+$sizes-per: (
+  // in %
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  30: 30%,
+  35: 35%,
+  40: 40%,
+  45: 45%,
+  50: 50%,
+  55: 55%,
+  60: 60%,
+  65: 65%,
+  70: 70%,
+  75: 75%,
+  80: 80%,
+  85: 85%,
+  90: 90%,
+  95: 95%
+) !default;
+
+//--------------- Text ---------------
+//------------------------------------
+
+// Font Size
+//----------
+//small
+.font-small-1 {
+  font-size: 0.7rem !important;
+
+  // for Feather SVG icons as we are using base size as 1rem
+  @at-root svg#{&} {
+    height: 0.7rem !important;
+    width: 0.7rem !important;
+  }
+}
+.font-small-2 {
+  font-size: 0.8rem !important;
+  @at-root svg#{&} {
+    height: 0.8rem !important;
+    width: 0.8rem !important;
+  }
+}
+.font-small-3 {
+  font-size: 0.9rem !important;
+  @at-root svg#{&} {
+    height: 0.9rem !important;
+    width: 0.9rem !important;
+  }
+}
+.font-small-4 {
+  font-size: 1rem !important;
+  @at-root svg#{&} {
+    height: 1rem !important;
+    width: 1rem !important;
+  }
+}
+//medium
+.font-medium-1 {
+  font-size: 1.1rem !important;
+  @at-root svg#{&} {
+    height: 1.1rem !important;
+    width: 1.1rem !important;
+  }
+}
+.font-medium-2 {
+  font-size: 1.2rem !important;
+  @at-root svg#{&} {
+    height: 1.2rem !important;
+    width: 1.2rem !important;
+  }
+}
+.font-medium-3 {
+  font-size: 1.3rem !important;
+  @at-root svg#{&} {
+    height: 1.3rem !important;
+    width: 1.3rem !important;
+  }
+}
+.font-medium-4 {
+  font-size: 1.4rem !important;
+  @at-root svg#{&} {
+    height: 1.4rem !important;
+    width: 1.4rem !important;
+  }
+}
+.font-medium-5 {
+  font-size: 1.5rem !important;
+  @at-root svg#{&} {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+  }
+}
+//large
+.font-large-1 {
+  font-size: 2rem !important;
+  @at-root svg#{&} {
+    height: 2rem !important;
+    width: 2rem !important;
+  }
+}
+.font-large-2 {
+  font-size: 3rem !important;
+  @at-root svg#{&} {
+    height: 3rem !important;
+    width: 3rem !important;
+  }
+}
+.font-large-3 {
+  font-size: 4rem !important;
+  @at-root svg#{&} {
+    height: 4rem !important;
+    width: 4rem !important;
+  }
+}
+.font-large-4 {
+  font-size: 5rem !important;
+  @at-root svg#{&} {
+    height: 5rem !important;
+    width: 5rem !important;
+  }
+}
+.font-large-5 {
+  font-size: 6rem !important;
+  @at-root svg#{&} {
+    height: 6rem !important;
+    width: 6rem !important;
+  }
+}
+
+// Line height
+//----------
+.line-height-1 {
+  line-height: 1 !important;
+}
+.line-height-condensed {
+  line-height: 1.5 !important;
+}
+.line-height-inherit {
+  line-height: inherit !important;
+}
+
+// Transform
+//----------
+.rotate-45 {
+  transform: rotate(45deg);
+}
+.rotate-45-inverse {
+  transform: rotate(-45deg);
+}
+.rotate-90 {
+  transform: rotate(90deg);
+}
+.rotate-90-inverse {
+  transform: rotate(-90deg);
+}
+.rotate-180 {
+  transform: rotate(180deg);
+}
+.rotate-180-inverse {
+  transform: rotate(-180deg);
+}
+
+//-------------- Borders --------------
+//-------------------------------------
+
+// Border width - 2px
+.border-2 {
+  border-width: 2px !important;
+}
+.border-top-2 {
+  border-top-width: 2px !important;
+}
+.border-bottom-2 {
+  border-bottom-width: 2px !important;
+}
+.border-left-2 {
+  border-left-width: 2px !important;
+}
+.border-right-2 {
+  border-right-width: 2px !important;
+}
+
+// Border width - 3px
+.border-3 {
+  border-width: 3px !important;
+}
+.border-top-3 {
+  border-top-width: 3px !important;
+}
+.border-bottom-3 {
+  border-bottom-width: 3px !important;
+}
+.border-left-3 {
+  border-left-width: 3px !important;
+}
+.border-right-3 {
+  border-right-width: 3px !important;
+}
+
+// Shapes radius : Round / Square
+.round {
+  @include border-radius(1.5rem);
+}
+.square {
+  @include border-radius(0);
+}
+
+//-------------- Sizing --------------
+//------------------------------------
+
+// Width && Height
+.fit {
+  max-width: 100% !important;
+}
+.half-width {
+  width: 50% !important;
+}
+.full-width {
+  width: 100% !important;
+}
+.full-height {
+  height: 100% !important;
+}
+
+// height & width in PX
+@each $name, $size in $sizes-px {
+  .height-#{$name} {
+    height: $size !important;
+  }
+
+  .width-#{$name} {
+    width: $size !important;
+  }
+}
+
+// height & width in %
+@each $name, $size in $sizes-per {
+  .height-#{$name}-per {
+    height: $size !important;
+  }
+
+  .width-#{$name}-per {
+    width: $size !important;
+  }
+}
+
+//------------- Position -------------
+//------------------------------------
+.position-top-0 {
+  top: 0;
+}
+.position-right-0 {
+  right: 0;
+}
+.position-bottom-0 {
+  bottom: 0;
+}
+.position-left-0 {
+  left: 0;
+}
+
+//------------- Overflow -------------
+//------------------------------------
+.overflow-visible {
+  overflow: visible;
+}
+.overflow-scroll {
+  overflow: scroll;
+}
+.overflow-x-scroll {
+  overflow: scroll;
+}
+.overflow-y-scroll {
+  overflow: scroll;
+}
+
+//-------------- Cursor --------------
+//------------------------------------
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-move {
+  cursor: move;
+}
+.cursor-default {
+  cursor: default;
+}
+.cursor-progress {
+  cursor: progress;
+}
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+//-------------- Z-index --------------
+//-------------------------------------
+.zindex-1 {
+  z-index: 1 !important;
+}
+.zindex-2 {
+  z-index: 2 !important;
+}
+.zindex-3 {
+  z-index: 3 !important;
+}
+.zindex-4 {
+  z-index: 4 !important;
+}
+.zindex-0 {
+  z-index: 0 !important;
+}
+.zindex-minus-1 {
+  z-index: -1 !important;
+}
+.zindex-minus-2 {
+  z-index: -2 !important;
+}
+.zindex-minus-3 {
+  z-index: -3 !important;
+}
+.zindex-minus-4 {
+  z-index: -4 !important;
+}
+
+//------------ Box Shadow ------------
+//------------------------------------
+.box-shadow-0 {
+  box-shadow: none !important;
+}
+.box-shadow-1 {
+  box-shadow: 0 2px 5px 0 rgba($black, 0.16), 0 2px 10px 0 rgba($black, 0.12);
+}
+.box-shadow-2 {
+  box-shadow: 0 8px 17px 0 rgba($black, 0.2), 0 6px 20px 0 rgba($black, 0.19);
+}
+.box-shadow-3 {
+  box-shadow: 0 12px 15px 0 rgba($black, 0.24), 0 17px 50px 0 rgba($black, 0.19);
+}
+.box-shadow-4 {
+  box-shadow: 0 16px 28px 0 rgba($black, 0.22), 0 25px 55px 0 rgba($black, 0.21);
+}
+.box-shadow-5 {
+  box-shadow: 0 27px 24px 0 rgba($black, 0.2), 0 40px 77px 0 rgba($black, 0.22);
+}
+.box-shadow-6 {
+  box-shadow: 0 4px 8px 0 rgba($black, 0.12), 0 2px 4px 0 rgba($black, 0.08);
+}
+
+//-------------- Outline --------------
+//-------------------------------------
+.outline-none {
+  outline: none !important;
+}
+
+//-------------- Lists --------------
+//-----------------------------------
+.list-style-inside {
+  list-style: inside;
+}
+.list-style-circle {
+  list-style: circle;
+}
+.list-style-square {
+  list-style: square;
+}
+
+//--------- Background Image ---------
+//------------------------------------
+.bg-cover {
+  background-size: cover !important;
+}
+.background-repeat {
+  background-repeat: repeat !important;
+}
+.background-no-repeat {
+  background-repeat: no-repeat !important;
+}
+
+//-------------- Icons --------------
+//-----------------------------------
+.icon-bg-circle {
+  color: $white;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+.icon-left {
+  margin-right: 0.5rem;
+}
+.icon-right {
+  margin-right: 0.5rem;
+}
+
+// Used for blockUI
+.blockOverlay {
+  z-index: 1050 !important;
+}
+.blockElement,
+.blockPage {
+  z-index: 1051 !important;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+a {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+//Tables
+//--------------------------
+.table-middle {
+  td {
+    vertical-align: middle;
+  }
+}
+
+//SVG
+//--------------------------
+.fill-current {
+  fill: currentColor;
+}
+
+//Cursor
+//--------------------------
+.pointer-events-none {
+  pointer-events: none;
+}

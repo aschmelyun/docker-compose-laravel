@@ -1,0 +1,30 @@
+.b-calendar {
+  // reason: calendar bottom help text color
+  .b-calendar-grid-help {
+    color: $body-color !important;
+  }
+  .b-calendar-header {
+    .form-control {
+      line-height: 1.85;
+    }
+  }
+  // reason: calendar navigation button outline remove
+  .b-calendar-inner {
+    .b-calendar-nav {
+      button {
+        border: 0 !important;
+      }
+    }
+  }
+  .btn-outline-light {
+    &:hover {
+      background-color: $gray-200;
+      border-color: $gray-200;
+    }
+  }
+  .table-primary,
+  .table-primary > th,
+  .table-primary > td {
+    background-color: rgba($primary, 0.2);
+  }
+}

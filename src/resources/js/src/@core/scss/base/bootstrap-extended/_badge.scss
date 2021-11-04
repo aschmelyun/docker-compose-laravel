@@ -1,0 +1,90 @@
+// Badge
+
+.badge {
+  color: $white;
+  &[class*='badge-'] {
+    [class*='icon-'] {
+      line-height: 1;
+    }
+
+    a {
+      color: $white;
+    }
+
+    // badge dropdown alignment
+    .dropdown-toggle,
+    &.dropdown-toggle {
+      span,
+      i,
+      svg {
+        vertical-align: text-top;
+      }
+      i,
+      svg {
+        padding-left: 0.2rem;
+      }
+      &::after {
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 1rem;
+      }
+    }
+    .dropdown-menu {
+      a {
+        color: $dropdown-color;
+      }
+    }
+  }
+
+  i,
+  svg {
+    height: 12px;
+    width: 11px;
+    font-size: 12px;
+    stroke-width: 3;
+    vertical-align: top;
+  }
+
+  // square badge
+  &.badge-square {
+    border-radius: 0;
+  }
+
+  // badge-up
+  // to align badge over any element
+  &.badge-up {
+    position: absolute;
+    top: -11px;
+    right: -9px;
+    min-width: 1.429rem;
+    min-height: 1.429rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.786rem;
+    line-height: 0.786;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    &.badge-sm {
+      top: -0.5rem;
+      right: -0.5rem;
+    }
+  }
+}
+
+// For fullscreen search
+.badge-icon {
+  i,
+  svg {
+    font-size: 100%;
+    margin-right: 5px;
+  }
+}
+
+// badge dropup pointer
+.dropup {
+  .badge {
+    cursor: pointer;
+  }
+}

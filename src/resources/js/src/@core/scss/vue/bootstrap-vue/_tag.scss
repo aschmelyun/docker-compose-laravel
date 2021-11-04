@@ -1,0 +1,11 @@
+.b-form-tag {
+  background-color: $primary;
+  margin-right: 0.8rem;
+  .close {
+    opacity: 1;
+    text-shadow: none;
+    vertical-align: middle;
+    display: flex;
+    align-self: center;
+  }
+}

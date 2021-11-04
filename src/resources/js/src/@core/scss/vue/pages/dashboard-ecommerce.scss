@@ -1,0 +1,10 @@
+@import '~@core/scss/base/pages/dashboard-ecommerce.scss';
+
+.card-company-table {
+  td {
+    .b-avatar.badge-light-company {
+      background-color: $body-bg;
+      margin-right: 2rem;
+    }
+  }
+}

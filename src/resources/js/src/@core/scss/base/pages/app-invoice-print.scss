@@ -1,0 +1,58 @@
+// ================================================================================================
+//  File Name: app-invoice-print.scss
+//  Description: Invoice Layout page layouts SCSS.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy HTML Admin Template
+//  Version: 1.0
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+
+html,
+body {
+  background: $white !important;
+}
+
+.invoice-print {
+  min-width: 768px !important;
+  font-size: 15px !important;
+
+  .invoice-date-wrapper {
+    display: flex;
+    align-items: center;
+
+    .invoice-date-title {
+      width: 8rem;
+    }
+  }
+
+  i,
+  svg {
+    fill: $body-color !important;
+  }
+
+  .invoice-total-wrapper {
+    width: 100%;
+    max-width: 12rem;
+    .invoice-total-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .invoice-total-title {
+        // width: 92px;
+        margin-bottom: 0.35rem;
+      }
+      .invoice-total-amount {
+        margin-bottom: 0.35rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.invoice-print * {
+  border-color: rgba($color: $black, $alpha: 0.5) !important;
+  color: $body-color !important;
+}

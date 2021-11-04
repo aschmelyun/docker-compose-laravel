@@ -1,0 +1,66 @@
+// ===============================================================================================
+//  File Name: page-faq.scss
+//  Description: FAQ Page Content SCSS
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+// faq search section
+.faq-search {
+  background-size: cover;
+  background-color: rgba($primary, 0.12) !important;
+  .faq-search-input {
+    .input-group {
+      // remove input group box shadow on inside focus
+      &:focus-within {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// Contact cards
+.faq-contact {
+  .faq-contact-card {
+    background-color: rgba($gray-100, 0.12);
+  }
+}
+
+// make jumbotron card body padding
+@include media-breakpoint-up(lg) {
+  .faq-search {
+    .card-body {
+      padding: 8rem !important;
+    }
+  }
+}
+
+// make jumbotron card body padding
+@include media-breakpoint-only(md) {
+  .faq-search {
+    .card-body {
+      padding: 6rem !important;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  // faq search input width fixed for medium up screen
+  .faq-search {
+    .faq-search-input {
+      .input-group {
+        width: 576px;
+        margin: 0 auto;
+      }
+    }
+  }
+  // faq navigation fix the navigation section so that vector image not move as per collapse
+  .faq-navigation {
+    height: 550px;
+  }
+}

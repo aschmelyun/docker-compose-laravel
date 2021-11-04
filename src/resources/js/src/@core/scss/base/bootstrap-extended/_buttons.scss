@@ -1,0 +1,67 @@
+// var for box shadow of gradient buttons
+// Buttons
+.btn {
+  box-shadow: none;
+  font-weight: 500;
+
+  // gradient button on hover transition
+  &[class*='bg-gradient-'] {
+    transition: all 0.2s ease;
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  // Icon button padding
+  &.btn-icon {
+    padding: 0.715rem 0.736rem;
+  }
+  &.btn-sm {
+    &.btn-icon {
+      padding: 0.5rem;
+      line-height: 0.5;
+    }
+  }
+  &.btn-lg {
+    &.btn-icon {
+      padding: 1rem;
+      line-height: 0.75;
+    }
+  }
+
+  &:focus,
+  &.focus,
+  &:active,
+  &.active {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:not(:disabled):not(.disabled):active:focus,
+  &:not(:disabled):not(.disabled).active:focus {
+    box-shadow: none !important;
+  }
+
+  // feather icons inside btn
+  .feather {
+    vertical-align: bottom;
+  }
+}
+
+// For Waves Input Padding
+.btn.waves-input-wrapper {
+  padding: 0;
+}
+
+@include media-breakpoint-down(sm) {
+  .btn-sm-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+// Remove cursor-pointer from button if button is disabled
+// * setting it to inherit will auto adept cursor
+.waves-effect {
+  cursor: inherit;
+}

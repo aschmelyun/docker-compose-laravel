@@ -1,0 +1,56 @@
+// Alerts
+
+.alert {
+  font-weight: 500;
+  border: none;
+  padding: 0;
+  // close
+  &.alert-dismissible {
+    .close {
+      padding: 0.5rem $alert-padding-x 0.5rem $alert-padding-x;
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    .alert-body {
+      padding: $alert-padding-y ($alert-padding-x * 2) $alert-padding-y $alert-padding-x;
+    }
+  }
+  .close:focus {
+    outline: 0;
+  }
+
+  .alert-link:hover {
+    text-decoration: underline;
+  }
+
+  // For Alert Content
+  p {
+    font-weight: 500;
+    padding: 2px 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  // For alert heading
+  .alert-heading {
+    font-weight: 600;
+    font-size: $font-size-base;
+    padding: $alert-padding-y $alert-padding-x;
+    margin-bottom: 0;
+  }
+  .alert-body {
+    padding: $alert-padding-y $alert-padding-x;
+    i,
+    svg {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  // For dark alert
+  &.alert-dark {
+    .alert-heading {
+      @include alert-heading-bs($dark);
+    }
+  }
+}

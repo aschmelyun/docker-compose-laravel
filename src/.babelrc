@@ -1,0 +1,3 @@
+{
+  "plugins": ["@vue/babel-plugin-transform-vue-jsx", "@babel/plugin-proposal-class-properties"]
+}

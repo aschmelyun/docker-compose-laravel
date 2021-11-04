@@ -1,0 +1,9 @@
+// Themed Modals
+.modal {
+  // Enable even space between two footer button
+  .modal-footer {
+    > .btn {
+      margin-left: 0.75rem;
+    }
+  }
+}

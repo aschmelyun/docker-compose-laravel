@@ -1,0 +1,35 @@
+// reason: header text align center
+.b-time-header {
+  output > bdi {
+    line-height: 1.85;
+  }
+}
+
+// Update Style
+.b-time {
+  .bi-circle-fill {
+    height: 10px;
+    width: 10px;
+    fill: $secondary;
+  }
+  .bi-chevron-up {
+    height: 10px;
+    width: 10px;
+  }
+
+  .b-form-spinbutton {
+    + .flex-column:not(.b-time-ampm) {
+      margin-left: 0.4rem;
+      margin-right: 0.4rem;
+    }
+
+    output.border-bottom.border-top {
+      border: none !important;
+    }
+  }
+
+  // Reset scaling of icon on hover
+  .b-form-spinbutton .btn:hover:not(:disabled) > div > .b-icon {
+    transform: scale(1);
+  }
+}

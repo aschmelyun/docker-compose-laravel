@@ -1,0 +1,10 @@
+// reason: toggleable button has box shadow on active
+.btn-group-toggle,
+.btn-group-toggle {
+  :not([class*='btn-outline-']) {
+    &.active,
+    &:active {
+      box-shadow: none;
+    }
+  }
+}

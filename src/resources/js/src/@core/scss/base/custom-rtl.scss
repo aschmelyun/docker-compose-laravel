@@ -1,0 +1,360 @@
+// ================================================================================================
+//  File Name: custom-rtl.scss
+//  Description: RTL support SCSS file.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+// Variables
+// ------------------------------
+
+@import 'bootstrap-extended/include'; // Bootstrap includes
+@import 'components/include'; // Components includes
+
+// Align icons position
+.main-menu {
+  .navigation li > a > svg,
+  .navigation li > a > i,
+  .dropdown-menu svg,
+  .dropdown-menu i,
+  .dropdown-user > a > svg,
+  .dropdown-user > a > i,
+  .navigation > li > a > svg,
+  .navigation > li > a > i {
+    float: right;
+  }
+
+  .navigation > li ul li > a {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// Transformed menu icons
+.vertical-layout.vertical-menu-modern.menu-expanded .main-menu .navigation li.has-sub > a:after,
+.vertical-layout.vertical-overlay-menu.menu-open .main-menu .navigation li.has-sub > a:after {
+  transform: rotate(180deg);
+}
+.vertical-layout.vertical-menu-modern.menu-expanded
+  .main-menu
+  .navigation
+  li.has-sub.open:not(.menu-item-closing)
+  > a:after {
+  transform: rotate(90deg);
+}
+
+// Horizontal menu
+.horizontal-menu .header-navbar.navbar-horizontal .dropdown-menu .dropdown-toggle::after {
+  background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $body-color), '#', '%23'));
+}
+
+// Dropdown RTL Changes
+.header-navbar .navbar-container ul.nav li.dropdown {
+  .dropdown-menu {
+    top: 41px !important;
+
+    &::before {
+      top: 1px;
+    }
+  }
+}
+
+.header-navbar {
+  .dropdown,
+  .dropup {
+    .dropdown-menu.dropdown-menu-right::before {
+      right: auto;
+      left: 0.5rem;
+    }
+  }
+}
+
+.dropdown,
+.dropup,
+.btn-group {
+  .dropdown-menu {
+    right: auto !important;
+    top: 0 !important;
+    left: auto !important;
+
+    &.dropdown-menu-right {
+      left: 0 !important;
+
+      &::before {
+        right: 0.6rem;
+        left: auto;
+      }
+    }
+  }
+}
+
+.dropleft {
+  .dropdown-toggle {
+    &::before {
+      background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $white), '#', '%23')) !important;
+    }
+  }
+  .dropdown-menu {
+    left: 0 !important;
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+}
+
+.dropright {
+  .dropdown-toggle {
+    &::after {
+      background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $white), '#', '%23')) !important;
+    }
+  }
+  .dropdown-menu {
+    left: 0 !important;
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+}
+
+// Input Group dropdown
+.input-group {
+  .dropdown-menu.show {
+    top: 0 !important;
+    right: auto !important;
+    left: 0px !important;
+  }
+}
+
+// BS Toast
+.toast {
+  right: 1rem;
+}
+
+// Select2
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  left: 1px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  float: right;
+}
+.select2-search__field {
+  direction: rtl;
+}
+
+
+.apexcharts-canvas .apexcharts-text.apexcharts-yaxis-label{
+  transform: translate(14px, 0);
+}
+
+// Chartist
+.chartjs-render-monitor {
+  margin-right: 1rem;
+}
+
+// Datatable
+div.dataTables_wrapper div.dataTables_filter {
+  text-align: left !important;
+}
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before {
+  right: 0.45rem;
+}
+
+// Avatar group
+.avatar-group {
+  // Avatar Group Sizings
+  .avatar {
+    margin-right: -0.785rem;
+    margin-left: 0;
+  }
+  .avatar-sm {
+    margin-right: -0.65rem;
+  }
+  .avatar-lg {
+    margin-right: -1.5rem;
+  }
+  .avatar-xl {
+    margin-right: -1.85rem;
+  }
+}
+
+// Breadcrumb
+.breadcrumb:not([class*='breadcrumb-']),
+.breadcrumb.breadcrumb-chevron {
+  .breadcrumb-item + .breadcrumb-item {
+    &:before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Pagination
+.pagination .page-item {
+  &.prev-item,
+  &.prev,
+  &.previous {
+    .page-link {
+      &:before {
+        transform: rotate(180deg);
+      }
+      &:hover,
+      &:active {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &.disabled {
+      .page-link {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &.next-item,
+  &.next {
+    .page-link {
+      &:after {
+        transform: rotate(180deg);
+      }
+      &:hover,
+      &:active {
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &.disabled {
+      .page-link {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  direction: ltr;
+}
+
+@media print {
+  code[class*='language-'],
+  pre[class*='language-'] {
+    text-shadow: none;
+  }
+}
+
+// Calendar
+.fc .fc-header-toolbar .fc-right .fc-button.fc-prev-button .fc-icon {
+  right: 4px !important;
+}
+
+.fc .fc-header-toolbar .fc-right .fc-button.fc-next-button .fc-icon {
+  left: -3px !important;
+}
+
+// carousel changes
+.carousel-control-next {
+  left: auto;
+  right: 0;
+}
+
+.carousel-control-prev {
+  left: 0;
+  right: auto;
+}
+
+// Tooltip
+.bs-tooltip-left .arrow::before,
+.bs-tooltip-auto[x-placement^='left'] .arrow::before {
+  border-width: 0.4rem 0 0.4rem 0.4rem;
+  border-left-color: $tooltip-bg;
+}
+
+.bs-tooltip-left .arrow,
+.bs-tooltip-auto[x-placement^='left'] .arrow {
+  right: 0;
+  left: auto;
+}
+
+.bs-tooltip-right .arrow::before,
+.bs-tooltip-auto[x-placement^='right'] .arrow::before {
+  border-width: 0.4rem 0.4rem 0.4rem 0;
+  border-right-color: $tooltip-bg;
+}
+
+.bs-tooltip-right .arrow,
+.bs-tooltip-auto[x-placement^='right'] .arrow {
+  left: 0;
+  right: auto;
+}
+
+// Popover Style
+.popover {
+  right: auto !important;
+}
+
+// Progress
+.progress-bar-animated {
+  animation: progress-bar-stripes 40s linear infinite;
+}
+
+// Perfect scrollbar RTL fix
+body .ps__rail-y {
+  right: auto !important;
+  left: 1px !important;
+}
+
+// FAQ and Pricing page
+.faq-navigation img,
+.pricing-free-trial .pricing-trial-img {
+  transform: scaleX(-1);
+}
+
+.feather-chevron-left,
+.feather-chevron-right {
+  transform: rotate(-180deg) !important;
+}
+
+// Kanban
+.kanban-application {
+  .kanban-container {
+    .kanban-item {
+      i,
+      svg {
+        margin-right: 0 !important;
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}
+
+// Invoice List
+.invoice-list-wrapper {
+  .dataTables_filter {
+    input {
+      margin-left: 0 !important;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .dropdown .dropdown-menu.dropdown-menu-right {
+    left: 2rem !important;
+  }
+}
+
+// File Manager
+.file-manager-application {
+  .sidebar-file-manager {
+    .sidebar-inner {
+      .my-drive .jstree-node.jstree-closed > .jstree-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

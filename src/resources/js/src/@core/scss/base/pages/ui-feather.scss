@@ -1,0 +1,59 @@
+@import '../bootstrap-extended/include'; // Bootstrap includes
+
+.icon-search-wrapper {
+  max-width: 300px;
+
+  .feather-search {
+    height: 1.15rem;
+    width: 1.15rem;
+  }
+}
+#icons-container {
+  .icon-card {
+    width: 128px;
+  }
+}
+
+// Active Card
+.icon-card {
+  border: 1px solid transparent;
+  &.active {
+    border-color: $primary;
+    i,
+    svg {
+      color: $primary;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #icons-container {
+    .icon-card {
+      width: 126px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #icons-container {
+    .icon-card {
+      width: 131px;
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  #icons-container {
+    .icon-card {
+      width: 110px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  #icons-container {
+    .icon-card {
+      width: 150px;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+// Color palettes
+@import '~@core/scss/base/core/colors/palette-variables.scss';
+
+/* Generate:
+*  Border color according to event class
+*/
+@each $color_name, $color in $colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type== 'base' {
+      .b-toast-#{$color_name} {
+        .toast-header {
+          background-color: $color_value !important;
+          color: $white !important;
+          .close {
+            color: $white;
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.b-toast {
+  &.b-toast-solid {
+    .toast {
+      background-color: $white;
+      color: $body-color;
+    }
+  }
+}
+
+// Reason: Close button vertical alignment
+.toast-header {
+  .close {
+    margin-bottom: 2px !important;
+  }
+}

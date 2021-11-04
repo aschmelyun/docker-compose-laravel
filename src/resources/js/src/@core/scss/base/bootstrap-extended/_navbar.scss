@@ -1,0 +1,675 @@
+/* ===============================================================================================
+    File Name: navbar.scss
+    Description: Contain header navigation bar, vertical main navigation bar and
+    horiznotal main navigation bar related SCSS.
+    ----------------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+    Author: PIXINVENT
+    Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================================*/
+
+@function set-navbar-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $white; // Lighter backgorund, return dark color
+  } @else {
+    @return $black; // Darker background, return light color
+  }
+}
+
+.header-navbar {
+  padding: 0px;
+  min-height: $navbar-height;
+  font-family: $font-family-monospace;
+  transition: 300ms ease all, background 0s;
+  z-index: 997;
+
+  &.fixed-top,
+  &.floating-nav {
+    left: $menu-expanded-width;
+  }
+
+  // Apply navbar color as per background
+  &[class*='bg-'] {
+    .navbar-nav {
+      .nav-item {
+        > a {
+          color: set-navbar-text-color($theme-dark-body-color) !important;
+
+          i,
+          svg,
+          span {
+            color: set-navbar-text-color($theme-dark-body-color) !important;
+          }
+        }
+
+        .dropdown-menu {
+          i,
+          svg {
+            color: inherit !important;
+          }
+        }
+      }
+
+      .search-input {
+        .input,
+        .search-list .auto-suggestion span {
+          color: $body-color !important;
+        }
+      }
+    }
+  }
+
+  //* Navbar modifiers
+  //*------------------------
+
+  // floating nav
+  &.floating-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: #{$floating-nav-margin};
+    width: calc(100vw - (100vw - 100%) - calc(#{$content-padding} * 2) - #{$menu-expanded-width});
+    border-radius: $card-border-radius;
+    z-index: 12;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // static nav
+  &.navbar-static-top {
+    top: 0;
+    right: 0;
+    left: $menu-expanded-width;
+    width: calc(100vw - (100vw - 100%) - #{$sidebar-width});
+    background: transparent;
+    box-shadow: none !important; // remove this if removing "menu-shadow" class
+  }
+
+  // add border to navbar
+  &.navbar-border {
+    border-bottom: 1px solid $border-color;
+  }
+
+  // add shadow to navbar
+  &.navbar-shadow {
+    box-shadow: $box-shadow;
+  }
+
+  &.navbar-dark.navbar-border {
+    border-bottom: 1px solid $theme-dark-border-color;
+  }
+
+  // Hide navbar dropdown arrow
+  &:not(.navbar-horizontal) {
+    .nav-link {
+      &.dropdown-toggle::after {
+        display: none;
+      }
+    }
+  }
+
+  //* Navbar modifiers
+  //*------------------------
+
+  .navbar-container {
+    padding: 0.8rem 1rem;
+    // Added more horizontal padding above small screen
+    @include media-breakpoint-up(sm) {
+      padding: 0.8rem 1.4rem;
+    }
+    flex-basis: 100%;
+    transition: 300ms ease all;
+    margin-left: 0;
+
+    // Navbar bookmark primary color on hover
+    .bookmark-wrapper {
+      // for bookmark z-index
+      .bookmark-input {
+        z-index: 1;
+      }
+    }
+
+    // Language dd style
+    .dropdown-language {
+      .selected-language {
+        font-weight: 500;
+      }
+      .nav-link {
+        .flag-icon {
+          margin-right: 0.4rem;
+        }
+      }
+      .dropdown-menu .dropdown-item {
+        .flag-icon {
+          margin-right: 0.4rem;
+        }
+      }
+    }
+
+    ul.navbar-nav {
+      li {
+        line-height: 1.5;
+        &.dropdown {
+          .dropdown-menu {
+            .vertical-layout & {
+              top: 41px !important; // Apply navbar dd position on vertical layouts only (Not for horizontal layout due to hover out issue)
+            }
+          }
+        }
+
+        &.dropdown-language {
+          .dropdown-menu.dropdown-menu-right {
+            right: -2px;
+          }
+        }
+
+        // Cart & Notification badge
+        &.dropdown-cart,
+        &.dropdown-notification {
+          .badge {
+            &.badge-up {
+              right: -3px;
+            }
+          }
+          .dropdown-menu.dropdown-menu-right {
+            right: -2px;
+            padding: 0;
+            left: inherit;
+            &::before {
+              background: $primary;
+              border-color: $primary;
+            }
+          }
+          .dropdown-menu-header {
+            border-top-left-radius: $dropdown-border-radius;
+            border-top-right-radius: $dropdown-border-radius;
+            .dropdown-header {
+              padding: 1.22rem 1.28rem;
+            }
+          }
+          .notification-text {
+            margin-bottom: 0.5rem;
+            font-size: smaller;
+            color: $text-muted;
+          }
+          .dropdown-menu-footer {
+            padding: 1.28rem;
+          }
+        }
+        &.dropdown-notification {
+          .media-body {
+            .media-heading {
+              color: $body-color;
+              margin-bottom: 0;
+              line-height: 1.2;
+            }
+          }
+        }
+
+        // Cart dropdown
+        &.dropdown-cart {
+          .media {
+            position: relative;
+            img {
+              background: $body-bg;
+            }
+            &:hover {
+              .cart-item-remove {
+                visibility: visible;
+              }
+            }
+          }
+          .media-heading {
+            width: 8rem;
+            h6.cart-item-title {
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+            }
+            .cart-item-by {
+              color: $text-muted;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+            }
+          }
+          .media-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .cart-item-price {
+            margin-bottom: 0;
+            width: 5rem;
+            text-align: right;
+          }
+
+          .cart-item-remove {
+            position: absolute;
+            top: 10px;
+            right: 17px;
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            @include media-breakpoint-up(md) {
+              visibility: hidden;
+            }
+          }
+        }
+
+        > a.nav-link {
+          color: $body-color;
+          padding: 0 0.5rem;
+          position: relative;
+        }
+
+        &.dropdown-user {
+          line-height: 1 !important; // Set due to custom 2 line component in navbar
+          .dropdown-menu {
+            width: 12rem;
+            margin-top: 10px;
+            i,
+            svg {
+              height: 16px;
+              width: 16px;
+              font-size: 16px;
+              vertical-align: top;
+            }
+          }
+        }
+
+        // Logged in user dropdown styles
+        a.dropdown-user-link {
+          display: flex;
+          align-items: center;
+
+          .user-name {
+            display: inline-block;
+            margin-bottom: 0.435rem;
+            margin-left: 0.2rem;
+          }
+
+          .user-status {
+            font-size: smaller;
+          }
+
+          img {
+            box-shadow: 0 4px 8px 0 rgba($black, 0.12), 0 2px 4px 0 rgba($black, 0.08);
+          }
+        }
+
+        // navbar toggle menu size (display below lg)
+        a.menu-toggle {
+          i,
+          svg {
+            height: 1.6rem;
+            width: 1.6rem;
+            font-size: 1.6rem;
+          }
+        }
+
+        a.dropdown-user-link {
+          .user-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            float: left;
+            margin-right: $spacer - 0.2;
+          }
+        }
+
+        div.input-group {
+          padding: 0.7rem 1rem;
+        }
+
+        i,
+        svg {
+          &.ficon {
+            height: 1.5rem;
+            width: 1.5rem;
+            font-size: 1.5rem;
+            color: $body-color;
+
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+
+        .media-list {
+          max-height: 25rem;
+        }
+
+        .scrollable-container {
+          position: relative;
+        }
+      }
+    }
+
+    //Navbar notification css
+    .dropdown-menu-media {
+      width: 30rem;
+
+      .dropdown-menu-header {
+        border-bottom: 1px solid $border-color;
+      }
+
+      .media-list {
+        .media {
+          padding: 0.9rem 1.28rem;
+          border: none;
+          border-bottom: 1px solid $border-color;
+
+          &:hover {
+            background: $body-bg;
+          }
+
+          .media-meta {
+            color: $body-color;
+          }
+        }
+
+        a:last-of-type {
+          .media {
+            border-bottom: none;
+          }
+        }
+      }
+
+      .dropdown-menu-footer {
+        border-top: 1px solid $border-color;
+      }
+    }
+  }
+}
+
+// Navbar shadow on scroll
+.header-navbar-shadow {
+  display: none;
+}
+
+// Floating Navbar
+.navbar-floating {
+  // Floating nav should have same padding across all screen
+  .navbar-container:not(.main-menu-content) {
+    padding: 0.8rem 1rem;
+  }
+  .header-navbar-shadow {
+    display: block;
+    background: linear-gradient(
+      180deg,
+      hsla(0, 0%, 97.3%, 0.95) 44%,
+      hsla(0, 0%, 97.3%, 0.46) 73%,
+      hsla(0, 0%, 100%, 0)
+    );
+    padding-top: 2.2rem;
+    background-repeat: repeat;
+    width: 100%;
+    height: 102px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+  }
+}
+
+// Navbar colors
+.navbar-light {
+  background: $white;
+
+  &.navbar-horizontal {
+    background: $white;
+  }
+
+  .navbar-nav {
+    .active {
+      &.nav-link {
+        background-color: rgba($black, 0.03);
+      }
+    }
+
+    .disabled {
+      &.nav-link {
+        color: $nav-link-disabled-color;
+      }
+    }
+  }
+}
+
+.navbar-dark {
+  background: $gray-600;
+
+  .navbar-brand {
+    color: $white !important;
+  }
+
+  &.navbar-horizontal {
+    background: $gray-600;
+  }
+
+  .nav-search {
+    .form-control,
+    .btn-secondary {
+      color: $white;
+      background: $gray-600;
+    }
+  }
+
+  .navbar-nav {
+    li {
+      line-height: 1;
+    }
+
+    .active {
+      &.nav-link {
+        background-color: rgba($white, 0.05);
+      }
+    }
+
+    .disabled {
+      &.nav-link {
+        color: $gray-300;
+      }
+    }
+  }
+}
+
+// Media queries for device support
+// =========================================
+@include media-breakpoint-down(sm) {
+  .header-navbar {
+    // generic navbar dropdown specific
+    .navbar-nav {
+      .show {
+        position: static;
+      }
+
+      .open-navbar-container {
+        padding-top: 0.625rem;
+      }
+    }
+
+    .navbar-container {
+      .show {
+        .dropdown-menu {
+          right: 0;
+          left: 0 !important;
+          float: none;
+          width: auto !important;
+          margin-top: 0;
+          overflow: hidden;
+        }
+      }
+
+      .dropdown-user {
+        .dropdown-menu-right {
+          right: 0 !important;
+        }
+      }
+
+      ul.navbar-nav {
+        li {
+          .dropdown-toggle::after {
+            margin-right: 0;
+            margin-left: -2px;
+          }
+        }
+      }
+    }
+  }
+
+  // dark navbar
+  .navbar-dark {
+    .navbar-header {
+      .navbar-nav {
+        .nav-link {
+          color: $white;
+        }
+      }
+    }
+
+    .navbar-container {
+      .navbar-nav {
+        .nav-link {
+          color: $gray-600;
+        }
+      }
+    }
+  }
+
+  // light navbar
+  .navbar-light {
+    .navbar-header {
+      .navbar-nav {
+        .nav-link {
+          color: $gray-600;
+        }
+      }
+    }
+
+    .navbar-container {
+      .navbar-nav {
+        .nav-link {
+          color: $gray-600;
+        }
+      }
+    }
+  }
+}
+
+// For Medium and down: iPad support for navbr
+
+// navbar static top
+@include media-breakpoint-down(lg) {
+  .header-navbar {
+    // floating nav width
+    &.floating-nav {
+      width: calc(100vw - (100vw - 100%) - calc(#{$content-padding} * 2));
+    }
+    &.navbar-static-top {
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+//For responsive sub nav
+@mixin responsive_sub_nav {
+  .header-navbar {
+    .navbar-nav {
+      margin: 0;
+      flex-flow: row wrap;
+
+      .dropdown-menu {
+        position: absolute;
+      }
+
+      .nav-item {
+        float: left;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  @include responsive_sub_nav;
+}
+@media (max-width: 767px) {
+  @include responsive_sub_nav;
+}
+
+@include media-breakpoint-down(xs) {
+  .header-navbar {
+    &.floating-nav {
+      width: calc(
+        100vw - (100vw - 100%) - calc(#{$content-padding} + 0.4rem)
+      ) !important; // SM screen calc as per updated spacings
+      margin-left: calc(#{$content-padding} - 0.8rem);
+      margin-right: calc(#{$content-padding} - 0.8rem);
+    }
+
+    .navbar-container ul.navbar-nav li .selected-language {
+      display: none;
+    }
+  }
+}
+
+/* ----------- iPhone 5, 5S  iPhone 6----------- */
+
+// Set dropdown height as per the screen size
+@mixin extend_mobile_specific($menu_height) {
+  .header-navbar {
+    .navbar-container {
+      .show {
+        .dropdown-menu {
+          max-height: $menu_height;
+        }
+      }
+    }
+  }
+}
+
+/* Landscape */
+
+@media only screen and (min-device-width: 26.78em) and (max-device-width: 47.64em) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  @include extend_mobile_specific(180px);
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Landscape */
+
+@media only screen and (min-device-width: 29.57em) and (max-device-width: 52.57em) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  @include extend_mobile_specific(280px);
+}
+
+// for width of navbar in fixed-top
+@media (max-width: 1201px) {
+  .header-navbar {
+    &.fixed-top,
+    &.floating-nav {
+      left: 0;
+    }
+  }
+
+  .horizontal-layout {
+    .header-navbar {
+      .navbar-container {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .header-navbar {
+    .navbar-container {
+      ul.navbar-nav li a.dropdown-user-link .user-name {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+// Reason: We aren't getting style due to structural changes
+// Color palettes
+@import '~@core/scss/base/core/colors/palette-variables.scss';
+
+.b-avatar {
+  font-size: 0.857rem;
+  font-weight: 600;
+  color: $white;
+
+  // Avatar Badge Minimal [HTML Like Style]
+  &.badge-minimal {
+    .b-avatar-badge {
+      min-height: 11px;
+      min-width: 11px;
+      border: 1px solid #fff;
+    }
+  }
+
+  // Bordered Avatar
+  &.avatar-border-2 {
+    img {
+      border: 2px solid #fff;
+    }
+  }
+}
+
+// Disable img scaling on actionable avatar hover
+.b-avatar.btn,
+.b-avatar[href] {
+  &:not(:disabled):not(.disabled):hover .b-avatar-img img {
+    transform: scale(1);
+  }
+}
+
+// reason: add transition on avatar group
+.b-avatar-group {
+  .b-avatar-group-inner {
+    .b-avatar {
+      transition: all 0.25s ease 0s;
+      border-width: 0;
+      box-shadow: 0 0 0 2px $avatar-group-border, inset 0 0 0 1px rgba($black, 0.07);
+      cursor: pointer;
+      &.pull-up:hover {
+        transition: all 0.25s ease 0s;
+        transform: translateY(-4px) scale(1.07);
+        // z-index: 30;
+      }
+    }
+  }
+}
+
+// Color palettes
+@import '~@core/scss/base/core/colors/palette-variables.scss';
+
+// Badge Variants
+@each $color_name, $color in $colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type== 'base' {
+      .b-avatar {
+        &.badge-light-#{$color_name} {
+          background-color: rgba($color_value, 0.12);
+          color: $color_value;
+        }
+      }
+    }
+  }
+}

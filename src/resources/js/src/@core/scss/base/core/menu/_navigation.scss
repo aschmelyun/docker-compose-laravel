@@ -1,0 +1,207 @@
+/*=========================================================================================
+    File Name: navigation.scss
+    Description: Common mixin for menus, contain dark and light version scss.
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+    Author: PIXINVENT
+    Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+
+// Import first main menu mixin
+@import '../mixins/main-menu-mixin';
+
+// Main menu base
+//==============
+.main-menu {
+  z-index: 1031;
+  position: absolute;
+  display: table-cell;
+  height: 100%;
+  overflow: hidden;
+
+  &.menu-light {
+    @include menu-theme($body-color, $white);
+  }
+
+  &.menu-dark {
+    @include menu-theme($menu-dark-color, $menu-dark-bg-color);
+  }
+
+  &.menu-fixed {
+    position: fixed;
+  }
+  &.menu-static {
+    height: 100%;
+    padding-bottom: calc(100% - 20rem);
+    .main-menu-content {
+      height: unset !important;
+    }
+  }
+
+  &.menu-shadow {
+    box-shadow: 0 0 15px 0 rgba($black, 0.05);
+  }
+
+  &.menu-border {
+    border-right: 1px solid $border-color;
+  }
+
+  // menu scroll shadow
+  .shadow-bottom {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    height: 50px;
+    width: 100%;
+    pointer-events: none;
+    margin-top: -0.7rem;
+    filter: blur(5px);
+    background: linear-gradient(#fff 41%, hsla(0, 0%, 100%, 0.11) 95%, hsla(0, 0%, 100%, 0));
+    .bordered-layout & {
+      background: linear-gradient($body-bg 41%, hsla(0, 0%, 100%, 0.11) 95%, hsla(0, 0%, 100%, 0));
+    }
+  }
+
+  // Native Scrollbar (.menu-native-scroll)
+  &.menu-native-scroll {
+    .main-menu-content {
+      overflow-y: scroll !important;
+    }
+  }
+
+  .navbar-header {
+    height: 100%;
+    width: $menu-expanded-width;
+    height: $navbar-height;
+    position: relative;
+    padding: 0.35rem 1rem 0.3rem 1.64rem;
+    transition: 300ms ease all, background 0s;
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      margin-top: 1.35rem;
+      font-size: inherit;
+      .brand-logo img {
+        max-width: 36px;
+      }
+      .brand-text {
+        color: $primary;
+        padding-left: 1rem;
+        margin-bottom: 0;
+        font-weight: 600;
+        letter-spacing: 0.01rem;
+        font-size: 1.45rem;
+        animation: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+      }
+    }
+    .modern-nav-toggle {
+      animation: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
+    }
+  }
+
+  .main-menu-content {
+    height: calc(100% - #{$navbar-height}) !important;
+    position: relative;
+    .ps__rail-y {
+      z-index: 3;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &.navigation-main {
+      overflow-x: hidden;
+      padding-bottom: 0.75rem;
+      > li:first-child {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  a {
+    outline: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+// Main Navigation
+.navigation {
+  font-size: 1.1rem;
+  font-family: $font-family-monospace;
+  font-weight: 400;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+
+  .navigation-header {
+    font-family: $font-family-monospace;
+    font-weight: $headings-font-weight;
+    line-height: $headings-line-height;
+    padding: 12px 22px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  li {
+    position: relative;
+    white-space: nowrap;
+    outline: none;
+
+    a {
+      display: block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      i,
+      svg {
+        height: 11px;
+        width: 11px;
+        font-size: 11px;
+        margin-right: 1.38rem;
+      }
+    }
+
+    &.menu-item-animating {
+      transition: height 0.25s ease-in-out;
+    }
+
+    &.disabled {
+      a {
+        cursor: not-allowed;
+        opacity: 0.65;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+// Media queries for small screen devices
+// =========================================
+@include media-breakpoint-down(sm) {
+  // menu hide/open animation
+  .menu-hide .main-menu,
+  .menu-open .main-menu {
+    transition: transform 0.25s, top 0.35s, height 0.35s;
+  }
+
+  .main-menu {
+    transform: translate3d(-240px, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000;
+  }
+
+  .menu-open .main-menu {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .drag-target {
+    z-index: 0;
+  }
+}

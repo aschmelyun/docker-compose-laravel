@@ -1,0 +1,359 @@
+//  =========================================================================================
+// File Name: main-menu-mixin.scss
+// Description: Common mixin for menus, contain dark and light version scss.
+// ----------------------------------------------------------------------------------------
+// Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+// Author: PIXINVENT
+// Author URL: http://www.themeforest.net/user/pixinvent
+//==========================================================================================
+
+// Header navbar content and brand expanded & collapsed stats
+// spacing and sizing.
+// ================================================
+
+// Mixins for the menu and navbar position, margin and width change
+@mixin main-menu-width($menu-width) {
+  margin-left: $menu-width;
+}
+@mixin menu-navbar-width($menu-width) {
+  float: left;
+  width: $menu-width;
+}
+// Mixins for the menu show hide based on width
+@mixin vertical-menu-transform-show($transform-width) {
+  transform: translate3d($transform-width, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+@mixin vertical-menu-transform-hide() {
+  transform: translate3d(0, 0, 0);
+}
+
+// Mixins for the sub menu arrow
+@mixin vertical-menu-has-sub-arrow($arrow-font-size) {
+  &.has-sub {
+    > a:after {
+      content: '';
+      background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $body-color), '#', '%23'));
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: $arrow-font-size;
+      height: $arrow-font-size;
+      width: $arrow-font-size;
+      display: inline-block;
+      position: absolute;
+      right: 20px;
+      top: 14px;
+      transform: rotate(0deg);
+      transition: all 0.2s ease-out;
+    }
+    &.open:not(.menu-item-closing) {
+      > a:after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+// Used for apps
+@mixin content-area-wrapper-height(
+  $contentPadding: 0rem,
+  $navbarHeight: 0rem,
+  $footerHeight: 0rem,
+  $floatingNavMargin: 0rem,
+  $horizontalMenuHeight: 0rem,
+  $spacingSides: 1,
+  $horizontalLayout: false
+) {
+  height: calc(
+    100vh -
+      calc(
+        calc(#{$contentPadding} * #{$spacingSides}) + #{$navbarHeight} + #{$footerHeight} + #{$floatingNavMargin} + #{$horizontalMenuHeight}
+      )
+  );
+  height: calc(
+    var(--vh, 1vh) * 100 -
+      calc(
+        calc(#{$contentPadding} * #{$spacingSides}) + #{$navbarHeight} + #{$footerHeight} + #{$floatingNavMargin} + #{$horizontalMenuHeight}
+      )
+  );
+  // responsive size height
+  @if $horizontalLayout {
+    @include media-breakpoint-down(lg) {
+      height: calc(
+        100vh - calc(calc(calc(#{$contentPadding} - 0.8rem) * #{$spacingSides}) + #{$navbarHeight} + #{$footerHeight})
+      );
+      height: calc(
+        var(--vh, 1vh) * 100 -
+          calc(calc(calc(#{$contentPadding} - 0.8rem) * #{$spacingSides}) + #{$navbarHeight} + #{$footerHeight})
+      );
+    }
+  } @else {
+    @include media-breakpoint-down(xs) {
+      height: calc(
+        100vh -
+          calc(
+            calc(calc(#{$contentPadding} * #{$spacingSides}) - calc(0.8rem * #{$spacingSides})) + #{$navbarHeight} + #{$footerHeight} +
+              #{$floatingNavMargin} + #{$horizontalMenuHeight}
+          )
+      );
+      height: calc(
+        var(--vh, 1vh) * 100 -
+          calc(
+            calc(calc(#{$contentPadding} * #{$spacingSides}) - calc(0.8rem * #{$spacingSides})) + #{$navbarHeight} + #{$footerHeight} +
+              #{$floatingNavMargin} + #{$horizontalMenuHeight}
+          )
+      );
+    }
+  }
+}
+
+// Light & Dark menu mixin
+// $theme-color : Menu text color
+// $theme-bg    : Menu background color
+// ================================================
+@mixin menu-theme($theme-color, $theme-bg) {
+  $main-menu-top-open-color: darken($theme-color, 10%);
+  $main-menu-top-open-hover-bg: darken($theme-bg, 6%);
+  $main-menu-top-open-head-bg: darken($theme-bg, 4%);
+
+  $main-menu-top-active-head-bg: darken($theme-bg, 4%); //$primary
+
+  $main-menu-sub-color: $theme-color;
+  $main-menu-sub-hover-color: lighten($theme-color, 4%);
+
+  $main-menu-sub-open-color: $theme-color;
+
+  color: $theme-color;
+  background: $theme-bg;
+
+  .navigation {
+    background: $theme-bg;
+    .navigation-header {
+      color: lighten($theme-color, 21.5%);
+      margin: calc(#{$content-padding} + 0.286rem) 0 0.8rem ($content-padding + 0.2rem);
+      padding: 0;
+      line-height: 1.5;
+      letter-spacing: 0.01rem;
+      span {
+        font-weight: 500;
+      }
+    }
+    li {
+      &.has-sub {
+        > a {
+          transition: all 0.5s ease, background 0s, color 0s;
+        }
+      }
+      a {
+        color: darken($theme-color, 4.9%);
+        padding: $menu-padding;
+        line-height: 1.45;
+
+        span.menu-sub-title {
+          color: lighten($theme-color, 30%);
+        }
+
+        & > * {
+          transition: transform 0.25s ease;
+        }
+      }
+    }
+
+    // Menu Item Hover Animation
+    li.nav-item {
+      a:hover > * {
+        transition: transform 0.25s ease;
+        transform: translateX(5px);
+      }
+      ul.menu-content {
+        li {
+          a:hover > * {
+            transition: transform 0.25s ease;
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+
+    > li {
+      > a {
+        margin: 0 15px;
+        .label {
+          margin-top: 4px;
+          margin-right: 5px;
+        }
+        i,
+        svg {
+          position: relative;
+          top: 1px;
+        }
+      }
+      > ul li {
+        &:first-of-type {
+          margin-top: 7px !important;
+        }
+
+        &:not(.has-sub) {
+          margin: 0 15px;
+        }
+        &.has-sub {
+          > a {
+            margin: 0 15px;
+          }
+
+          > ul > li {
+            margin: 0 15px;
+          }
+        }
+      }
+      &.open:not(.menu-item-closing),
+      &.sidebar-group-active {
+        > a {
+          color: $main-menu-top-open-color;
+          background: $main-menu-top-open-head-bg;
+          border-radius: 6px;
+        }
+      }
+
+      &:not(.open) {
+        > ul {
+          display: none;
+          .active {
+            background: transparent;
+            box-shadow: none;
+          }
+        }
+      }
+      &.active {
+        z-index: 1;
+        > a {
+          background: linear-gradient(118deg, rgba($primary, 1), rgba($primary, 0.7));
+          box-shadow: 0 0 10px 1px rgba($primary, 0.7);
+          color: $white;
+          font-weight: 400;
+          border-radius: 4px;
+        }
+      }
+
+      .active {
+        background: $main-menu-top-open-hover-bg;
+
+        > a {
+          color: $primary;
+          margin-bottom: 0;
+        }
+
+        .hover,
+        :hover {
+          > a {
+            background: $main-menu-top-active-head-bg;
+          }
+        }
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+          color: $main-menu-sub-color;
+          background: transparent;
+          > a {
+            padding: $menu-second-level-padding;
+          }
+          ul {
+            a {
+              padding: $menu-third-level-padding;
+            }
+          }
+        }
+        .has-sub {
+          &:not(.open) {
+            > ul {
+              display: none;
+              .active {
+                background: transparent;
+                box-shadow: none;
+              }
+            }
+          }
+        }
+        .open,
+        .sidebar-group-active {
+          > a {
+            color: $main-menu-sub-open-color;
+            background: $main-menu-top-active-head-bg;
+            border-radius: 6px;
+          }
+          //for 2rd level menu
+          > ul {
+            display: block;
+            //for 3rd level menu
+            .open {
+              > ul {
+                display: block;
+              }
+            }
+          }
+        }
+
+        .hover,
+        &:hover {
+          > a {
+            color: $main-menu-sub-hover-color;
+          }
+        }
+
+        .active {
+          background: linear-gradient(118deg, rgba($primary, 1), rgba($primary, 0.7));
+          box-shadow: 0 0 10px 1px rgba($primary, 0.7);
+          border-radius: 4px;
+          z-index: 1;
+          > a {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+// Menu content display mixin
+// $menu-expanded-width : Expanded menu width
+// $menu-collapsed-width: Collapsed menu width
+// ================================================
+@mixin menu-content($menu-expanded-width, $menu-collapsed-width, $theme-color, $theme-bg) {
+  .main-menu-content {
+    > span.menu-title,
+    a.menu-title {
+      right: -($menu-expanded-width);
+      width: $menu-expanded-width;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: left;
+      background-color: $primary;
+      border-color: $primary;
+      padding: 13px 20px;
+    }
+    > ul.menu-content {
+      left: $menu-collapsed-width;
+      width: $menu-expanded-width;
+      transition: visibility 0.25s, opacity 0.25s;
+      box-shadow: 1px 0px 2px rgba($black, 0.1);
+      border-bottom: 2px solid rgba($black, 0.2);
+      border-left: 1px solid rgba($black, 0.02);
+
+      li {
+        white-space: nowrap;
+        position: relative;
+
+        a {
+          display: block;
+          padding: 8px 20px 8px 20px;
+        }
+
+        @include vertical-menu-has-sub-arrow(1rem);
+      }
+    }
+  }
+}

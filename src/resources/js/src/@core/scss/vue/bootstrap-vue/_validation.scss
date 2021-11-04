@@ -1,0 +1,19 @@
+// reason: contextual states
+// valid state
+.custom-control-input.is-valid {
+  &:not(:disabled):active {
+    ~ .custom-control-label::before {
+      background-color: $success;
+      border-color: $success;
+    }
+  }
+}
+// invalid state
+.custom-control-input.is-invalid {
+  &:not(:disabled):active {
+    ~ .custom-control-label::before {
+      background-color: $danger;
+      border-color: $danger;
+    }
+  }
+}

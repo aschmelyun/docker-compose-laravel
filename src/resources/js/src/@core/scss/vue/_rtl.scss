@@ -1,0 +1,171 @@
+@import '~@core/scss/base/bootstrap-extended/include';
+
+/*! rtl:begin:ignore */
+[dir='rtl'] {
+  // Disable x Scrolling in Perfect scrollbar
+  body .ps__rail-y {
+    right: auto !important;
+    left: 1px !important;
+  }
+
+  // Flatpickr month navigation arrow
+  .flatpickr-prev-month,
+  .flatpickr-next-month {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Faq page and page pricing
+  .faq-navigation,
+  .pricing-free-trial {
+    .pricing-trial-img,
+    img {
+      transform: scaleX(-1);
+    }
+  }
+
+  // aspect
+  .b-aspect {
+    .b-aspect-sizer {
+      flex-grow: 0 !important;
+    }
+  }
+
+  // Breadcrumb
+  .breadcrumb:not([class*='breadcrumb-']),
+  .breadcrumb.breadcrumb-chevron {
+    .breadcrumb-item + .breadcrumb-item {
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Carousel
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    transform: rotate(180deg);
+  }
+
+  // Swiper Cube effect fix
+  .swiper-container-cube.swiper-container-rtl {
+    .swiper-slide {
+      transform-origin: 100% 0 !important;
+    }
+  }
+
+  // RTL Overrides
+  .swiper-container-rtl {
+    .swiper-button-prev {
+      right: 10px !important;
+      left: auto !important;
+    }
+    .swiper-button-next {
+      left: 10px !important;
+      right: auto !important;
+    }
+  }
+
+  // .swiper-container {
+  // }
+
+  // dropdown block
+  .dropdown {
+    .btn-block,
+    .btn-block + .dropdown-toggle-split {
+      + .dropdown-menu {
+        left: 0 !important;
+      }
+    }
+  }
+
+  // pagination
+  .pagination .page-item.next-item .page-link,
+  .pagination .page-item .page-link {
+    svg {
+      transform: rotate(180deg) !important;
+    }
+  }
+
+  // popover
+  .popover {
+    right: auto !important;
+  }
+
+  // progress
+  .progress-bar-animated {
+    animation: progress-bar-stripes-rtl 40s linear infinite;
+  }
+
+  // time
+  .b-time {
+    .b-time-ampm {
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+  }
+  .b-form-timepicker {
+    .dropdown-menu {
+      // left: 0 !important;
+      right: 100%;
+      .b-time {
+        .b-time-ampm {
+          margin-right: 0.5rem;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  .input-group {
+    .input-group-append {
+      .b-form-timepicker {
+        .dropdown-menu {
+          left: 100% !important;
+          right: auto;
+        }
+      }
+    }
+  }
+
+  // textarea
+  textarea {
+    overflow-x: hidden;
+  }
+
+  // ------------------------------------------------
+  // App Calendar
+  // ------------------------------------------------
+  // Reset Chevrons for next/previous month
+  .app-calendar {
+    .fc-header-toolbar {
+      .fc-prev-button,
+      .fc-next-button {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Fix Calendar UI
+  .fc-direction-rtl .fc-scroller-harness > .fc-scroller {
+    direction: rtl !important;
+  }
+
+  .fc .fc-toolbar .fc-button-group {
+    .fc-dayGridMonth-button:first-child {
+      border-top-left-radius: $border-radius !important;
+      border-bottom-left-radius: $border-radius !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+
+    .fc-listMonth-button:last-child {
+      border-top-right-radius: $border-radius !important;
+      border-bottom-right-radius: $border-radius !important;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+  }
+}
+
+/*! rtl:end:ignore */

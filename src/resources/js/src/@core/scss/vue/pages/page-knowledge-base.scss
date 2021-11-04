@@ -1,0 +1,23 @@
+@import '~@core/scss/base/pages/page-knowledge-base.scss';
+
+//list group circle active and focus
+.list-group-circle {
+  .list-group-item-action {
+    &:focus,
+    &:active {
+      background-color: transparent;
+    }
+  }
+}
+
+//list group circle active and focus
+.question-content {
+  ul {
+    li {
+      a {
+        color: inherit;
+      }
+      margin-bottom: 1rem;
+    }
+  }
+}

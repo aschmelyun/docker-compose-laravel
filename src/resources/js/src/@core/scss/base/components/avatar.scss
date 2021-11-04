@@ -1,0 +1,192 @@
+// =========================================================================================
+//   File Name: avatar.scss
+//   Description: Avatar style.
+//   ----------------------------------------------------------------------------------------
+//   Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//   Author: PIXINVENT
+//   Author URL: http://www.themeforest.net/user/pixinvent
+// ==========================================================================================
+
+// Component: Avatar
+// ========================================================================
+
+// avatar
+
+.avatar {
+  white-space: nowrap;
+  background-color: $avatar-bg;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  color: $white;
+  display: inline-flex;
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 600;
+
+  // avatar content
+  .avatar-content {
+    width: $avatar-size;
+    height: $avatar-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 0.857rem;
+    .avatar-icon {
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+  [class*='avatar-status-'] {
+    border-radius: 50%;
+    width: $avatar-status-size;
+    height: $avatar-status-size;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 1px solid $white;
+    &.avatar-status-lg,
+    &.avatar-status-xl {
+      width: $avatar-status-size-lg;
+      height: $avatar-status-size-lg;
+      border-width: 2px;
+    }
+  }
+  .avatar-status-online {
+    background-color: $success;
+  }
+  .avatar-status-busy {
+    background-color: $danger;
+  }
+  .avatar-status-away {
+    background-color: $warning;
+  }
+  .avatar-status-offline {
+    background-color: $secondary;
+  }
+
+  // avatar label with basic size
+  // using in FAQ & other pages
+  &.avatar-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    width: 42px;
+    border-radius: $border-radius;
+  }
+
+  // avatar img
+  img {
+    border-radius: 50%;
+  }
+
+  // Size Modifier
+  // ========================================================================
+
+  &.avatar-xl {
+    font-size: 1.5rem;
+    img {
+      width: $avatar-size-xl;
+      height: $avatar-size-xl;
+    }
+    .avatar-content {
+      height: $avatar-size-xl;
+      width: $avatar-size-xl;
+      font-size: 2.57rem;
+      .avatar-icon,
+      i,
+      svg {
+        height: 3rem;
+        width: 3rem;
+        font-size: 3rem;
+      }
+    }
+    [class*='avatar-status-'] {
+      right: 3px;
+      bottom: 0;
+    }
+  }
+  &.avatar-lg {
+    font-size: 1.2rem;
+    img {
+      width: $avatar-size-lg;
+      height: $avatar-size-lg;
+    }
+    .avatar-content {
+      width: $avatar-size-lg;
+      height: $avatar-size-lg;
+      font-size: 1.714rem;
+      .avatar-icon,
+      i,
+      svg {
+        height: 2rem;
+        width: 2rem;
+        font-size: 2rem;
+      }
+    }
+    [class*='avatar-status-'] {
+      right: 3px;
+      bottom: 1px;
+    }
+  }
+
+  &.avatar-sm {
+    .avatar-content {
+      width: $avatar-size-sm;
+      height: $avatar-size-sm;
+      .avatar-icon,
+      i,
+      svg {
+        height: 1rem;
+        width: 1rem;
+        font-size: 1rem;
+      }
+    }
+    img {
+      width: $avatar-size-sm;
+      height: $avatar-size-sm;
+    }
+    [class*='avatar-status-'] {
+      right: -3px;
+      bottom: -2px;
+    }
+  }
+}
+
+// Avatar Group SCSS
+.avatar-group {
+  display: flex;
+  justify-content: flex-start;
+  .avatar {
+    transition: all 0.25s ease;
+    img,
+    .avatar-content {
+      box-shadow: 0 0 0 2px $avatar-group-border, inset 0 0 0 1px rgba($black, 0.07);
+    }
+    .avatar-content {
+      background-color: lighten(theme-color('secondary'), 20%) !important;
+    }
+    &:hover {
+      transition: all 0.25s ease;
+    }
+    &.pull-up:hover {
+      transform: translateY(-4px) scale(1.07);
+    }
+  }
+  // Avatar Group Sizings
+  .avatar:not(:first-child) {
+    margin-left: -0.55rem;
+  }
+  .avatar-sm:not(:first-child) {
+    margin-left: -0.4rem;
+  }
+  .avatar-lg:not(:first-child) {
+    margin-left: -1rem;
+  }
+  .avatar-xl:not(:first-child) {
+    margin-left: -1.5rem;
+  }
+}

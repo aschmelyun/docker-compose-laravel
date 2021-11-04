@@ -1,0 +1,63 @@
+// ================================================================================================
+//  File Name: blog.scss
+//  Description: blog related pages layouts SCSS.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+// blog list
+.blog-list-wrapper {
+  // Truncate blog titles with 2 lines
+  .blog-title-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  // Truncate blog content with 3 lines
+  .blog-content-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Blog Detail
+.blog-detail-wrapper {
+  .blog-detail-share .dropdown-menu {
+    min-width: auto;
+  }
+}
+
+// Blog Sidebar
+.blog-sidebar {
+  .blog-recent-posts {
+    img {
+      object-fit: cover;
+    }
+    // below scss is written because recent blog posts' titles are links to other pages
+    .text-body-heading:hover {
+      color: $link-hover-color !important;
+    }
+  }
+
+  .blog-recent-post-title,
+  .blog-category-title {
+    line-height: 23px;
+    letter-spacing: 0;
+  }
+}
+
+// Blog Edit
+.blog-edit-wrapper {
+  .border {
+    border-color: $input-border-color !important;
+  }
+}

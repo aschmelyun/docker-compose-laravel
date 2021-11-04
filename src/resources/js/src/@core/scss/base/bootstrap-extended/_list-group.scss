@@ -1,0 +1,99 @@
+/* ===============================================================================================
+  File Name: list-group.scss
+  Description: Contain list item, list group related extended SCSS.
+  ----------------------------------------------------------------------------------------------
+  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+  Author: PIXINVENT
+  Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================================*/
+
+// Inline list style with pipeline separator
+
+ul.list-inline {
+  li {
+    display: inline-block;
+  }
+  // used in search page
+  &.list-inline-pipe {
+    > li + li:before {
+      content: ' | ';
+      padding-right: 2px;
+    }
+  }
+}
+
+// bootstrap list group
+.list-group-item {
+  line-height: 1.5;
+  i,
+  svg {
+    position: relative;
+  }
+
+  // &:not(.active):focus:active {
+  //   color: inherit;
+  // }
+}
+.list-group {
+  .list-group-item-action {
+    &.active,
+    &:active {
+      background-color: $primary;
+      color: $white;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $white;
+      }
+      &:hover,
+      &:focus {
+        color: $white;
+        background-color: $primary;
+      }
+      small {
+        color: $text-muted !important;
+      }
+    }
+    &:hover {
+      background-color: $body-bg;
+    }
+    &:focus {
+      background-color: $body-bg;
+      outline: 0;
+    }
+  }
+
+  // List group with circle for pages like knowledge base
+  &.list-group-circle {
+    border: none;
+    .list-group-item {
+      border: none;
+      position: relative;
+      padding-left: 1.5rem;
+      &:after {
+        content: ' ';
+        background-image: url(str-replace(str-replace($circle, 'currentColor', $body-color), '#', '%23'));
+        background-repeat: no-repeat;
+        background-position: center;
+        color: $body-color;
+        background-size: 10px;
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        top: 1.15rem;
+        left: 0;
+      }
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+// for drag and drop border radius on selected
+.list-group-item.gu-mirror {
+  border-radius: 0;
+}

@@ -1,0 +1,63 @@
+@import '~@core/scss/base/bootstrap-extended/include';
+// Overrides user variable
+@import '~@core/scss/base/components/include';
+@import '~vue-tour/dist/vue-tour.css';
+
+.v-tour {
+  .v-step {
+    z-index: 55000;
+    background-color: $white;
+    border-radius: $card-border-radius;
+    filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.2));
+    min-width: 350px;
+    text-align: left;
+
+    .v-step__arrow {
+      border-color: $primary;
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+
+    // --- Header ----- //
+    .v-step__header {
+      background-color: $primary;
+      border-top-left-radius: $card-border-radius;
+      border-top-right-radius: $card-border-radius;
+      font-weight: 500;
+
+      padding: 0.38rem 1.2rem;
+      margin-bottom: 0;
+      line-height: 2rem;
+    }
+
+    // --- Content/Body ----- //
+    .v-step__content {
+      color: $body-color;
+      border-bottom-left-radius: $card-border-radius;
+      border-bottom-right-radius: $card-border-radius;
+
+      padding: 1rem 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ----------- Dark Layout -----------//
+.dark-layout {
+  .v-step {
+    background-color: $theme-dark-card-bg;
+  }
+}
+
+// ----------- RTL -----------//
+html[dir='rtl'] {
+  .v-tour {
+    .v-step {
+      .btn {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

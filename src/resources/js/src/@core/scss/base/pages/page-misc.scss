@@ -1,0 +1,42 @@
+// ================================================================================================
+//     File Name: page-misc.scss
+//     Description: Coming Soon pages custom scss
+//     ----------------------------------------------------------------------------------------------
+//     Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//     Author: PIXINVENT
+//     Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+$misc-inner-max-width: 750px;
+
+.misc-wrapper {
+  display: flex;
+  flex-basis: 100%;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  .misc-inner {
+    position: relative;
+    max-width: $misc-inner-max-width;
+  }
+
+  .brand-logo {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    margin: 0;
+    .brand-text {
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-height: 625px) {
+  .misc-wrapper .misc-inner {
+    margin-top: 4rem;
+  }
+}

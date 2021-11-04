@@ -1,0 +1,13 @@
+@import '~@core/scss/base/pages/page-pricing.scss';
+.pricing-card {
+  .annual-plan {
+    .plan-price {
+      sup {
+        left: 0;
+      }
+      sub {
+        right: 0;
+      }
+    }
+  }
+}

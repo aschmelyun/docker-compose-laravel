@@ -1,0 +1,296 @@
+/*=========================================================================================
+    File Name: vertical-menu.scss
+    Description: A classic vertical modern style menu with expand and collops support. It support
+    light & dark version, flipped layout, right side icons, native scroll and borders menu
+    item separation.
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+    Author: PIXINVENT
+    Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+
+@import '../../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../../components/include'; // Components includes
+
+// Import first main menu mixin
+@import '../../mixins/main-menu-mixin';
+
+//  Vertical menu
+//=========================
+.vertical-layout {
+  &.vertical-menu-modern {
+    .main-menu {
+      transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background 0s;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      .navigation {
+        li a {
+          align-items: center;
+        }
+        > li > a svg,
+        > li > a i {
+          height: 20px;
+          width: 20px;
+          font-size: 1.45rem;
+          margin-right: 1.1rem;
+          flex-shrink: 0;
+        }
+        // Sub-menu icon size
+        .menu-content {
+          > li > a svg,
+          > li > a i {
+            margin-right: 1.45rem;
+            font-size: 11px;
+            height: 11px;
+            width: 11px;
+          }
+        }
+      }
+    }
+
+    //Vertical menu [Expanded]
+    &.menu-expanded {
+      // Main menu expanded
+      .main-menu {
+        width: $menu-expanded-width;
+        .navigation {
+          .navigation-header {
+            .feather-more-horizontal {
+              display: none;
+            }
+          }
+          > li {
+            > a {
+              > i,
+              > svg {
+                &:before {
+                  height: 20px;
+                  width: 20px;
+                  font-size: 1.45rem;
+                }
+              }
+            }
+          }
+          li {
+            @include vertical-menu-has-sub-arrow($font-size-base + 0.1);
+          }
+        }
+      }
+      //Content expanded
+      .footer {
+        @include main-menu-width($menu-expanded-width);
+      }
+    }
+    //Vertical menu [Collapsed]
+    &.menu-collapsed {
+      //Navbar collapsed
+      .navbar {
+        .navbar-header {
+          @include menu-navbar-width($menu-collapsed-width);
+          .modern-nav-toggle {
+            display: none;
+          }
+          &.expanded {
+            width: $menu-expanded-width;
+            z-index: 1000;
+            .modern-nav-toggle {
+              display: block;
+            }
+          }
+        }
+        // fixed-top navbar when menu-collapsed
+        &.fixed-top,
+        &.floating-nav {
+          left: $menu-collapsed-width;
+        }
+      }
+      // Main menu collapsed
+      .main-menu {
+        width: $menu-collapsed-width;
+
+        .navbar-header .brand-text,
+        .modern-nav-toggle {
+          display: none;
+        }
+
+        // When menu is collapsed and mouse is not hovered over menu
+        &:not(.expanded) {
+          .navigation-header {
+            margin-left: 2.2rem;
+            span {
+              display: none;
+            }
+            .feather-more-horizontal {
+              display: block;
+              font-size: 1.285rem;
+              width: 18px;
+              height: 18px;
+            }
+          }
+          .navigation li {
+            &:last-child {
+              margin-bottom: 1.25rem !important;
+            }
+            &.active {
+              a {
+                background: whitesmoke;
+                box-shadow: none;
+                color: #565656;
+              }
+            }
+          }
+        }
+
+        // When menu is collapsed but mouse is hovered over menu
+        &.expanded {
+          width: $menu-expanded-width;
+          .navigation {
+            > li.navigation-header {
+              span {
+                display: block;
+              }
+              .feather-more-horizontal {
+                display: none;
+              }
+            }
+            li {
+              @include vertical-menu-has-sub-arrow(1rem);
+            }
+          }
+          .navbar-header .brand-text {
+            display: inline;
+          }
+          .modern-nav-toggle {
+            display: block;
+          }
+        }
+
+        //Navigation collapsed
+        .navigation {
+          overflow: visible;
+          > li.navigation-header {
+            span {
+              display: none;
+            }
+          }
+          > li {
+            > a {
+              text-overflow: inherit;
+            }
+          }
+        }
+      }
+      //Brand center content collapsed
+      .app-content,
+      .footer {
+        @include main-menu-width($menu-collapsed-width);
+      }
+      .header-navbar {
+        // Floating-navbar
+        &.floating-nav {
+          width: calc(100vw - (100vw - 100%) - 4.4rem - 74px);
+        }
+        // Navbar-static-top
+        &.navbar-static-top {
+          width: calc(100vw - (100vw - 100%) - 74px);
+          left: 74px;
+        }
+      }
+    }
+
+    .toggle-icon,
+    .collapse-toggle-icon {
+      margin-right: 0.425rem;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+// Initially menu & content width for lg and up screen
+@include media-breakpoint-up(lg) {
+  .vertical-layout {
+    &.vertical-menu-modern {
+      .main-menu {
+        width: $menu-expanded-width;
+      }
+    }
+  }
+}
+
+// Initially menu & content width for md and down screen
+@include media-breakpoint-down(lg) {
+  .vertical-layout {
+    &.vertical-menu-modern {
+      // not using this class in below < 992
+      .main-menu {
+        width: 0;
+      }
+      .navbar {
+        .navbar-header {
+          width: 0;
+        }
+      }
+      .content,
+      .footer {
+        @include main-menu-width(0);
+      }
+      &.menu-collapsed {
+        .app-content,
+        .footer {
+          margin-left: 0;
+        }
+        .main-menu {
+          width: 0;
+        }
+      }
+    }
+  }
+}
+
+// Initially menu & content width for sm and down screen
+@include media-breakpoint-down(sm) {
+  .vertical-layout {
+    &.vertical-menu-modern {
+      // not using this class <992
+      .main-menu {
+        width: 0;
+      }
+      .navbar {
+        .navbar-header {
+          width: 0;
+        }
+      }
+      .content,
+      .footer {
+        @include main-menu-width(0);
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+// IE Specific CSS
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .vertical-menu-modern.vertical-layout .main-menu .navigation > li > a > span {
+    animation: none;
+  }
+}
+// Import vertical-overlay-menu.scss for small screen support
+@import 'vertical-overlay-menu.scss';

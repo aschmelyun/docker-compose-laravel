@@ -1,0 +1,144 @@
+@import '~vue-tree-halower/dist/halower-tree.min.css';
+
+@import '~@core/scss/base/bootstrap-extended/include';
+// Overrides user variable
+@import '~@core/scss/base/components/include';
+
+.tree-container {
+  .tag-box-container {
+    .tag {
+      background-color: transparent;
+      .rmNode {
+        color: $danger;
+        background-color: rgba($danger, 0.15);
+        line-height: 1.1;
+      }
+    }
+  }
+
+  .tree-box {
+    position: relative;
+    z-index: 5;
+    background-color: white;
+    padding: 10px;
+    box-shadow: $box-shadow;
+
+    input {
+      margin-bottom: 1rem;
+      height: 2.5rem;
+    }
+  }
+}
+
+.halo-tree {
+  &,
+  .first-node {
+    padding-left: 0;
+  }
+
+  // Align `-` node's below vertical line
+  li::before {
+    left: -11px;
+  }
+
+  .tree-node-el {
+    display: contents;
+  }
+
+  .tree-expand {
+    background: content-box;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .halo-tree {
+    li {
+      padding-left: 26px;
+    }
+  }
+
+  ul {
+    padding-left: 17px !important;
+  }
+
+  > li.first-node.only-node::after {
+    z-index: -10;
+  }
+
+  .box-halfchecked:after {
+    top: -1px;
+  }
+
+  .inputCheck {
+    top: 2px;
+
+    &.box-checked:after {
+      top: -1px;
+    }
+  }
+
+  .node-selected {
+    background-color: #f8f8f8;
+  }
+  .node-title {
+    &:hover {
+      background-color: #f8f8f8;
+    }
+    padding: 3px 6px;
+    margin: 0 4px;
+  }
+
+  // Button Colors
+  button.btn-async,
+  button.btn-delete {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  button.btn-async {
+    background: rgba($warning, 0.15);
+  }
+
+  button.btn-delete {
+    background: rgba($danger, 0.15);
+  }
+}
+
+.dark-layout {
+  .tree-container,
+  .tree-container .tree-box,
+  .tag-box .tag {
+    border-color: $theme-dark-border-color;
+  }
+
+  .tree-container {
+    .tree-box {
+      background-color: $theme-dark-body-bg;
+
+      input {
+        background-color: $theme-dark-input-bg;
+        border-color: $theme-dark-input-disabled-border-color;
+      }
+    }
+    .tag-box {
+      .tag {
+        background-color: $theme-dark-body-bg !important;
+      }
+    }
+  }
+
+  .halo-tree {
+    .node-title:hover {
+      background-color: transparent;
+    }
+    .node-title {
+      &.node-selected {
+        background-color: $theme-dark-body-bg;
+        border-color: $theme-dark-border-color;
+      }
+    }
+  }
+}

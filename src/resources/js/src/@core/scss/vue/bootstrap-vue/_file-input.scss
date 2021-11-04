@@ -1,0 +1,27 @@
+.b-form-file {
+  .custom-file-label {
+    height: 100% !important;
+  }
+  // Small
+  &.b-custom-control-sm {
+    .custom-file-label,
+    .custom-file-label::after {
+      line-height: 22px;
+    }
+
+    .custom-file-label::after {
+      height: 28px;
+    }
+  }
+  // Large
+  &.b-custom-control-lg {
+    .custom-file-label,
+    .custom-file-label::after {
+      line-height: 23px;
+    }
+
+    .custom-file-label::after {
+      height: 44px;
+    }
+  }
+}

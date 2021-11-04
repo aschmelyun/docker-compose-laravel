@@ -1,0 +1,52 @@
+@import '~@core/scss/base/plugins/forms/form-quill-editor.scss';
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+@import '~quill/dist/quill.bubble.css';
+
+// need to override some icon's color
+.quill-editor {
+  .ql-toolbar,
+  .ql-editor {
+    a,
+    button:hover,
+    .ql-picker:hover {
+      color: $primary;
+      .ql-fill {
+        fill: $primary;
+      }
+      .ql-stroke {
+        stroke: $primary;
+      }
+      .ql-picker-label:hover {
+        color: $primary;
+        .ql-stroke {
+          stroke: $primary;
+        }
+      }
+    }
+  }
+}
+
+// ? Set border radius for container & toolbar
+.quill-editor {
+  // Add top radius to toolbar & container
+  // ? Will get removed one of both according to placement
+  .ql-toolbar,
+  .ql-container {
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+  }
+
+  .ql-toolbar {
+    + .ql-container,
+    .ql-container + & {
+      // ? If container/toolbar is below container/toolbar add bottom radius
+      border-bottom-right-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+
+      // ? If container/toolbar is above container/toolbar remove top radius
+      border-top-right-radius: unset;
+      border-top-left-radius: unset;
+    }
+  }
+}

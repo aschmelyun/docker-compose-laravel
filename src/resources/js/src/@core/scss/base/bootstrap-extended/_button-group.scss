@@ -1,0 +1,59 @@
+//
+// Split button dropdowns
+//
+
+.dropdown-toggle-split {
+  padding-right: $btn-padding-x / 1.9;
+  padding-left: $btn-padding-x / 1.9;
+}
+
+.btn-lg + .dropdown-toggle-split,
+.btn-group-lg > .btn + .dropdown-toggle-split {
+  padding-right: $input-btn-padding-x-lg / 1.75;
+  padding-left: $input-btn-padding-x-lg / 1.75;
+}
+
+.btn-sm + .dropdown-toggle-split,
+.btn-group-sm > .btn + .dropdown-toggle-split {
+  padding-right: $input-btn-padding-x-sm / 1.9;
+  padding-left: $input-btn-padding-x-sm / 1.9;
+}
+
+// button group border
+.btn-group {
+  [class*='btn-']:not([class*='btn-outline-']):not([class*='btn-flat-']):not([class*='btn-gradient-']):not([class*='btn-relief-']) {
+    border-left-color: rgba($black, 0.08) !important;
+    border-right-color: rgba($black, 0.08) !important;
+  }
+}
+
+// remove first btn group border left
+.btn-group
+  > .btn:not([class*='btn-outline-']):not([class*='btn-flat-']):not([class*='btn-gradient-']):not([class*='btn-relief-']):first-child,
+.btn-group
+  > .btn:not([class*='btn-outline-']):not([class*='btn-flat-']):not([class*='btn-gradient-']):not([class*='btn-relief-']):first-of-type {
+  border-left-color: transparent !important;
+}
+
+// remove last btn group border right
+.btn-group
+  > .btn:not([class*='btn-outline-']):not([class*='btn-flat-']):not([class*='btn-gradient-']):not([class*='btn-relief-']):last-child,
+.btn-group
+  > .btn:not([class*='btn-outline-']):not([class*='btn-flat-']):not([class*='btn-gradient-']):not([class*='btn-relief-']):last-of-type {
+  border-right-color: transparent !important;
+}
+
+//  toggle button
+.btn-group-toggle {
+  [class*='btn-outline-'] {
+    &:not(:last-child) {
+      border-right-width: 0 !important;
+    }
+  }
+  :not([class*='btn-outline-']) {
+    &.active,
+    &:active {
+      box-shadow: inset $box-shadow;
+    }
+  }
+}

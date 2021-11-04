@@ -1,0 +1,200 @@
+@import '../../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../../components/include'; // Components includes
+
+.flatpickr-calendar {
+  .flatpickr-day {
+    color: $body-color;
+    &.today {
+      border-color: $primary;
+      &:hover {
+        background: transparent;
+        color: $body-color;
+      }
+    }
+
+    &.selected,
+    &.selected:hover {
+      background: $primary;
+      color: $white;
+      border-color: $primary;
+    }
+
+    &.inRange,
+    &.inRange:hover {
+      background: lighten($color: $primary, $amount: 30%);
+      border-color: lighten($color: $primary, $amount: 30%);
+      box-shadow: -5px 0 0 lighten($color: $primary, $amount: 30%), 5px 0 0 lighten($color: $primary, $amount: 30%);
+    }
+    &.startRange,
+    &.endRange,
+    &.startRange:hover,
+    &.endRange:hover {
+      background: $primary;
+      color: $white;
+      border-color: $primary;
+    }
+
+    &.selected.startRange + .endRange:not(:nth-child(7n + 1)),
+    &.startRange.startRange + .endRange:not(:nth-child(7n + 1)),
+    &.endRange.startRange + .endRange:not(:nth-child(7n + 1)) {
+      box-shadow: -10px 0 0 $primary;
+    }
+
+    &.flatpickr-disabled,
+    &.prevMonthDay,
+    &.nextMonthDay {
+      color: $gray-300;
+    }
+
+    &:hover {
+      background: $gray-50;
+    }
+  }
+  &:after,
+  &:before {
+    display: none;
+  }
+
+  .flatpickr-months {
+    .flatpickr-prev-month,
+    .flatpickr-next-month {
+      top: -5px;
+      &:hover i,
+      &:hover svg {
+        fill: $primary;
+      }
+    }
+  }
+  .flatpickr-current-month span.cur-month {
+    font-weight: 300;
+  }
+  &.open {
+    z-index: 1051;
+  }
+  &.hasTime.open{
+    .flatpickr-time{
+      height: auto;
+    }
+  }
+}
+
+// Time picker hover & focus bg color
+.flatpickr-time input:hover,
+.flatpickr-time .flatpickr-am-pm:hover,
+.flatpickr-time input:focus,
+.flatpickr-time .flatpickr-am-pm:focus {
+  background: $white;
+}
+
+//Dark layout
+.dark-layout {
+  .flatpickr-calendar {
+    background: $theme-dark-body-bg;
+    border-color: $theme-dark-body-bg;
+    box-shadow: none;
+    .flatpickr-months {
+      i,
+      svg {
+        fill: $theme-dark-body-color;
+      }
+    }
+    .flatpickr-month {
+      color: $theme-dark-body-color;
+    }
+    .flatpickr-weekwrapper .flatpickr-weeks {
+      box-shadow: 1px 0 0 $theme-dark-border-color;
+    }
+    .flatpickr-weekday {
+      color: $theme-dark-body-color;
+    }
+
+    .flatpickr-day {
+      &,
+      &.today:hover {
+        color: $theme-dark-body-color;
+      }
+      &.selected {
+        color: $white;
+      }
+
+      &.prevMonthDay,
+      &.nextMonthDay,
+      &.flatpickr-disabled {
+        color: $gray-700 !important;
+      }
+      &.inRange,
+      &.inRange:hover {
+        background: $theme-dark-card-bg;
+        border-color: $theme-dark-card-bg;
+        box-shadow: -5px 0 0 $theme-dark-card-bg, 5px 0 0 $theme-dark-card-bg;
+      }
+      &:hover:not(.selected):not(.today):not(.startRange):not(.endRange) {
+        color: $theme-dark-body-color;
+        border-color: $theme-dark-card-bg;
+      }
+    }
+
+    .flatpickr-days .flatpickr-day {
+      &:hover:not(.selected):not(.today):not(.startRange):not(.endRange),
+      &:focus:not(.selected):not(.today):not(.startRange):not(.endRange) {
+        background: $theme-dark-card-bg;
+      }
+    }
+
+    .flatpickr-time {
+      border-color: $theme-dark-body-bg !important;
+
+      .numInput,
+      .flatpickr-am-pm {
+        color: $theme-dark-body-color;
+        &:hover {
+          background: $theme-dark-body-bg;
+        }
+      }
+
+      .arrowUp:after {
+        border-bottom-color: $theme-dark-body-color;
+      }
+      .arrowDown:after {
+        border-top-color: $theme-dark-body-color;
+      }
+    }
+  }
+  // Time picker hover & focus bg color
+  .flatpickr-time input:hover,
+  .flatpickr-time .flatpickr-am-pm:hover,
+  .flatpickr-time input:focus,
+  .flatpickr-time .flatpickr-am-pm:focus {
+    background: $theme-dark-body-bg;
+  }
+}
+
+// ? Added bg color for flatpickr input only as it has default readonly attribute
+.flatpickr-input[readonly],
+.flatpickr-input ~ .form-control[readonly],
+.flatpickr-human-friendly[readonly] {
+  background-color: inherit;
+  opacity: 1 !important;
+}
+
+.flatpickr-weekdays {
+  margin-top: 8px;
+}
+
+.flatpickr-current-month {
+  .flatpickr-monthDropdown-months {
+    -webkit-appearance: none;
+  }
+
+  .flatpickr-monthDropdown-months,
+  .numInputWrapper {
+    font-size: 1.1rem;
+    border-radius: 4px;
+    padding: 2px;
+    transition: all 0.15s ease-out;
+
+    span {
+      display: none;
+    }
+  }
+}

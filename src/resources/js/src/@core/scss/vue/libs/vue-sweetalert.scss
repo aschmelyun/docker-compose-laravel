@@ -1,0 +1,12 @@
+@import '~@core/scss/base/plugins/extensions/ext-component-sweet-alerts.scss';
+@import '~sweetalert2/dist/sweetalert2.min.css';
+
+// RTL
+html[dir='rtl'] {
+  .swal2-rtl {
+    .swal2-close {
+      left: 0;
+      right: auto;
+    }
+  }
+}

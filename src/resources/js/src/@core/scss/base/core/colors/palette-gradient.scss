@@ -1,0 +1,72 @@
+// ================================================================================================
+//   File Name: pallette-gradient.scss
+//   Description: gradient color system styles
+//   ----------------------------------------------------------------------------------------------
+//   Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//   Author: PIXINVENT
+//   Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@function color-function($color, $type) {
+  @if map-has-key($colors, $color) {
+    $curr_color: map-get($colors, $color);
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
+    }
+  }
+  // @warn "Unknown `#{name}` in $colors.";
+  @return null;
+}
+
+// Color palettes
+@import 'palette-variables';
+
+@import 'bootstrap/scss/mixins/_gradients';
+@import 'bootstrap/scss/mixins/gradients';
+
+@each $color_name, $color in $colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type == 'base' {
+      @if ($color_name != 'light' and $color_name != 'black' and $color_name != 'white') {
+        .bg-gradient-#{$color_name},
+        .btn-gradient-#{$color_name} {
+          color: $white;
+          transition: all 0.2s ease;
+          @if $color_name == 'dark' {
+            @if (color-function($color_name, 'base') != null) {
+              @include gradient-directional(map-get(($color), 'base'), map-get(($color), 'darken-2'), 47deg);
+            }
+            // for dark layout
+            .dark-layout & {
+              @include gradient-directional(map-get(($color), 'darken-2'), map-get(($color), 'base'), 47deg);
+              background-repeat: repeat;
+            }
+            background-repeat: repeat;
+          } @else {
+            @if (color-function($color_name, 'base') != null) {
+              @include gradient-directional(map-get(($color), 'base'), map-get(($color), 'lighten-2'), 47deg);
+            }
+            background-repeat: repeat;
+          }
+          &:hover,
+          &:active {
+            color: $white;
+          }
+          &:hover:not(.disabled):not(:disabled) {
+            transform: translateY(-2px);
+          }
+          &:active {
+            transform: translateY(0);
+          }
+          &:active,
+          &:focus {
+            @if (color-function($color_name, 'darken-2') != null) {
+              @include gradient-directional(map-get(($color), 'darken-2'), map-get(($color), 'base'), 47deg);
+            }
+            background-repeat: repeat;
+          }
+        }
+      }
+    }
+  }
+}

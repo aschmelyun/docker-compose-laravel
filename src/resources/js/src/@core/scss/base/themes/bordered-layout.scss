@@ -1,0 +1,61 @@
+// ================================================================================================
+// 	File Name: bordered-layout.scss
+// 	Description: SCSS file for Bordered layout.
+// 	----------------------------------------------------------------------------------------------
+// 	Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+// 	Author: PIXINVENT
+// 	Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+.bordered-layout {
+  .header-navbar {
+    box-shadow: none;
+    border: 1px solid $border-color;
+    &.floating-nav {
+      border: 1px solid $border-color;
+    }
+    &.fixed-top {
+      border-bottom: 1px solid $border-color;
+      background: $body-bg;
+      box-shadow: none !important;
+    }
+  }
+  .main-menu {
+    border-right: 1px solid $border-color;
+    box-shadow: none;
+    &.menu-light .navigation > li {
+      &.open:not(.menu-item-closing),
+      &.sidebar-group-active {
+        > a {
+          background: darken($white, 7%);
+        }
+      }
+    }
+  }
+  .dropdown-menu {
+    border: 1px solid $border-color !important;
+    box-shadow: none;
+  }
+  .main-menu .navigation,
+  .main-menu {
+    background: $body-bg;
+  }
+  .card,
+  .bs-stepper:not(.wizard-modern):not(.checkout-tab-steps),
+  .bs-stepper.wizard-modern .bs-stepper-content {
+    border: 1px solid $border-color;
+    box-shadow: none;
+  }
+
+  .footer {
+    box-shadow: none !important;
+  }
+  .footer-fixed {
+    .footer {
+      border-top: 1px solid $border-color;
+    }
+  }
+}

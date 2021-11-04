@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["resources/js/src/*"],
+            "@core/*": ["resources/js/src/@core/*"],
+        }
+    }
+}

@@ -1,0 +1,61 @@
+// Core variables and mixins
+@import '~@core/scss/base/bootstrap-extended/include';
+// Overrides user variable
+@import '~@core/scss/base/components/include';
+
+// customize the dropdown
+.autosuggest__results-container {
+  position: relative;
+  z-index: 999;
+  .autosuggest__results {
+    position: absolute;
+    background-color: $white;
+    width: 100%;
+    margin-top: 1rem;
+    overflow-y: auto;
+    border-radius: 0.5rem;
+    max-height: 40vh;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08) !important;
+    ul {
+      padding-left: 0;
+      margin-bottom: 0;
+      li {
+        list-style: none;
+        padding: 0.75rem 1rem;
+        &:hover,
+        &.autosuggest__results-item--highlighted {
+          background: $gray-200;
+        }
+        .detail {
+          line-height: 0.5;
+        }
+      }
+      .autosuggest__results-before {
+        color: $primary;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+//--------- dark layout ---------//
+body {
+  &.dark-layout {
+    .autosuggest__results-container {
+      .autosuggest__results {
+        background-color: $theme-dark-input-bg;
+        color: $theme-dark-body-color;
+
+        // on hover
+        .autosuggest__results-item--highlighted,
+        .autosuggest__results-item:hover,
+        .autosuggest__results-before:hover {
+          background-color: $theme-dark-table-hover-bg;
+        }
+        .my-suggestion-item {
+          color: $theme-dark-body-color;
+        }
+      }
+    }
+  }
+}

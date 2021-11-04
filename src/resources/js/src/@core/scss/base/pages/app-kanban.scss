@@ -1,0 +1,156 @@
+// Core variables and mixins
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+$avatar-add-new-color: rgba(108, 117, 125, 0.12);
+
+.kanban-application {
+  .kanban-wrapper {
+    width: 100%;
+    position: relative;
+    .kanban-container {
+      display: flex;
+      width: max-content !important;
+
+      // Padding to prevent add-item btn from touching scrollbar
+      padding-bottom: 1.5rem;
+
+      .kanban-board {
+        width: auto !important;
+        height: 100%;
+        background: transparent;
+        &:focus {
+          outline: 0;
+        }
+
+        .kanban-board-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-left: 0;
+          padding-right: 0;
+          .kanban-title-board {
+            color: $headings-color;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            font-weight: 500;
+            width: 100%;
+            max-width: 13rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-radius: $card-border-radius;
+            &:hover,
+            &:focus {
+              background-color: $white;
+            }
+            &:focus {
+              outline: 0;
+            }
+          }
+          .dropdown {
+            .dropdown-toggle:after {
+              display: none;
+            }
+          }
+        }
+        .kanban-drag {
+          min-height: 1rem;
+          min-width: 18.55rem;
+          padding: 0;
+        }
+        .kanban-title-button {
+          position: absolute;
+          left: -8px;
+          bottom: 0;
+          margin: -1rem 0;
+          &:focus {
+            box-shadow: none;
+          }
+        }
+        .kanban-item {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          background: $white;
+          width: 18.55rem;
+          padding: 1rem 1.2rem;
+          margin-bottom: 1.5rem;
+          box-shadow: $box-shadow;
+          cursor: pointer;
+          @include border-radius($card-border-radius);
+          transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1), background 0s, color 0s, border 0s;
+
+          i,
+          svg {
+            stroke: $headings-color;
+          }
+
+          .kanban-text {
+            font-weight: 500;
+          }
+          .item-dropdown {
+            display: none;
+            position: absolute;
+            right: 0rem;
+            cursor: pointer;
+            .dropdown-toggle:after {
+              display: none;
+            }
+          }
+          &:hover {
+            .item-dropdown {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Add new board styles
+  .add-new-board {
+    margin-top: 22px;
+    float: left;
+    padding: 0 15px;
+    label {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+  }
+
+  // Update sidebar styles
+  .update-item-sidebar {
+    text-align: left;
+
+    .avatar-add-member {
+      background-color: $avatar-add-new-color;
+      i,
+      svg {
+        stroke: $headings-color;
+      }
+    }
+
+    .comment-editor {
+      .ql-editor {
+        min-height: 5.5rem;
+      }
+    }
+    .comment-toolbar.ql-toolbar {
+      width: 100%;
+      text-align: right;
+      border-top: 0;
+    }
+  }
+}
+
+// For when item is being dragged
+.kanban-item.gu-mirror {
+  .item-dropdown {
+    .dropdown-toggle:after {
+      display: none;
+    }
+  }
+}

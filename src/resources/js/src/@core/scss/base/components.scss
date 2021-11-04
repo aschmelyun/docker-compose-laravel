@@ -1,0 +1,40 @@
+// ================================================================================================
+//  File Name: components.scss
+//  Description: Common components file to includ all theme specific custom components.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import 'bootstrap-extended/include'; // Bootstrap includes
+@import 'components/include'; // Components includes
+
+@import 'core/mixins/transitions'; // Template custom mixins
+
+// Core
+// ------------------------------
+// layouts
+@import 'core/layouts/content';
+@import 'core/layouts/sidebar';
+@import 'core/layouts/footer';
+// menu
+@import 'core/menu/navigation';
+
+// Components
+// ------------------------------
+@import 'components/avatar';
+@import 'components/search';
+// @import 'components/chart';
+@import 'components/bootstrap-social';
+@import 'components/demo'; //! Plugins demo styles, remove in real project
+@import 'components/customizer'; //! Customizer demo, remove in real project
+@import 'components/divider';
+@import 'components/timeline';
+
+// Plugins
+// ------------------------------
+@import 'plugins/ui/breakpoints';
+@import 'plugins/forms/select2/select2';
+@import 'plugins/tables/datatables';
+@import 'plugins/forms/form-number-input'; // ? globally required for cart dropdown

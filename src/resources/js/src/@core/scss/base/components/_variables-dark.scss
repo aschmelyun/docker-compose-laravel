@@ -1,0 +1,53 @@
+//  ================================================================================================
+//  File Name: variables-dark.scss
+//  Description: Custom dark theme variables
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+//  ================================================================================================
+
+//  ================================================================================================
+//  WARNING: PLEASE DO NOT CHANGE THIS VARIABLE FILE.
+//  THIS FILE WILL GET OVERWRITTEN WITH EACH VUEXY HTML TEMPLATE RELEASE.
+//  TIP:
+//  We suggest you to use this (assets/scss/variables/_variables-components.scss) file for overriding components variables.
+//  ================================================================================================
+
+//Body
+$theme-dark-body-bg: #161d31 !default;
+$theme-dark-body-color: #b4b7bd !default;
+$theme-dark-border-color: #3b4253 !default;
+$theme-dark-custom-control-border-color: #44405e !default;
+
+//Typography
+$theme-dark-headings-color: #d0d2d6 !default;
+$theme-dark-label-color: #d0d2d6 !default;
+$theme-dark-text-muted-color: #676d7d !default;
+
+//Card
+$theme-dark-card-bg: #283046 !default;
+$theme-dark-box-shadow: 0 4px 24px 0 rgba($black, 0.24);
+
+//Input
+$theme-dark-input-bg: #283046 !default;
+$theme-dark-input-placeholder-color: #676d7d !default;
+$theme-dark-input-border-color: #404656 !default;
+$theme-dark-input-disabled-bg: #24233a !default;
+$theme-dark-input-disabled-border-color: #444b60 !default;
+
+// Switch
+$theme-dark-switch-bg: #545a6a;
+$theme-dark-switch-bg-disabled: #1b2337;
+
+//Table
+$theme-dark-table-bg: #283046 !default;
+$theme-dark-table-header-bg: #343d55 !default;
+$theme-dark-table-row-bg: #283046 !default;
+$theme-dark-table-hover-bg: #242b3d !default;
+$theme-dark-table-striped-bg: #242b3d !default;
+
+$theme-dark-modal-header-bg: #161d31 !default;
+$theme-dark-pagination-bg: #242b3d !default;
+$theme-dark-chart-bg: #384056 !default;
+$theme-dark-widget-bg: #384056 !default;

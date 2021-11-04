@@ -1,0 +1,78 @@
+// ================================================================================================
+//     File Name: Footer.scss
+//     Description: *  Main footer styles.
+//     ----------------------------------------------------------------------------------------------
+//     Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//     Author: PIXINVENT
+//     Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+// Stick footer to the bottom of the page
+footer {
+  &.footer {
+    padding: 0.8rem $content-padding;
+    min-height: $footer-height;
+    transition: 300ms ease all;
+
+    // heart icon scss
+    span {
+      i,
+      svg {
+        height: 1.51rem;
+        width: 1.51rem;
+        font-size: 1.51rem;
+        margin-left: 0.5rem;
+        color: $danger;
+      }
+    }
+    .scroll-top {
+      padding: 0.81rem 0.83rem;
+    }
+  }
+
+  //shadow & border options
+  &.footer-shadow {
+    box-shadow: $box-shadow;
+  }
+  &.footer-border {
+    border-top: 1px solid $border-color;
+  }
+}
+
+// Fixed Footer
+.footer-fixed {
+  footer {
+    position: fixed !important;
+    z-index: 1030;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    // Footer Light
+    &.footer-light {
+      background: $white;
+      box-shadow: $box-shadow;
+    }
+    // Footer Dark
+    &.footer-dark {
+      background: $gray-600;
+      color: $white;
+    }
+  }
+}
+
+//! Fix: If footer is hidden add padding fix to avail card margin bottom
+.footer-hidden {
+  .app-content {
+    padding-bottom: 0.1px !important;
+  }
+}
+
+// scroll to Top Footer Button
+.scroll-top {
+  position: fixed;
+  bottom: 5%;
+  right: 30px;
+  display: none;
+  z-index: 99;
+}

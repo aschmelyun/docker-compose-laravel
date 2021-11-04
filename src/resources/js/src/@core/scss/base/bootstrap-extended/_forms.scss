@@ -1,0 +1,592 @@
+//
+// Labels
+//
+label {
+  color: $headings-color;
+  font-size: $small-font-size;
+}
+
+// placeholder specific scss
+.form-control {
+  &::placeholder {
+    transition: all 0.2s ease;
+  }
+
+  &:focus {
+    &::placeholder {
+      transform: translate(5px);
+      transition: all 0.2s ease;
+    }
+    &:valid,
+    &.is-valid {
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+}
+
+.form-control-plaintext {
+  &:focus {
+    outline: none;
+  }
+}
+
+.custom-file-label {
+  line-height: 1.75;
+  height: $custom-file-height !important;
+  &:after {
+    height: 2.56rem;
+    line-height: 1.75;
+  }
+}
+
+.valid-tooltip,
+.invalid-tooltip {
+  top: 102%;
+  left: 5px;
+}
+
+/***************
+* Form Group
+***************/
+
+// input group !important for overriding the dark style
+.input-group {
+  &:not(.bootstrap-touchspin):focus-within {
+    box-shadow: $input-focus-box-shadow;
+    border-radius: $input-border-radius;
+    .form-control,
+    .input-group-text {
+      border-color: $primary;
+      box-shadow: none;
+
+      &.is-valid {
+        border-color: $success;
+      }
+
+      &.is-invalid {
+        border-color: $danger;
+      }
+    }
+  }
+  &.is-valid {
+    .input-group-text {
+      border-color: $success !important;
+    }
+    &:not(.bootstrap-touchspin):focus-within {
+      .input-group-text {
+        border-color: $success;
+      }
+    }
+  }
+  &.is-invalid {
+    .input-group-text {
+      border-color: $danger !important;
+    }
+    &:not(.bootstrap-touchspin):focus-within {
+      .input-group-text {
+        border-color: $danger;
+      }
+    }
+  }
+
+  &.disabled {
+    .input-group-text {
+      background-color: $input-disabled-bg;
+    }
+  }
+
+  &.round {
+    .form-control,
+    .input-group-text,
+    &:focus-within {
+      @include border-radius(1.5rem);
+    }
+  }
+  &.square {
+    .form-control,
+    .input-group-text,
+    &:focus-within {
+      @include border-radius(0);
+    }
+  }
+  &.round,
+  &.square {
+    .input-group-prepend {
+      .input-group-text {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    .input-group-append {
+      .input-group-text {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+    .form-control {
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+  &.square {
+    .form-control,
+    .input-group-text {
+      @include border-radius(0);
+    }
+  }
+}
+
+.input-group-text {
+  @include transition($input-transition);
+}
+
+.input-group-prepend {
+  .input-group-text {
+    border-right: 0;
+  }
+}
+
+.input-group-append {
+  .input-group-text {
+    border-left: 0;
+  }
+  &:not(:last-child) .input-group-text {
+    border-right: 0;
+  }
+}
+
+// input group merge
+.input-group-merge {
+  .form-control {
+    &:not(:first-child) {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    &:not(:last-child) {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    &.is-valid {
+      ~ .input-group-append {
+        .input-group-text {
+          border-color: $success;
+        }
+      }
+    }
+  }
+  .input-group-prepend {
+    ~ .form-control.is-valid {
+      .input-group-text & {
+        border-color: $success;
+      }
+    }
+  }
+}
+
+// Text area line height
+textarea {
+  &.form-control {
+    line-height: 1.6rem;
+    padding: 0.8rem 1rem !important;
+  }
+
+  &.form-control-sm {
+    padding: 0.4rem 0.857rem !important;
+  }
+
+  &.form-control-lg {
+    padding: 1rem 1.143rem !important;
+  }
+}
+
+// Used for Card - Check it and remove if not used
+.form-actions {
+  border-top: 1px solid darken($body-bg, 10%);
+  padding: 20px 0;
+  margin-top: 20px;
+
+  &.filled {
+    background-color: $body-bg;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+
+  &.top {
+    border-top: 0;
+    border-bottom: 1px solid darken($body-bg, 10%);
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    .buttons-group {
+      float: left !important;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// Form-horizontal layout
+.form-horizontal {
+  .form-group {
+    @include media-breakpoint-up(sm) {
+      .label-control {
+        text-align: right;
+      }
+    }
+  }
+}
+
+// Select Inputs Specific SCSS
+select.form-control {
+  &:not([multiple='multiple']) {
+    background-image: url(str-replace(str-replace($chevron-down, 'currentColor', $input-border-color), '#', '%23'));
+    background-position: calc(100% - 12px) 13px, calc(100% - 20px) 13px, 100% 0;
+    background-size: 18px 14px, 18px 14px;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 1.5rem;
+  }
+  &.form-control-lg {
+    background-position: calc(100% - 12px) 16px, calc(100% - 20px) 16px, 100% 0;
+  }
+  &.form-control-sm {
+    background-position: calc(100% - 12px) 8px, calc(100% - 20px) 8px, 100% 0;
+  }
+}
+
+// For customs-select remove double arrow
+.custom-select {
+  -moz-appearance: none; // For firefox
+  -webkit-appearance: none; // for chrome
+}
+
+// Custom Checkbox
+.custom-checkbox {
+  .custom-control-label::before,
+  .custom-control-label::after {
+    top: 0.07rem;
+  }
+
+  .custom-control-label::after {
+    background-size: 57%;
+  }
+}
+
+// Custom Radio
+.custom-radio {
+  .custom-control-label::before {
+    top: 0.1rem;
+  }
+}
+
+// Custom checkbox and radio in common
+.custom-checkbox,
+.custom-radio {
+  &.custom-control {
+    padding-left: 1.8rem;
+
+    .input-group & {
+      padding-left: 1.3rem;
+    }
+  }
+
+  .custom-control-input {
+    width: 1.285rem;
+    height: 1.285rem;
+  }
+
+  .custom-control-label {
+    font-size: $font-size-base;
+    position: static;
+    // vertical-align: middle;
+    &::before,
+    &::after {
+      width: 18px;
+      height: 18px;
+      left: 0;
+    }
+  }
+  .custom-control-input:checked ~ .custom-control-label::before {
+    box-shadow: 0 2px 4px 0 rgba($custom-control-indicator-checked-bg, 0.4) !important;
+  }
+
+  .custom-control-input:disabled ~ .custom-control-label::before {
+    border: none;
+    box-shadow: none !important;
+  }
+
+  .custom-control-input:focus ~ .custom-control-label::before {
+    border-color: none;
+    box-shadow: 0 2px 4px 0 rgba($custom-control-indicator-checked-bg, 0.4) !important;
+  }
+}
+
+// Custom-checkbox when not disabled and active
+.custom-control-input:not(:disabled) {
+  &:active ~ .custom-control-label {
+    &::before {
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+}
+
+/* Floating label Group */
+.form-label-group {
+  position: relative;
+  margin-bottom: $form-group-margin-bottom;
+
+  // Form-Control-Large in Floating Label Group
+  .form-control-lg {
+    ~ label {
+      font-size: $input-font-size;
+      padding: 1rem;
+    }
+  }
+
+  // Form-label
+  > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    transition: all 0.25s ease-in-out;
+    padding: 0.6rem;
+    pointer-events: none;
+    cursor: text;
+    color: rgba($black, 0.4);
+    font-size: 0.7rem;
+    opacity: 0;
+  }
+  // form-input
+  > input,
+  textarea {
+    // from-input on focus change label color
+    &:focus,
+    &:not(:active) {
+      &:not(:placeholder-shown) ~ label {
+        color: rgba($primary, 1) !important;
+        transition: all 0.25s ease-in-out;
+        opacity: 1;
+      }
+    }
+    &:not(:focus) {
+      &:not(:placeholder-shown) ~ label {
+        color: rgba($black, 0.4) !important;
+      }
+    }
+    // form-label after entering text in input box
+    &:not(:placeholder-shown) ~ label {
+      padding: 0.25rem 0;
+      top: -20px;
+      left: 3px;
+    }
+
+    &.form-control-lg:not(:placeholder-shown) ~ label {
+      top: -23px;
+    }
+
+    &.form-control-sm:not(:placeholder-shown) ~ label {
+      top: -18px;
+    }
+  }
+}
+
+/* Switches */
+
+.custom-switch {
+  padding-left: 0;
+  line-height: 1.7rem;
+
+  .custom-control-label {
+    padding-left: 3.5rem;
+    line-height: 1.7rem;
+
+    /* For bg color of switch*/
+    &::before {
+      border: none;
+      background-color: $switch-bg-color;
+      height: 1.7rem;
+      box-shadow: none !important;
+      transition: opacity 0.25s ease, background-color 0.1s ease;
+      cursor: pointer;
+      user-select: none;
+      top: 0;
+      left: 0;
+    }
+    /*For Switch handle*/
+    &:after {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      box-shadow: -1px 2px 3px 0 rgba($black, 0.2);
+      background-color: $switch-indicator-color;
+      transition: all 0.15s ease-out;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /*For Switch text*/
+    .switch-text-left,
+    .switch-text-right,
+    .switch-icon-left,
+    .switch-icon-right {
+      position: absolute;
+      cursor: pointer;
+      user-select: none;
+      line-height: 1.8;
+      i,
+      svg {
+        height: 13px;
+        width: 13px;
+        font-size: 13px;
+      }
+    }
+    .switch-text-left,
+    .switch-icon-left {
+      left: 6px;
+      color: $white;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity 0.1s ease, transform 0.15s ease;
+    }
+    .switch-text-right,
+    .switch-icon-right {
+      right: 13px;
+      opacity: 1;
+      transform: translateX(0px);
+      transition: opacity 0.08s ease, transform 0.15s ease;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  /*For Switch label*/
+
+  .switch-label {
+    padding-left: 1rem;
+  }
+
+  // after its checked
+
+  .custom-control-input:checked ~ .custom-control-label::before {
+    box-shadow: none;
+  }
+
+  /*For Switch Handle Animation*/
+  .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(1.4rem);
+  }
+
+  .custom-control-input:checked ~ .custom-control-label {
+    .switch-text-left,
+    .switch-icon-left {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .switch-text-right,
+    .switch-icon-right {
+      transform: translateX(-8px);
+      opacity: 0;
+    }
+  }
+  .custom-control-input:not(:checked) ~ .custom-control-label {
+    .switch-text-left {
+      opacity: 0;
+    }
+    .switch-text-right {
+      opacity: 1;
+    }
+  }
+  .custom-control-input:checked ~ .custom-control-label {
+    .switch-text-right {
+      opacity: 0;
+    }
+    .switch-text-left {
+      opacity: 1;
+    }
+  }
+}
+
+/* Textarea with Counter */
+.textarea-counter-value {
+  background-color: $primary;
+  color: $white;
+  padding: 1px 6px;
+  font-size: 0.6rem;
+  border-radius: 0 0 5px 5px;
+  margin-right: 1rem;
+}
+
+//  Number Input style
+.btn.disabled-max-min,
+.btn.disabled-max-min:focus,
+.btn.disabled-max-min:active {
+  background-color: rgba($black, 0.5) !important;
+  cursor: default;
+}
+
+// disabled number input
+.bootstrap-touchspin,
+.bootstrap-touchspin {
+  &.disabled-touchspin {
+    .bootstrap-touchspin-down,
+    .bootstrap-touchspin-up {
+      border-color: transparent !important;
+    }
+  }
+}
+
+/* Number Type Input Box Scss for - Remove arrow on hover */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+// IE Specific CSS
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  // floating Label Group
+  .form-label-group {
+    label {
+      display: none;
+    }
+  }
+
+  // Bootstrap Select
+  select.form-control {
+    &:not([multiple='multiple']) {
+      background: none;
+    }
+  }
+}
+
+// Date & Time Picker - Form Control Bg color
+.picker__input {
+  &.form-control {
+    background-color: $white;
+  }
+}
+
+// Autofill style
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px $white inset !important;
+  -webkit-text-fill-color: $body-color !important;
+}

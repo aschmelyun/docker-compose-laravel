@@ -1,0 +1,157 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+// Number Inputs (Touch spin)
+$bootstrap-touchspin-width: 8.4rem;
+$bootstrap-touchspin-width-lg: 9.375rem;
+$bootstrap-touchspin-width-sm: 6.25rem;
+
+$bootstrap-touchspin-btn-width: 20px;
+$bootstrap-touchspin-btn-height: 20px;
+$bootstrap-touchspin-btn-width-lg: 24px;
+$bootstrap-touchspin-btn-height-lg: 24px;
+$bootstrap-touchspin-btn-width-sm: 16px;
+$bootstrap-touchspin-btn-height-sm: 16px;
+
+/* Bootstrap Touchspin */
+
+.bootstrap-touchspin {
+  &.input-group {
+    width: $bootstrap-touchspin-width;
+    align-items: center;
+    .form-control {
+      padding: 5px;
+      height: auto;
+      border: 0;
+      background-color: $body-bg;
+      border-radius: $border-radius !important;
+      text-align: center;
+      font-weight: 500;
+      &:focus {
+        z-index: 1;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .bootstrap-touchspin-injected {
+    margin: 0 !important;
+    &.input-group-prepend {
+      left: 12px;
+      position: relative;
+    }
+    &.input-group-append {
+      right: 12px;
+      position: relative;
+    }
+    .bootstrap-touchspin-down,
+    .bootstrap-touchspin-up {
+      padding: 0;
+      min-width: $bootstrap-touchspin-btn-width;
+      min-height: $bootstrap-touchspin-btn-width;
+      border-radius: $border-radius !important;
+      i,
+      svg {
+        height: 0.8rem;
+        width: 0.8rem;
+        font-size: 0.8rem;
+        position: relative;
+        top: -1px;
+      }
+    }
+  }
+
+  // Disabled Touchspin
+  &.disabled-touchspin {
+    .bootstrap-touchspin-down,
+    .bootstrap-touchspin-up {
+      background-color: rgba($black, 0.5) !important;
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+
+  // Touchspin Large
+  &.input-group-lg {
+    width: $bootstrap-touchspin-width-lg;
+    .touchspin {
+      &.form-control {
+        height: auto !important;
+      }
+    }
+    .bootstrap-touchspin-down,
+    .bootstrap-touchspin-up {
+      min-width: $bootstrap-touchspin-btn-width-lg;
+      min-height: $bootstrap-touchspin-btn-width-lg;
+      i,
+      svg {
+        height: 1rem;
+        width: 1rem;
+        font-size: 1rem;
+        top: -3px;
+      }
+    }
+  }
+
+  // Touchspin Small
+  &.input-group-sm {
+    width: $bootstrap-touchspin-width-sm;
+    .touchspin {
+      &.form-control {
+        height: auto !important;
+      }
+    }
+    .bootstrap-touchspin-injected {
+      .bootstrap-touchspin-down,
+      .bootstrap-touchspin-up {
+        min-width: $bootstrap-touchspin-btn-width-sm;
+        min-height: $bootstrap-touchspin-btn-width-sm;
+        i,
+        svg {
+          height: 0.6rem;
+          width: 0.6rem;
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}
+
+/* Number Type Input Box Scss for Touchspin - Remove arrow for firefox */
+.bootstrap-touchspin {
+  &.input-group {
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+}
+
+// Dark layout style
+.dark-layout {
+  // number inputs[touchspin]
+  .bootstrap-touchspin {
+    &.input-group {
+      .form-control {
+        background-color: $theme-dark-body-bg;
+      }
+    }
+
+    &.disabled-touchspin {
+      .bootstrap-touchspin-injected {
+        .bootstrap-touchspin-down,
+        .bootstrap-touchspin-up,
+        .disabled-max-min {
+          background-color: $gray-600 !important;
+          opacity: 1;
+        }
+      }
+    }
+
+    .bootstrap-touchspin-injected {
+      .disabled-max-min {
+        background-color: $gray-600 !important;
+        opacity: 1;
+      }
+    }
+  }
+}

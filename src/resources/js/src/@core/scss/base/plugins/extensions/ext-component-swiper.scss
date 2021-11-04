@@ -1,0 +1,367 @@
+/*=========================================================================================
+    File Name: ext-component-swiper.scss
+    Description: swiper plugin scss.
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+    Author: PIXINVENT
+    Author URL: http://www.themeforest.net/user/pixinvent
+==========================================================================================*/
+
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+/* Swiper css */
+/* ---------- */
+/* swiper slide shadow */
+.swiper-container {
+  .swiper-shadow {
+    box-shadow: 2px 8px 10px 0 rgba(25, 42, 70, 0.13) !important;
+  }
+}
+
+// swiper pagination
+.swiper-pagination {
+  // bullet pagination
+  .swiper-pagination-bullet {
+    &:focus {
+      outline: none;
+    }
+    &.swiper-pagination-bullet-active {
+      background-color: $primary;
+    }
+  }
+
+  // progress bar pagination
+  &.swiper-pagination-progressbar {
+    .swiper-pagination-progressbar-fill {
+      background-color: $primary;
+    }
+  }
+}
+
+// centered slides option-1
+.swiper-centered-slides {
+  &.swiper-container {
+    .swiper-slide {
+      text-align: center;
+      font-weight: $headings-font-weight;
+      background-color: $white;
+      height: auto;
+      width: auto !important;
+      padding: 2rem 5.5rem;
+      cursor: pointer;
+
+      &.swiper-slide-active {
+        border: 2px solid $primary;
+
+        i,
+        svg {
+          color: $primary;
+        }
+      }
+    }
+  }
+  .swiper-button-next {
+    &:after {
+      background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $white), '#', '%23'));
+    }
+  }
+  .swiper-button-prev {
+    &:after {
+      background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $white), '#', '%23'));
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    height: 40px !important;
+    width: 40px !important;
+
+    &:after {
+      border-radius: 50%;
+      background-color: $primary;
+      box-shadow: 0 2px 4px 0 rgba($black, 0.5) !important;
+      background-size: 24px !important;
+      height: 40px !important;
+      width: 40px !important;
+    }
+  }
+
+  // For RTL
+  &.swiper-container-rtl {
+    .swiper-button-next {
+      &:after {
+        background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $white), '#', '%23'));
+      }
+    }
+    .swiper-button-prev {
+      &:after {
+        background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $white), '#', '%23'));
+      }
+    }
+  }
+}
+
+// centered slides option-2
+.swiper-centered-slides-2 {
+  &.swiper-container {
+    .swiper-slide {
+      font-weight: $headings-font-weight;
+      background-color: $swiper-bg;
+      height: auto;
+      width: auto !important;
+      cursor: pointer;
+
+      &.swiper-slide-active {
+        color: $white;
+        background-color: $primary !important;
+        box-shadow: 0 3px 6px 0 rgba($primary, 0.5) !important;
+      }
+    }
+  }
+}
+
+/* cube effect */
+.swiper-cube-effect {
+  &.swiper-container {
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -12px;
+  }
+}
+
+/* swiper coverflow slide width */
+.swiper-coverflow {
+  &.swiper-container {
+    .swiper-slide {
+      width: 300px;
+    }
+  }
+}
+
+.gallery-thumbs {
+  padding: 10px 0;
+  background: $black;
+
+  .swiper-slide {
+    opacity: 0.4;
+  }
+
+  .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+}
+
+// parallax
+.swiper-parallax {
+  .swiper-slide {
+    padding: 2.67rem 4rem;
+
+    .title {
+      font-size: $h5-font-size;
+      padding: 0.5rem 0;
+    }
+
+    .text {
+      font-size: $font-size-sm;
+    }
+  }
+
+  .parallax-bg {
+    position: absolute;
+    width: 130%;
+  }
+}
+
+.swiper-virtual {
+  &.swiper-container {
+    height: 300px;
+
+    .swiper-slide {
+      /* virtual slides  */
+      font-size: $h3-font-size;
+      background-color: $kbd-bg;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+//navigation button custom icons
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  background-image: none;
+  color: $white;
+  width: 38px;
+  font-size: $h1-font-size;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.swiper-button-prev {
+  &:after {
+    background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $primary), '#', '%23'));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 44px;
+    color: $body-color;
+    width: 44px;
+    height: 44px;
+    content: '';
+    padding-right: 1px;
+  }
+}
+
+.swiper-button-next {
+  &:after {
+    background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $primary), '#', '%23'));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 44px;
+    color: $body-color;
+    width: 44px;
+    height: 44px;
+    content: '';
+    padding-right: 2px;
+  }
+}
+
+.swiper-container-rtl {
+  .swiper-button-prev {
+    &:after {
+      background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $primary), '#', '%23'));
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 44px;
+      color: $body-color;
+      width: 44px;
+      height: 44px;
+      content: '';
+    }
+  }
+
+  .swiper-button-next {
+    &:after {
+      background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $primary), '#', '%23'));
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 44px;
+      color: $body-color;
+      width: 44px;
+      height: 44px;
+      content: '';
+    }
+  }
+}
+
+// Media query for medium screen
+@media only screen and (max-width: 768px) {
+  //navigation button custom boxicons
+  .swiper-button-prev {
+    font-size: $h4-font-size;
+    top: 55%;
+    &:after {
+      height: 28px;
+      width: 28px;
+      background-size: 24px;
+    }
+  }
+
+  .swiper-button-next {
+    font-size: $h4-font-size;
+    top: 55%;
+    &:after {
+      background-size: 24px;
+    }
+  }
+  .swiper-centered-slides {
+    .swiper-button-next,
+    .swiper-button-prev {
+      &:after {
+        height: 28px;
+        width: 28px;
+        background-size: 18px;
+      }
+    }
+  }
+  // parallax
+  .swiper-parallax {
+    .swiper-slide {
+      padding: 1rem 1.2rem;
+    }
+
+    img {
+      height: 100% !important;
+    }
+  }
+}
+
+// Media query for small screen
+@media only screen and (max-width: 576px) {
+  // centered slides option-1
+  .swiper-centered-slides {
+    &.swiper-container {
+      .swiper-slide {
+        padding: 1.6rem 2.5rem;
+
+        i,
+        svg {
+          height: $h5-font-size !important;
+          width: $h5-font-size !important;
+          font-size: $h5-font-size !important;
+        }
+      }
+    }
+  }
+
+  // cube effect
+  .swiper-cube-effect {
+    &.swiper-container {
+      width: 150px;
+      left: 70%;
+    }
+  }
+
+  // parallax
+  .swiper-parallax {
+    .swiper-slide {
+      padding: 1rem 1.3rem;
+    }
+  }
+
+  // virtual slides
+  .swiper-virtual {
+    &.swiper-container {
+      .swiper-slide {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
+
+// Dark Layout
+.dark-layout {
+  .swiper-container {
+    &:not(.swiper-parallax) {
+      .swiper-slide {
+        background-color: $theme-dark-body-bg;
+      }
+    }
+    &.swiper-centered-slides {
+      .swiper-slide {
+        background-color: $theme-dark-card-bg;
+      }
+    }
+    &.swiper-parallax {
+      .swiper-slide * {
+        color: $body-color;
+      }
+    }
+  }
+}

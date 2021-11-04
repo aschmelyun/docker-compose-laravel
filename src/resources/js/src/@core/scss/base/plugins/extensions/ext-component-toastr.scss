@@ -1,0 +1,239 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+// Toast container opacity
+#toast-container > div {
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+  max-width: none;
+  border-radius: $toast-border-radius;
+}
+
+// Toast container hover shadow
+#toast-container > div,
+#toast-container > div:hover {
+  box-shadow: $toast-box-shadow;
+}
+
+#toast-container > .toast {
+  background-image: none !important;
+}
+// Toast colors
+.toast {
+  background-color: $white;
+  color: $body-color !important;
+  .toast-close-button {
+    color: $body-color;
+    font-size: 1.75rem;
+    font-weight: $font-weight-normal;
+    top: 0;
+    right: 0;
+    text-shadow: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  .toast-title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bolder;
+    line-height: 1.75;
+  }
+  .toast-progress {
+    opacity: 1;
+  }
+  &:before {
+    content: '';
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    color: $white;
+    position: absolute;
+    left: 1.25rem;
+    background-size: $font-size-base;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+// we are using only few colors in toast so not adding in palette.scss
+// plugin class name 'error' is also differ then ours so not useful to add in palette
+.toast-success {
+  .toast-title {
+    color: $success;
+  }
+  .toast-progress {
+    background-color: $success;
+  }
+  &:before {
+    background-color: $success;
+    background-image: url(str-replace(str-replace($check, 'currentColor', $white), '#', '%23'));
+  }
+}
+.toast-error {
+  .toast-title {
+    color: $danger;
+  }
+  .toast-progress {
+    background-color: $danger;
+  }
+  &:before {
+    background-color: $danger;
+    background-image: url(str-replace(str-replace($remove, 'currentColor', $white), '#', '%23'));
+  }
+}
+.toast-info {
+  .toast-title {
+    color: $info;
+  }
+  .toast-progress {
+    background-color: $info;
+  }
+  &:before {
+    background-color: $info;
+    background-image: url(str-replace(str-replace($infoIcon, 'currentColor', $white), '#', '%23'));
+  }
+}
+.toast-warning {
+  .toast-title {
+    color: $warning;
+  }
+  .toast-progress {
+    background-color: $warning;
+  }
+  &:before {
+    background-color: $warning;
+    background-image: url(str-replace(str-replace($warningIcon, 'currentColor', $white), '#', '%23'));
+  }
+}
+
+// position alignments
+.toast-top-left {
+  top: 1.3rem;
+  left: $content-padding;
+}
+.toast-top-right {
+  top: 1.3rem;
+  right: $content-padding;
+}
+.toast-top-center,
+.toast-top-full-width {
+  top: 1.3rem;
+}
+.toast-bottom-left {
+  bottom: 1.3rem;
+  left: $content-padding;
+}
+.toast-bottom-right {
+  bottom: 1.3rem;
+  right: $content-padding;
+}
+.toast-bottom-center,
+.toast-bottom-full-width {
+  bottom: 1.3rem;
+}
+
+// Media query
+
+@media (max-width: 480px) and (min-width: 241px) {
+  #toast-container > .toast {
+    &:after {
+      top: 0.95rem;
+    }
+    .toast-close-button {
+      top: 0;
+      right: -1px;
+    }
+  }
+  #toast-container:not(.toast-top-full-width):not(.toast-bottom-full-width) > div {
+    width: 20rem;
+  }
+  .toast-top-left {
+    left: 0;
+  }
+  #toast-container {
+    &.toast-top-center,
+    &.toast-bottom-center {
+      right: 1rem;
+      > div {
+        width: 20rem !important;
+      }
+    }
+  }
+  .toast-top-full-width,
+  .toast-bottom-full-width {
+    right: 0;
+    left: 0;
+    width: 93%;
+    > div {
+      width: 100%;
+    }
+  }
+  .toast-bottom-left {
+    left: 0.25rem;
+    bottom: 0.75rem;
+  }
+  .toast-bottom-right {
+    right: 2.25rem;
+    bottom: 0.75rem;
+  }
+  .toast-bottom-center,
+  .toast-bottom-full-width {
+    bottom: 0.75rem;
+  }
+  [data-textdirection='rtl'] {
+    #toast-container > div {
+      padding-right: 8px;
+    }
+  }
+}
+
+// Toastr Dark Layout
+.dark-layout {
+  #toast-container > div,
+  #toast-container > div:hover {
+    box-shadow: $theme-dark-box-shadow;
+  }
+  #toast-container {
+    .toast {
+      background-color: $theme-dark-card-bg;
+      color: $theme-dark-body-color !important;
+      .toast-close-button {
+        color: $theme-dark-body-color;
+      }
+    }
+  }
+}
+
+[data-textdirection='rtl'] {
+  .toast .toast-close-button {
+    @include media-breakpoint-down(xs) {
+      top: 0.55rem !important;
+      right: 0.5rem !important;
+    }
+  }
+  .toast-top-left {
+    left: 1rem;
+    right: auto;
+  }
+  .toast-top-right {
+    right: 3rem;
+    left: auto;
+  }
+  .toast-bottom-left {
+    left: 1em;
+    right: auto;
+  }
+  .toast-bottom-right {
+    right: 3rem;
+    left: auto;
+  }
+  .toast-top-full-width,
+  .toast-bottom-full-width {
+    &#toast-container > div {
+      left: 0;
+      right: 0;
+    }
+  }
+}

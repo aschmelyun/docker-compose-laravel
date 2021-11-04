@@ -1,0 +1,171 @@
+@import '../../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../../components/include'; // Components includes
+
+// remove picker outline
+.picker__holder {
+  outline: none;
+}
+// Updated picker  color as per theme color
+.picker__day--today:before,
+.picker__button--today:before {
+  border-top: 6px solid $primary;
+}
+.picker__button--clear:before {
+  border-top: 2px solid $danger;
+}
+.picker__day--highlighted,
+.picker__day--highlighted:hover,
+.picker--focused .picker__day--highlighted,
+.picker__list-item--selected,
+.picker__list-item--selected:hover,
+.picker--focused .picker__list-item--selected {
+  background-color: $primary;
+}
+// Updated picker svg icons
+.picker__nav--prev:before,
+.picker__nav--next:before,
+.picker__button--close:before {
+  content: '';
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+  color: $body-color;
+  width: 8px;
+  height: 18px;
+}
+.picker__nav--prev:before {
+  background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $body-color), '#', '%23'));
+}
+.picker__nav--next:before {
+  background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $body-color), '#', '%23'));
+}
+.picker__button--close:before {
+  background-image: url(str-replace(str-replace($remove, 'currentColor', $danger), '#', '%23'));
+  height: 10px !important;
+}
+
+// Dark layout style
+.dark-layout {
+  // date picker
+  .picker__holder {
+    background-color: $theme-dark-body-bg;
+    border-color: $theme-dark-border-color;
+
+    .picker__header {
+      .picker__month,
+      .picker__year {
+        color: $theme-dark-body-color;
+      }
+
+      .picker__select--year,
+      .picker__select--month {
+        color: $theme-dark-body-color;
+        background-color: $theme-dark-body-bg;
+        border-color: $theme-dark-border-color;
+      }
+
+      .picker__nav--next,
+      .picker__nav--prev {
+        &:hover {
+          background-color: $theme-dark-card-bg;
+        }
+      }
+    }
+    .picker__frame {
+      border-color: $theme-dark-border-color;
+    }
+
+    .picker__table {
+      thead {
+        tr {
+          .picker__weekday {
+            color: $theme-dark-body-color;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            .picker__day {
+              &:not(.picker__day--highlighted){
+                color: $theme-dark-body-color;
+              }
+              &.picker__day--selected {
+                color: $white;
+                // color: $theme-dark-body-color;
+              }
+              &.picker__day--outfocus {
+                opacity: 0.65;
+              }
+
+              &:not(.picker__day--today):not(.picker__day--highlighted):hover {
+                background-color: $theme-dark-border-color;
+                color: $white;
+              }
+
+              &.picker__day--disabled {
+                color: $theme-dark-body-color;
+                opacity: 0.5;
+                background: $theme-dark-card-bg;
+              }
+            }
+
+            .picker__day--today:not(.picker__day--highlighted) {
+              background-color: $theme-dark-card-bg;
+            }
+          }
+        }
+      }
+    }
+
+    .picker__footer {
+      .picker__button--today,
+      .picker__button--clear,
+      .picker__button--close {
+        background-color: $theme-dark-body-bg;
+        color: $theme-dark-body-color;
+        &:hover {
+          background-color: $theme-dark-border-color;
+        }
+      }
+    }
+  }
+
+  // time picker
+  .picker--time {
+    .picker__holder {
+      .picker__list {
+        background-color: $theme-dark-body-bg;
+
+        .picker__list-item {
+          &.picker__list-item--selected,
+          &:hover {
+            background-color: $theme-dark-card-bg;
+          }
+
+          &.picker__list-item--disabled {
+            background-color: $theme-dark-card-bg;
+            color: $secondary;
+            opacity: 0.5;
+          }
+        }
+
+        .picker__button--clear {
+          background-color: $theme-dark-body-bg;
+          color: $theme-dark-body-color;
+        }
+      }
+    }
+  }
+}
+
+//RTL Style
+[dir='rtl'] {
+  .picker__nav--prev:before {
+    background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $body-color), '#', '%23'));
+  }
+  .picker__nav--next:before {
+    background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $body-color), '#', '%23'));
+  }
+}

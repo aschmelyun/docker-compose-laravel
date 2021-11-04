@@ -1,0 +1,66 @@
+// ================================================================================================
+//   File Name: aggrid.scss
+//   Description: SCC file for Aggrid.
+//   ----------------------------------------------------------------------------------------------
+//   Item Name: Vuexy - Vuejs, React, Angular, HTML & Laravel Admin Dashboard Template
+//   Author: PIXINVENT
+//   Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+@import '../components/include'; // Components includes
+
+// Statistics Card
+.card-statistics {
+  .statistics-body {
+    padding: 2rem 2.4rem !important;
+  }
+
+  @include media-breakpoint-down(md) {
+    .card-header,
+    .statistics-body {
+      padding: 1.5rem !important;
+    }
+  }
+}
+
+// Company Table Card
+.card-company-table {
+  thead th {
+    border: 0;
+  }
+  td {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+
+    .avatar {
+      background-color: $body-bg;
+      margin-right: 2rem;
+
+      img {
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+// Browser State Card
+.card-browser-states {
+  .browser-states {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:not(:first-child) {
+      margin-top: 1.7rem;
+    }
+  }
+}
+
+// Transaction Card
+.card-transaction {
+  .transaction-item {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

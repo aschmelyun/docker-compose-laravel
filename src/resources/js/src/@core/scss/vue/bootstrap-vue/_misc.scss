@@ -1,0 +1,14 @@
+// ------------------ Checkboxes And Radios ------------------ //
+.input-group-prepend,
+.input-group-append {
+  .input-group-text {
+    .form-check {
+      line-height: 0;
+    }
+  }
+}
+
+// custom file label issue with prepend
+.custom-file-label {
+  height: calc(1.65em + 1.4rem + 1px);
+}

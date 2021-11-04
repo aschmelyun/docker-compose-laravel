@@ -1,0 +1,55 @@
+// Disable overflow x to mitigate the horizontal scrollbar while transiting between routes
+body {
+  overflow-x: hidden;
+}
+
+// ------------------------------------------------
+// Vertical Menu
+// ------------------------------------------------
+
+.nav-item.has-sub {
+  & & li svg {
+    display: none;
+  }
+}
+
+// Navbar Badge Position
+.header-navbar .navbar-container ul.navbar-nav li.dropdown-cart .badge.badge-up,
+.header-navbar .navbar-container ul.navbar-nav li.dropdown-notification .badge.badge-up {
+  right: -9px;
+}
+
+// Scrollbar style for group which have scrollbar
+.horizontal-menu {
+  .horizontal-menu-wrapper {
+    .navbar-horizontal {
+      ul.dropdown-menu {
+        &::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: $gray-500;
+          border-radius: 20px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: $gray-300;
+          border-radius: 30px;
+        }
+      }
+    }
+  }
+}
+
+// Fix: Navbar color in dark horizontal layout
+.dark-layout {
+  .horizontal-layout {
+    &.navbar-sticky {
+      .navbar.header-navbar {
+        box-shadow: none;
+      }
+    }
+  }
+}

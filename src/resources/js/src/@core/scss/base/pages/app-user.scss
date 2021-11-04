@@ -1,0 +1,107 @@
+// ================================================================================================
+//  File Name: app-users.scss
+//  Description: Invoice Layout page layouts SCSS.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy HTML Admin Template
+//  Version: 1.0
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+@import '../bootstrap-extended/include'; // Bootstrap includes
+
+$color-box-size: 2.714rem;
+
+// User List
+.app-user-list {
+  .dataTables_wrapper {
+    .dataTables_length {
+      select {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .header-actions {
+      .dataTables_length {
+        text-align: left;
+      }
+      & > div[class^='col-']:last-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+// User View
+.app-user-view {
+  .user-info-wrapper {
+    .user-info-title {
+      width: 11.785rem;
+    }
+  }
+  .user-total-numbers {
+    margin-top: 2.428rem;
+    .color-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: $color-box-size;
+      width: $color-box-size;
+      border-radius: $border-radius;
+
+      i,
+      svg {
+        height: 1.285rem;
+        width: 1.285rem;
+        font-size: 1.285rem;
+      }
+    }
+  }
+}
+
+// User Edit
+.app-user-edit {
+  .nav-pills {
+    margin-bottom: 2.3rem;
+    .nav-link {
+      i,
+      svg {
+        font-size: 0.921rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .nav-pills {
+      .nav-link {
+        i,
+        svg {
+          height: 1.2rem;
+          width: 1.2rem;
+          font-size: 1.2rem;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+// RTL
+html[data-textdirection='rtl'] {
+  .app-user-list {
+    .dataTables_filter {
+      input {
+        margin-right: 0;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .dropdown .dropdown-menu.dropdown-menu-right {
+      right: 3.57rem !important;
+    }
+  }
+}

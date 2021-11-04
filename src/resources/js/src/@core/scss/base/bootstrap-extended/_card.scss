@@ -1,0 +1,514 @@
+.card {
+  border: none;
+  margin-bottom: $content-padding;
+  box-shadow: $box-shadow;
+  transition: all 0.3s ease-in-out, background 0s, color 0s, border-color 0s;
+  .card {
+    box-shadow: none !important;
+  }
+  .card-title {
+    font-weight: 500;
+    font-size: 1.285rem;
+    margin-bottom: 1.53rem; // Considering sub-title minus margin
+  }
+  .card-bordered {
+    border: $card-border-width solid $card-border-color;
+  }
+  .card-img {
+    object-fit: cover;
+  }
+  .card-img-overlay {
+    border-radius: $card-border-radius;
+  }
+
+  //fullscreen card
+  &.card-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+  }
+  .card-body[class*='border-bottom-'] {
+    border-bottom-width: 2px !important;
+  }
+  .card-img-overlay {
+    &.bg-overlay {
+      background: rgba($black, 0.45);
+    }
+    .text-muted {
+      color: $gray-800 !important;
+    }
+  }
+  &.card-minimal {
+    border: none;
+    box-shadow: none;
+  }
+
+  .card-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: none;
+    padding: 1.5rem;
+    background-color: transparent;
+    .card-title {
+      margin-bottom: 0;
+    }
+
+    .heading-elements {
+      position: relative;
+      top: -1px;
+
+      li:not(:first-child) a {
+        margin-left: 0.75rem;
+      }
+
+      a {
+        &.btn {
+          padding-top: 6px;
+          padding-bottom: 6px;
+        }
+        i,
+        svg {
+          height: 1rem;
+          width: 1rem;
+          font-size: 1rem;
+        }
+        &[data-action='collapse'] {
+          i,
+          svg {
+            transition: all 0.25s ease-out;
+            display: inline-block;
+          }
+          &.rotate {
+            i,
+            svg {
+              transform: rotate(-180deg);
+            }
+          }
+        }
+      }
+    }
+
+    & + .card-content > .card-body:first-of-type,
+    & + .card-body {
+      padding-top: 0px;
+    }
+  }
+  .card-footer {
+    border-top: 1px solid $gray-300;
+    background-color: transparent;
+  }
+}
+// Card Column
+.card-columns {
+  .card {
+    margin-bottom: $spacer * 2.2;
+  }
+}
+
+.card-group,
+.card-deck {
+  margin-bottom: 0.75rem;
+}
+
+.card-head-inverse {
+  .heading-elements {
+    i,
+    svg {
+      color: $white;
+    }
+  }
+  color: $white;
+}
+.card-transparent {
+  background-color: transparent;
+}
+
+.text-white {
+  .card-img-overlay {
+    .text-muted {
+      color: $white !important;
+    }
+  }
+  code {
+    background-color: rgba($white, 1);
+  }
+  .heading-elements {
+    i,
+    svg {
+      color: $white;
+    }
+  }
+}
+
+// overlay-img-card
+.overlay-img-card {
+  .card-img-overlay,
+  img {
+    max-height: 34.64rem;
+  }
+}
+
+// IE Specific CSS
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  // img-fluid class
+  .card-body,
+  .card-content {
+    min-height: 1px;
+  }
+}
+
+//--------------- Advance Cards ---------------
+//---------------------------------------------
+
+// Congratulations Card
+.card-congratulations {
+  background: linear-gradient(118deg, rgba($primary, 1), rgba($primary, 0.7));
+  color: $white;
+
+  // image on left
+  .congratulations-img-left {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include media-breakpoint-down(xs) {
+      width: 140px;
+    }
+  }
+  // image on right
+  .congratulations-img-right {
+    width: 175px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @include media-breakpoint-down(xs) {
+      width: 140px;
+    }
+  }
+
+  .avatar {
+    margin-bottom: 2rem;
+  }
+}
+// congratulation medal card
+.congratulation-medal {
+  position: absolute;
+  top: 0;
+  right: 37px;
+}
+
+// Deposits Card
+.card-deposits {
+  .deposits-divider {
+    margin-top: 1.8rem;
+    margin-bottom: 1.4rem;
+  }
+}
+
+// Employee Task Card
+.card-employee-task {
+  .employee-task {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+// Developer Meetup Card
+.card-developer-meetup {
+  .meetup-img-wrapper {
+    background-color: rgba($primary, 0.1);
+  }
+  .meetup-header {
+    margin-bottom: 2rem;
+
+    .meetup-day {
+      text-align: center;
+      border-right: 1px solid $custom-control-border-color;
+      padding-right: 1.3rem;
+      margin-right: 1.3rem;
+    }
+  }
+  .media {
+    .avatar .avatar-content {
+      width: 34px;
+      height: 34px;
+    }
+    & + .media {
+      margin-top: 1.2rem;
+    }
+  }
+  .avatar-group {
+    margin-top: 2rem;
+  }
+}
+
+// Profile Card
+.card-profile {
+  text-align: center;
+  .card-body {
+    position: relative;
+    padding: 5rem 2.3rem $card-spacer-y 2.3rem;
+
+    .profile-image-wrapper {
+      display: flex;
+      justify-content: center;
+
+      .profile-image {
+        position: absolute;
+        top: -4rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+        background-color: $white;
+        box-shadow: 0 0 8px 0 rgba($black, 0.14);
+        margin-bottom: 1.15rem;
+
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+
+    .profile-badge {
+      margin-top: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+}
+
+// Apply Job Card
+.card-apply-job {
+  .apply-job-package {
+    padding: 1.2rem;
+    margin-bottom: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    sup {
+      top: -0.8rem;
+    }
+  }
+}
+
+// Transaction Card
+.card-transaction {
+  .transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:not(:last-child) {
+      margin-bottom: 1.2rem;
+    }
+
+    .avatar {
+      margin-right: 1.2rem;
+      .avatar-content {
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    .transaction-title {
+      margin-bottom: 0.2rem;
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+// User Timeline Card
+.card-user-timeline {
+  .user-timeline-title-icon {
+    width: 1.714rem;
+    height: 1.714rem;
+    margin-right: 1.3rem;
+  }
+  .timeline {
+    .timeline-item {
+      &:last-child {
+        .timeline-event {
+          min-height: auto;
+        }
+      }
+      &:not(:last-child) {
+        padding-bottom: 2.3rem;
+      }
+    }
+  }
+}
+
+// Business Card
+.business-card {
+  .business-items {
+    &:not(:last-child) {
+      margin-bottom: 1.3rem;
+    }
+
+    .business-item {
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      padding: 1rem 1rem 1rem 1.3rem;
+      &:not(:last-child) {
+        margin-bottom: 0.85rem;
+      }
+    }
+  }
+}
+
+// States Card
+.card-browser-states {
+  .browser-states {
+    margin-top: 2.14rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+// App Design Card
+.card-app-design {
+  .design-group {
+    margin-bottom: 2rem;
+
+    .avatar:not(:last-child) {
+      margin-right: 0.6rem;
+    }
+  }
+
+  .design-planning-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    &:not(:last-child) {
+      margin-bottom: 1.3rem;
+    }
+
+    .design-planning {
+      padding: 0.5rem;
+      margin-bottom: 0.7rem;
+      text-align: center;
+      background-color: $body-bg;
+      border-radius: $border-radius;
+      min-width: 6.4rem;
+      &:not(:last-child) {
+        margin-right: 0.7rem;
+      }
+    }
+  }
+}
+
+//--------------- Statistics Card ---------------
+//------------------------------------------------
+
+.card-statistics {
+  .card-header {
+    padding-left: 2.4rem;
+  }
+  .statistics-body {
+    padding: 2rem 2.4rem 2.8rem !important;
+
+    .avatar .avatar-content {
+      width: 48px;
+      height: 48px;
+
+      .avatar-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+//--------------- Analytics Card ---------------
+//----------------------------------------------
+
+// Chart-dropdown Button
+.chart-dropdown {
+  .btn {
+    font-size: 1rem;
+    font-weight: $font-weight-normal;
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// Revenue Report & Budget Card
+.card-revenue-budget {
+  .revenue-report-wrapper {
+    padding: 1.286rem 1.5rem;
+
+    @include media-breakpoint-up(md) {
+      border-right: 1px solid $border-color;
+    }
+
+    #revenue-report-chart {
+      .apexcharts-series {
+        &[seriesName='Earning'] {
+          transform: scaleY(0.965);
+        }
+        &[seriesName='Expense'] {
+          transform: scaleY(1.035);
+        }
+      }
+    }
+  }
+
+  .budget-wrapper {
+    padding: 2rem 3rem;
+    text-align: center;
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 0;
+    }
+
+    .budget-dropdown {
+      margin-bottom: 2rem;
+    }
+
+    #budget-chart {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// Earnings Card
+.earnings-card {
+  .apexcharts-canvas .apexcharts-pie {
+    .apexcharts-datalabel-label {
+      font-size: 0.8rem;
+      fill: $body-color !important;
+    }
+    .apexcharts-datalabel-value {
+      fill: $headings-color;
+      font-size: 1.286rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// IE Specific CSS
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  // make icon center in avatar-content
+  #dashboard-analytics,
+  #statistics-card {
+    .avatar {
+      .avatar-content {
+        padding: 0 !important;
+      }
+    }
+  }
+}

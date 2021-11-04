@@ -1,0 +1,44 @@
+@import '../../bootstrap-extended/include'; // Bootstrap includes
+@import '../../components/include'; // Components includes
+
+form {
+  span.error {
+    width: 100%;
+    font-size: 0.857rem;
+  }
+  .error:not(input) {
+    color: $danger;
+  }
+  input.error,
+  input.error:focus {
+    border-color: $danger !important;
+    ~ .custom-control-label::before,
+    ~ .custom-file-label {
+      border-color: $danger !important;
+    }
+    ~ .custom-control-label {
+      color: $danger;
+    }
+  }
+  .form-group {
+    .custom-control-input.error {
+      cursor: pointer;
+      & {
+        ~ .custom-control-label:before {
+          border-color: $danger !important;
+        }
+      }
+    }
+  }
+  textarea.error {
+    border-color: $danger !important;
+  }
+  .select2.error {
+    + .select2-container--classic .select2-selection--single,
+    + .select2-container--default .select2-selection--single,
+    + .select2-container--classic .select2-selection--multiple,
+    + .select2-container--default .select2-selection--multiple {
+      border-color: $danger !important;
+    }
+  }
+}

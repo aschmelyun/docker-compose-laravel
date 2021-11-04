@@ -1,0 +1,418 @@
+// Core variables and mixins
+@import '~@core/scss/base/bootstrap-extended/include';
+// Overrides user variable
+@import '~@core/scss/base/components/include';
+@import 'vue-select/src/scss/vue-select.scss';
+
+//--------- Simple Number Wizard ----------//
+.vue-form-wizard {
+  background-color: $white;
+  box-shadow: 0px 4px 25px 0px rgba($black, 0.1);
+  border-radius: 0.5rem;
+  padding-bottom: 0;
+  .wizard-header {
+    padding: 0;
+    margin: 0;
+  }
+  .title {
+    color: $gray-400;
+  }
+  .wizard-navigation {
+    .wizard-progress-with-circle {
+      display: none;
+    }
+    .wizard-nav {
+      padding: 1.42rem 1.42rem 2.14rem 1.42rem;
+      border-bottom: 1px solid rgba($color: $black, $alpha: 0.08);
+      padding-bottom: 0;
+      li {
+        flex-grow: 0;
+        flex: inherit;
+        margin-right: 3rem;
+        padding-bottom: 2rem;
+        &.active {
+          a {
+            color: $primary;
+            .wizard-icon-circle {
+              .wizard-icon-container {
+                .wizard-icon {
+                  color: $white;
+                  font-size: 1rem;
+                }
+              }
+            }
+            .checked {
+              box-shadow: 0 3px 6px 0 rgba(105, 108, 255, 0.4);
+            }
+          }
+        }
+        .wizard-icon-circle {
+          width: 2.71rem;
+          height: 2.71rem;
+          margin-right: 1rem;
+          border: none;
+          background-color: $gray-200;
+          border-radius: 6px;
+
+          .wizard-icon-container {
+            border-radius: 6px;
+          }
+          .wizard-icon {
+            font-style: inherit;
+            font-size: 1rem;
+            color: $gray-600;
+            &.feather {
+              font-size: 1.3rem;
+            }
+          }
+          &.checked {
+            background-color: rgba($primary, $alpha: 0.08);
+            .wizard-icon {
+              color: $primary;
+            }
+          }
+        }
+        a {
+          flex-direction: row;
+          .stepTitle {
+            font-size: 1rem;
+            color: $gray-600;
+            font-weight: 600;
+          }
+          .wizard-icon {
+            transition: none !important;
+          }
+        }
+        &:not(:first-child) {
+          a {
+            &::before {
+              content: '\e844';
+              font-family: feather !important;
+              speak: none;
+              font-style: normal;
+              font-weight: 400;
+              font-variant: normal;
+              text-transform: none;
+              line-height: 1;
+              font-size: 1.14rem;
+              left: -30px;
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+  }
+  .wizard-card-footer {
+    padding-bottom: 1rem;
+    .wizard-footer-left,
+    .wizard-footer-right {
+      .wizard-btn {
+        padding: 0.786rem 1.5rem;
+        min-width: unset;
+        border-radius: 0.4285rem;
+      }
+    }
+    .wizard-footer-left {
+      .wizard-btn {
+        border: 1px solid $secondary !important;
+        background-color: transparent !important;
+        color: $secondary !important;
+        font-weight: 400;
+        &:hover {
+          background-color: rgba($secondary, 0.04) !important;
+        }
+        &::before {
+          content: '\e843';
+          font-family: feather !important;
+          speak: none;
+          font-style: normal;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          font-size: 1rem;
+          left: -6px;
+          position: relative;
+        }
+      }
+    }
+    .wizard-footer-right {
+      .wizard-btn {
+        font-weight: 400;
+        &:hover {
+          box-shadow: 0 8px 25px -8px $primary;
+        }
+        &::after {
+          content: '\e844';
+          font-family: feather !important;
+          speak: none;
+          font-style: normal;
+          font-weight: 400;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          font-size: 1rem;
+          right: -6px;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+//---------- Transparent Steps ----------//
+.steps-transparent {
+  &.vue-form-wizard {
+    background-color: transparent;
+    box-shadow: none;
+    padding-bottom: 0;
+    .wizard-header {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .wizard-navigation .wizard-nav {
+      border: none;
+    }
+  }
+  .wizard-tab-content {
+    box-shadow: 0px 4px 25px 0px rgba($black, 0.1);
+    background-color: $white;
+  }
+  .wizard-card-footer {
+    background-color: $white;
+    box-shadow: 0px 4px 25px 0px rgba($black, 0.1);
+  }
+  .wizard-tab-content {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  .wizard-card-footer {
+    box-shadow: -1px 16px 25px 0px rgba($black, 0.1);
+    // padding-bottom: 2.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+}
+
+//------------- Vertical --------------//
+.vertical.wizard-vertical {
+  &.vue-form-wizard {
+    .wizard-navigation {
+      .wizard-nav {
+        border-right: 1px solid rgba($color: $black, $alpha: 0.08);
+        border-bottom: none;
+        min-width: 230px;
+        padding-right: 2.5rem;
+        li {
+          margin-right: 0;
+          a {
+            flex-wrap: nowrap;
+            &::before {
+              content: none;
+            }
+          }
+          .stepTitle {
+            max-width: 200px;
+            font-size: 1rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .wizard-tab-content {
+      width: 100%;
+    }
+    .wizard-card-footer {
+      margin-left: 229px;
+      border-left: 1px solid rgba($color: $black, $alpha: 0.08);
+      padding-top: 0;
+    }
+  }
+}
+
+//---------- Vertical Transparent Steps ----------//
+.vertical-steps {
+  &.vue-form-wizard {
+    .wizard-tab-content {
+      width: 100%;
+    }
+    .wizard-card-footer {
+      margin-left: 223px;
+      position: relative;
+      z-index: 9;
+      padding-top: 0;
+    }
+    .wizard-navigation {
+      .wizard-nav {
+        padding-right: 2.5rem;
+        padding-top: 30px;
+        li {
+          margin-right: 0;
+          a {
+            flex-wrap: nowrap;
+            &::before {
+              content: none;
+            }
+          }
+          .stepTitle {
+            max-width: 200px;
+            font-size: 1rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .vue-form-wizard {
+    .wizard-navigation {
+      flex-direction: column !important;
+      .wizard-nav.wizard-nav-pills {
+        li:not(:first-child) {
+          a {
+            &::before {
+              content: none;
+            }
+          }
+        }
+        li:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .wizard-card-footer {
+      margin-left: 0 !important;
+    }
+    &.wizard-vertical.vertical {
+      .wizard-nav.wizard-nav-pills {
+        border-right: none;
+        width: 100%;
+        border-bottom: 1px solid rgba($black, $alpha: 0.08);
+        margin-bottom: 1.9rem;
+      }
+      .wizard-tab-content {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .vue-form-wizard {
+    .wizard-nav.wizard-nav-pills {
+      li:not(:first-child) {
+        a {
+          &::before {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+//------------ dark layout -------------//
+body {
+  &.dark-layout {
+    // border apply only default not transparent background
+    .vue-form-wizard:not(.steps-transparent) {
+      background-color: $theme-dark-card-bg;
+      box-shadow: 0px 4px 25px 0px rgba($theme-dark-body-color, 0.1);
+      &.vertical {
+        .wizard-card-footer {
+          border-color: $theme-dark-border-color !important;
+        }
+      }
+    }
+    .vue-form-wizard {
+      // border for transparent background
+      &.steps-transparent {
+        .wizard-tab-content,
+        .wizard-card-footer {
+          background-color: $theme-dark-card-bg;
+          box-shadow: 1px 12px 25px 0px rgba($theme-dark-body-color, 0.1);
+        }
+      }
+
+      // border for navigation bar in default wizard
+      .wizard-navigation {
+        .wizard-nav {
+          border-color: $theme-dark-border-color !important;
+          li {
+            .wizard-icon-circle {
+              background-color: rgba($gray-100, 0.12);
+              &.checked {
+                background-color: rgba($primary, $alpha: 0.08);
+                .wizard-icon {
+                  color: $primary;
+                }
+              }
+            }
+            &.active {
+              a {
+                .wizard-icon-circle {
+                  .wizard-icon {
+                    color: $theme-dark-body-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // steps arrow icon
+      .wizard-nav {
+        &:not(:first-child) {
+          a {
+            &::before {
+              color: $theme-dark-body-color;
+            }
+          }
+          li.active {
+            a {
+              &::before {
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//------------ RTL -------------//
+html[dir='rtl'] {
+  .wizard-navigation {
+    .wizard-nav {
+      li {
+        a {
+          &::before {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+  .vue-form-wizard {
+    .wizard-card-footer {
+      .wizard-footer-left {
+        .wizard-btn::before {
+          right: 0;
+        }
+      }
+      .wizard-footer-right {
+        .wizard-btn::after {
+          left: 0;
+        }
+      }
+    }
+  }
+}

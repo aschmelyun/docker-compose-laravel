@@ -1,0 +1,45 @@
+// Popovers
+
+.popover {
+  box-shadow: $popover-box-shadow;
+  // popover header style
+  .popover-header {
+    @include font-size(1.07rem);
+    border: 1px solid $popover-header-bg;
+  }
+  // popover body style
+  .popover-body {
+    border: 1px solid $popover-border-color;
+    border-top-color: $popover-bg;
+    border-bottom-left-radius: $popover-border-radius;
+    border-bottom-right-radius: $popover-border-radius;
+  }
+  // popover bottom arrow color like header
+  &.bs-popover-bottom {
+    .arrow:after {
+      border-bottom-color: $popover-header-bg;
+    }
+  }
+}
+// To set arrow border as we have added border to popover-body and popover-header
+.bs-popover-top {
+  > .arrow {
+    &::after {
+      bottom: $popover-border-width + 1px;
+    }
+  }
+}
+.bs-popover-right {
+  > .arrow {
+    &::after {
+      left: $popover-border-width + 1px;
+    }
+  }
+}
+.bs-popover-left {
+  > .arrow {
+    &::after {
+      right: $popover-border-width + 1px;
+    }
+  }
+}
