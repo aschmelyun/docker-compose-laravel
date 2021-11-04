@@ -17,7 +17,7 @@ Bringing up the Docker Compose network with `site` instead of just using `up`, e
 - **mysql** - `:3306`
 - **php** - `:9000`
 - **redis** - `:6379`
-- **mailhog** - `:8025` 
+- **mailhog** - `:8025`
 
 Three additional containers are included that handle Composer, NPM, and Artisan commands *without* having to have these platforms installed on your local computer. Use the following command examples from your project root, modifying them to fit your particular use case. From inside `docker-compose-laravel/src(master)$` run the following commands:
 
@@ -41,7 +41,7 @@ docker-compose run --rm npm run dev
 ```
 docker-compose run --rm artisan migrate
 ```
-6 - To SSH into the MySql container 
+6 - To SSH into the MySql container
 ```
 docker exec -it <mysql container ID>  /bin/bash
 ```
@@ -71,8 +71,8 @@ volumes:
 
 >It is available some startup MySql configuration at `docker-compose.yml` in the `mysql` session. By default it is created a database called `homestead`, a user called `homestead` with the password `secret`. The MySql root password is also created with a password `secret`. To get SSH access to the MySql container `docker exec -it <mysql container ID>  /bin/bash`
 
->If having ```SQLSTATE[HY000] [2002] Connection refused (SQL: select * from information_schema.tables where table_schema = laravel and table_name = migrations and table_type = 'BASE TABLE')``` just replace `DB_HOST=127.0.0,1` or `DB_HOST=0.0.0.0` to `DB_HOST=mysql`.  
->This is the final configuration in `.env`:  
+>If having ```SQLSTATE[HY000] [2002] Connection refused (SQL: select * from information_schema.tables where table_schema = laravel and table_name = migrations and table_type = 'BASE TABLE')``` just replace `DB_HOST=127.0.0,1` or `DB_HOST=0.0.0.0` to `DB_HOST=mysql`.
+>This is the final configuration in `.env`:
 ```
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -81,7 +81,7 @@ DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
-Issues with Mysql connection refer to `https://github.com/aschmelyun/docker-compose-laravel/issues/48` or `https://github.com/aschmelyun/docker-compose-laravel/issues/70`  
+Issues with Mysql connection refer to `https://github.com/aschmelyun/docker-compose-laravel/issues/48` or `https://github.com/aschmelyun/docker-compose-laravel/issues/70`
 
 Note: using MySql-Workbench this is the configuration:
 ```
@@ -133,12 +133,26 @@ docker ps -a && docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) &
 
 ## How to pull or create a Laravel project
 
-1 - `Clone your project` OR `Create a new project` OR  `Copy all of the files` directly into this `src/` directory.
-2 - Build the Docker service: `docker-compose up -d --build site`
-3. In your terminal go to the `docker-compose-laravel/src` folder: `cd docker-compose-laravel/src`
-4. Remove the `README.md`: ```cd src/ && rm README.md```
-5. Create a new Laravel project ```docker-compose run --rm composer create-project laravel/laravel .```
-6. Example: `~/vhosts/docker-compose-laravel/src(master)$ docker-compose run --rm composer create-project laravel/laravel .`
+1. `Clone your project` OR `Create a new project` OR  `Copy all of the files` directly into this `src/` directory.
+2. Build the Docker service:
+```
+docker-compose up -d --build site
+```
+
+3. In your terminal go to the `docker-compose-laravel/src` folder:
+```
+cd docker-compose-laravel/src
+```
+4. Remove the `README.md`:
+```
+cd src/ && rm README.md
+```
+5. Create a `new Laravel project`
+```
+docker-compose run --rm composer create-project laravel/laravel .
+```
+>Example:
+```~/vhosts/docker-compose-laravel/src(master)$ docker-compose run --rm composer create-project laravel/laravel .```
 
 
 ## Using BrowserSync with Laravel Mix

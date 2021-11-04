@@ -14,7 +14,7 @@ services:
     container_name: nginx
     ports:
       - 80:80
-      - "8008:80"
+      # - "8008:80"
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
