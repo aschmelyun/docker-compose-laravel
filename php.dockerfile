@@ -1,10 +1,10 @@
 FROM php:8-fpm-alpine
 
-ENV UID=1000
-ENV GID=1000
+ARG UID
+ARG GID
 
-ARG UID=${UID}
-ARG GID=${GID}
+ENV UID=${UID}
+ENV GID=${GID}
 
 RUN mkdir -p /var/www/html
 
