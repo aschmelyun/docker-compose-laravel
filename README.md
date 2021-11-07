@@ -27,11 +27,18 @@ Three additional containers are included that handle Composer, NPM, and Artisan 
 
 ## Permissions Issues
 
-If you encounter any issues with filesystem permissions while visiting your application or running a container command, try completing the following steps:
+If you encounter any issues with filesystem permissions while visiting your application or running a container command, try completing one of the sets of steps below.
+
+**If you are using your server or local environment as the root user:**
 
 - Bring any container(s) down with `docker-compose down`
-- Copy the `.env.example` file in the root of this repo to `.env`
-- Modify the values in the `.env` file to match the user/group that the `src` directory is owned by on the host system
+- Rename `docker-compose.root.yml` file to `docker-compose.root.yml`, replacing the previous one
+- Re-build the containers by running `docker-compose build --no-cache`
+
+**If you are using your server or local environment as a user that is not root:**
+
+- Bring any container(s) down with `docker-compose down`
+- In your terminal, run `export UID=$(id -u)` and then `export GID=$(id -g)`
 - Re-build the containers by running `docker-compose build --no-cache`
 
 Then, either bring back up your container network or re-run the command you were trying before, and see if that fixes it.
