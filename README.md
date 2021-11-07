@@ -39,6 +39,7 @@ If you encounter any issues with filesystem permissions while visiting your appl
 
 - Bring any container(s) down with `docker-compose down`
 - In your terminal, run `export UID=$(id -u)` and then `export GID=$(id -g)`
+- If you see any errors about readonly variables from the above step, you can ignore them and continue
 - Re-build the containers by running `docker-compose build --no-cache`
 
 Then, either bring back up your container network or re-run the command you were trying before, and see if that fixes it.
