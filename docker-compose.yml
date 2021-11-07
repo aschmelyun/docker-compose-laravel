@@ -9,8 +9,8 @@ services:
       context: .
       dockerfile: nginx.dockerfile
       args:
-        - NGINXUSER=${NGINXUSER:-www-data}
-        - NGINXGROUP=${NGINXGROUP:-www-data}
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     container_name: nginx
     ports:
       - 80:80
@@ -46,8 +46,8 @@ services:
       context: .
       dockerfile: php.dockerfile
       args:
-        - PHPUSER=${PHPUSER:-www-data}
-        - PHPGROUP=${PHPGROUP:-www-data}
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     container_name: php
     volumes:
       - ./src:/var/www/html:delegated
@@ -68,15 +68,15 @@ services:
       context: .
       dockerfile: composer.dockerfile
       args:
-        - PHPUSER=${PHPUSER:-www-data}
-        - PHPGROUP=${PHPGROUP:-www-data}
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     container_name: composer
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
     depends_on:
       - php
-    user: ${PHPUSER:-www-data}
+    user: laravel
     entrypoint: ['composer', '--ignore-platform-reqs']
     networks:
       - laravel
@@ -99,8 +99,8 @@ services:
       context: .
       dockerfile: php.dockerfile
       args:
-        - PHPUSER=${PHPUSER:-www-data}
-        - PHPGROUP=${PHPGROUP:-www-data}
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     container_name: artisan
     volumes:
       - ./src:/var/www/html:delegated

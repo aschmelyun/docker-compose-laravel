@@ -1,12 +1,15 @@
 FROM composer:2
 
-ARG PHPGROUP
-ARG PHPUSER
+ENV UID=1000
+ENV GID=1000
 
-ENV PHPGROUP=${PHPGROUP}
-ENV PHPUSER=${PHPUSER}
+ARG UID=${UID}
+ARG GID=${GID}
 
-RUN addgroup --system ${PHPGROUP}; exit 0
-RUN adduser --system -G ${PHPGROUP} -s /bin/sh -D ${PHPUSER}; exit 0
+# MacOS staff group's gid is 20, so is the dialout group in alpine linux. We're not using it, let's just remove it.
+RUN delgroup dialout
+
+RUN addgroup -g ${GID} --system laravel
+RUN adduser -G laravel --system -D -s /bin/sh -u ${UID} laravel
 
 WORKDIR /var/www/html
