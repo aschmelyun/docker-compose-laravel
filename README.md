@@ -62,7 +62,7 @@ If you want to enable the hot-reloading that comes with Laravel Mix's BrowserSyn
 
 ```javascript
 .browserSync({
-    proxy: 'nginx',
+    proxy: 'site',
     open: false,
     port: 3000,
 });
