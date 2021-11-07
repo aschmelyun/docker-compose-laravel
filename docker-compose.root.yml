@@ -58,9 +58,7 @@ services:
       - laravel
 
   composer:
-    build:
-      context: ./dockerfiles
-      dockerfile: composer.root.dockerfile
+    image: composer:2
     container_name: composer
     volumes:
       - ./src:/var/www/html
