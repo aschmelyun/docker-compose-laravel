@@ -32,7 +32,7 @@ If you encounter any issues with filesystem permissions while visiting your appl
 **If you are using your server or local environment as the root user:**
 
 - Bring any container(s) down with `docker-compose down`
-- Rename `docker-compose.root.yml` file to `docker-compose.root.yml`, replacing the previous one
+- Rename `docker-compose.root.yml` file to `docker-compose.yml`, replacing the previous one
 - Re-build the containers by running `docker-compose build --no-cache`
 
 **If you are using your server or local environment as a user that is not root:**
