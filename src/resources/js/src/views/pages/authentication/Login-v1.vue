@@ -6,17 +6,16 @@
             <b-card class="mb-0">
                 <b-link class="brand-logo">
                     <vuexy-logo/>
-
                     <h2 class="brand-text text-primary ml-1">
                         Vuexy
                     </h2>
                 </b-link>
 
                 <b-card-title class="mb-1">
-                    Welcome to Vuexyhuhuhu! 👋
+                    Volunteer Hub 👋
                 </b-card-title>
                 <b-card-text class="mb-2">
-                    Please sign-in to your account and start the adventure
+                    Please sign-in to your account!
                 </b-card-text>
 
                 <!-- form -->
@@ -28,7 +27,6 @@
                         class="auth-login-form mt-2"
                         @submit.prevent
                     >
-
                         <!-- email -->
                         <b-form-group
                             label-for="email"
@@ -108,51 +106,10 @@
                             block
                             :disabled="invalid"
                         >
-                            Sign in
+                            LOGIN NOW
                         </b-button>
                     </b-form>
                 </validation-observer>
-
-                <b-card-text class="text-center mt-2">
-                    <span>New on our platform? </span>
-                    <b-link :to="{name:'auth-register-v1'}">
-                        <span>Create an account</span>
-                    </b-link>
-                </b-card-text>
-
-                <div class="divider my-2">
-                    <div class="divider-text">
-                        or
-                    </div>
-                </div>
-
-                <!-- social button -->
-                <div class="auth-footer-btn d-flex justify-content-center">
-                    <b-button
-                        href="javascript:void(0)"
-                        variant="facebook"
-                    >
-                        <feather-icon icon="FacebookIcon"/>
-                    </b-button>
-                    <b-button
-                        href="javascript:void(0)"
-                        variant="twitter"
-                    >
-                        <feather-icon icon="TwitterIcon"/>
-                    </b-button>
-                    <b-button
-                        href="javascript:void(0)"
-                        variant="google"
-                    >
-                        <feather-icon icon="MailIcon"/>
-                    </b-button>
-                    <b-button
-                        href="javascript:void(0)"
-                        variant="github"
-                    >
-                        <feather-icon icon="GithubIcon"/>
-                    </b-button>
-                </div>
             </b-card>
             <!-- /Login v1 -->
         </div>
