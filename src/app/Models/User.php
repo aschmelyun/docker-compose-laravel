@@ -44,9 +44,4 @@ class User extends Authenticatable
     ];
 
     public static $tokenType = 'authToken';
-
-    // public function sendPasswordResetNotification($token)
-    // {
-    //     $this->notify(new MailResetPasswordNotification($token));
-    // }
 }
