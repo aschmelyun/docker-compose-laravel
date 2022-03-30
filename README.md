@@ -14,7 +14,7 @@ After that completes, follow the steps from the [src/README.md](src/README.md) f
 Bringing up the Docker Compose network with `site` instead of just using `up`, ensures that only our site's containers are brought up at the start, instead of all of the command containers as well. The following are built for our web server, with their exposed ports detailed:
 
 - **nginx** - `:80`
-- **mysql** - `:3306`
+- **postgre** - `:5432`
 - **php** - `:9000`
 - **redis** - `:6379`
 - **mailhog** - `:8025`
@@ -41,9 +41,9 @@ docker-compose run --rm npm run dev
 ```
 docker-compose run --rm artisan migrate
 ```
-6 - To SSH into the MySql container
+6 - To SSH into the postgres container
 ```
-docker exec -it <mysql container ID>  /bin/bash
+docker exec -it <postgres container ID>  /bin/bash
 ```
 
 ## Permissions Issues
@@ -53,7 +53,7 @@ If you encounter any issues with filesystem permissions while visiting your appl
 **If you are using your server or local environment as the root user:**
 
 - Bring any container(s) down with `docker-compose down`
-- Rename `docker-compose.root.yml` file to `docker-compose.root.yml`, replacing the previous one
+- Rename `docker-compose.root.yml` file to `docker-compose.yml`, replacing the previous one
 - Re-build the containers by running `docker-compose build --no-cache`
 
 **If you are using your server or local environment as a user that is not root:**
@@ -65,40 +65,49 @@ If you encounter any issues with filesystem permissions while visiting your appl
 
 Then, either bring back up your container network or re-run the command you were trying before, and see if that fixes it.
 
-## Persistent MySQL Storage
+## Persistent PostgreSQL Storage
 
-By default, whenever you bring down the Docker network, your MySQL data will be removed after the containers are destroyed. If you would like to have persistent data that remains after bringing containers down and back up, do the following:
+By default, whenever you bring down the Docker network, your PostgreSQL data will be removed after the containers are destroyed. If you would like to have persistent data that remains after bringing containers down and back up, do the following:
 
-1. Create a `mysql` folder in the project root, alongside the `nginx` and `src` folders.
-2. Under the `mysql` service in your `docker-compose.yml` file, add the following lines:
+1. Create a `postgres` folder in the project root, alongside the `src` folder.
+2. Under the `postgres` service in your `docker-compose.yml` file, add the following lines:
 
 ```
 volumes:
-  - ./mysql:/var/lib/mysql
+  - ./postgres:/var/lib/postgresql/data
 ```
 
->It is available some startup MySql configuration at `docker-compose.yml` in the `mysql` session. By default it is created a database called `homestead`, a user called `homestead` with the password `secret`. The MySql root password is also created with a password `secret`. To get SSH access to the MySql container `docker exec -it <mysql container ID>  /bin/bash`
+>It is available some startup PostgreSQL configuration at `docker-compose.yml` in the `postgres` session. By default it is created a database called `postgres`, a user called `postgres` with the password `postgres`. The PostgreSQL root password is also created with a password `postgres`. To get SSH access to the `postgres` container `docker exec -it <postgres container ID>  /bin/bash`
 
->If having ```SQLSTATE[HY000] [2002] Connection refused (SQL: select * from information_schema.tables where table_schema = laravel and table_name = migrations and table_type = 'BASE TABLE')``` just replace `DB_HOST=127.0.0,1` or `DB_HOST=0.0.0.0` to `DB_HOST=mysql`.
->This is the final configuration in `.env`:
-```
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=homestead
-DB_USERNAME=homestead
-DB_PASSWORD=secret
-```
-Issues with Mysql connection refer to `https://github.com/aschmelyun/docker-compose-laravel/issues/48` or `https://github.com/aschmelyun/docker-compose-laravel/issues/70`
 
-Note: using MySql-Workbench this is the configuration:
+## Install PG-admin using Docker
+Inspired in this project: [How To Install and Run PostgreSQL using Docker ?](https://dev.to/shree_j/how-to-install-and-run-psql-using-docker-41j2)
+>Download the pgAdmin-4 browser version from docker-hub using the following command:
+
 ```
-Hostname: 127.0.0.1
-Port: 3306
-Username: homestead
-Default Schema: homestead
-Password: secret
+docker run --rm -p 5050:5050 thajeztah/pgadmin4
 ```
+Now manage your postgres from the browser by launching [http://localhost:5050](http://localhost:5050)
+> - ***Host***: `The IP address of your machine`
+> - ***Maintenance Database***: Database used while creating the PSQL server with docker (`POSTGRES_DB`:`postgres`)
+> - ***Username***: Username used while creating the PSQL server with docker (`POSTGRES_USER`:`postgres`)
+> - ***Password***: Password used while creating the PSQL server with docker (`POSTGRES_PASSWORD`:`postgres`)
+
+## Connecting to the `PSQL server` via `CLI` :
+
+> 1. Find the docker-container-id in which the postgres is running using the below command. 
+> ```
+> docker ps -a
+> ```
+> 2. Run the following command to enter into the container (with the ID from step-1).
+> ```
+> docker exec -it <PSQL-Container-ID> bash
+> ```
+> 3. Authenticate to start using as postgres user. 
+> ```
+> psql -h localhost -p 5432 -U postgres -W
+> ```
+> - Enter the credentials used while creating the `PSQL server` container (`POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD`).
 
 ## Some useful commands:
 1 - Check Containers
@@ -153,7 +162,7 @@ cd docker-compose-laravel/src
 ```
 4. Remove the `README.md`:
 ```
-cd src/ && rm README.md
+cd src/ && rm -Rf README.md
 ```
 5. Create a `new Laravel project`
 ```
@@ -161,7 +170,45 @@ docker-compose run --rm composer create-project laravel/laravel .
 ```
 >Example:
 ```~/vhosts/docker-compose-laravel/src(master)$ docker-compose run --rm composer create-project laravel/laravel .```
+6. Your Laravel projetc is available at [http://0.0.0.0:80](http://0.0.0.0/)
 
+### Issues related to ***PostgreSQL***:
+1 - Driver issue:
+```
+Illuminate\Database\QueryException 
+
+could not find driver (SQL: select * from information_schema.tables where table_schema = laravel and table_name = migrations and table_type = 'BASE TABLE')
+```
+> Solution: change the driver in `src/.env` from `DB_CONNECTION=mysql` to `DB_CONNECTION=pgsql`
+
+2 - Connection to server issue:
+```
+SQLSTATE[08006] [7] connection to server at "0.0.0.0", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections? (SQL: select * from information_schema.tables where table_catalog = postgres and table_schema = public and table_name = migrations and table_type = 'BASE TABLE')
+```
+or
+```
+SQLSTATE[08006] [7] connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections? (SQL: select * from information_schema.tables where table_catalog = postgres and table_schema = public and table_name = migrations and table_type = 'BASE TABLE')
+```
+or 
+```
+SQLSTATE[08006] [7] connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (::1), port 5432 failed: Address not available
+	Is the server running on that host and accepting TCP/IP connections? (SQL: select * from information_schema.tables where table_catalog = postgres and table_schema = public and table_name = migrations and table_type = 'BASE TABLE')
+```
+> Solution: change the host in `src/.env` from `DB_HOST=0.0.0.0/127.0.1/localhost` to `DB_HOST=<Your Current Machine IP address>`
+
+These are the `.env` credentials to be used with ***PostgreSQL***:
+```
+DB_CONNECTION=pgsql
+DB_HOST=<Your Current Machine IP address>
+DB_PORT=5432
+DB_DATABASE=postgres
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+```
 
 ## Using BrowserSync with Laravel Mix
 

@@ -20,25 +20,29 @@ services:
     depends_on:
       - php
       - redis
-      - mysql
+      - postgres
       - mailhog
     networks:
       - laravel
 
-  mysql:
-    image: mariadb:10.6
-    container_name: mysql
+  # https://hub.docker.com/_/postgres
+  postgres:
+    image: postgres:14.2-alpine
+    container_name: postgres
     restart: unless-stopped
     tty: true
     ports:
-      - 3306:3306
+      - 5432:5432
     environment:
-      MYSQL_DATABASE: homestead
-      MYSQL_USER: homestead
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_ROOT_PASSWORD: postgres
       SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      SERVICE_NAME: postgres
+    # Persistent PostgreSQL Storage - Create a `postgres` folder in the project root, alongside the `src` folder and uncomment the 2 lines below.  
+    # volumes:
+    #   - ./postgres:/var/lib/postgresql/data
     networks:
       - laravel
 
@@ -106,7 +110,7 @@ services:
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
-      - mysql
+      - postgres
     working_dir: /var/www/html
     entrypoint: ['php', '/var/www/html/artisan']
     networks:
