@@ -40,7 +40,11 @@ services:
       POSTGRES_ROOT_PASSWORD: postgres
       SERVICE_TAGS: dev
       SERVICE_NAME: postgres
-    # Persistent PostgreSQL Storage - Create a `postgres` folder in the project root, alongside the `src` folder and uncomment the 2 lines below.  
+    # Before build your Docker containers, for a persistent PostgreSQL Storage - Create a `postgres` folder in the project root, alongside the `src` folder and uncomment the 2 lines below. 
+    # If the containers have been cretaed before uncomment the following lines, do the following: 
+    #   1-Destroy all containers following docker instructions in the README.md in main branch (https://github.com/igoralves1/docker-compose-laravel#some-useful-commands), 
+    #   2-Create the folder `postgres` in the root and 
+    #   3-Remove comments below.
     # volumes:
     #   - ./postgres:/var/lib/postgresql/data
     networks:
