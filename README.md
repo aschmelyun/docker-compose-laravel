@@ -87,6 +87,11 @@ Inspired in this project: [How To Install and Run PostgreSQL using Docker ?](htt
 ```
 docker run --rm -p 5050:5050 thajeztah/pgadmin4
 ```
+>Note from Nov-2022: Running in a M1 Macbook get the following error: `WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`. This is a possible solution that was not tested. The browser (http://localhost:5050) still loading forever. Stackoverflow issue: [M1 docker preview and keycloak 'image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8)' Issue](https://stackoverflow.com/questions/66662820/m1-docker-preview-and-keycloak-images-platform-linux-amd64-does-not-match-th). This is the possible solution:
+```
+docker run --platform linux/amd64 --rm -p 5050:5050 thajeztah/pgadmin4
+```
+
 Now manage your postgres from the browser by launching [http://localhost:5050](http://localhost:5050)
 > - ***Host***: `The IP address of your machine`
 > - ***Maintenance Database***: Database used while creating the PSQL server with docker (`POSTGRES_DB`:`postgres`)
