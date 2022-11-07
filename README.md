@@ -87,16 +87,20 @@ Inspired in this project: [How To Install and Run PostgreSQL using Docker ?](htt
 ```
 docker run --rm -p 5050:5050 thajeztah/pgadmin4
 ```
->Note from Nov-2022: Running in a M1 Macbook get the following error: `WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`. This is a possible solution that was not tested. The browser (http://localhost:5050) still loading forever. Stackoverflow issue: [M1 docker preview and keycloak 'image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8)' Issue](https://stackoverflow.com/questions/66662820/m1-docker-preview-and-keycloak-images-platform-linux-amd64-does-not-match-th). This is the possible solution:
-```
-docker run --platform linux/amd64 --rm -p 5050:5050 thajeztah/pgadmin4
-```
-
 Now manage your postgres from the browser by launching [http://localhost:5050](http://localhost:5050)
 > - ***Host***: `The IP address of your machine`
 > - ***Maintenance Database***: Database used while creating the PSQL server with docker (`POSTGRES_DB`:`postgres`)
 > - ***Username***: Username used while creating the PSQL server with docker (`POSTGRES_USER`:`postgres`)
 > - ***Password***: Password used while creating the PSQL server with docker (`POSTGRES_PASSWORD`:`postgres`)
+
+### WARNING: MAC M1 users:
+>Note from Nov-2022: Running in a M1 Macbook get the following error: `WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`. This is the solution [How to set up Postgresql and Pgadmin with Docker](https://dev.to/steadylearner/how-to-set-up-postgresql-and-pgadmin-with-docker-51h):
+```
+docker run --name pgadmin -e "PGADMIN_DEFAULT_EMAIL=xxxxxx@gmail.com" -e "PGADMIN_DEFAULT_PASSWORD=postgres" -p 5050:80 -d dpage/pgadmin4
+```
+>PgAdmin webpage will be available at `http://localhost:5050/login`
+
+
 
 ## Connecting to the `PSQL server` via `CLI` :
 
