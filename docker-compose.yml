@@ -3,15 +3,15 @@ version: '3'
 networks:
   laravel:
 
+
 services:
-  site:
+  app:
     build:
       context: ./dockerfiles
       dockerfile: nginx.dockerfile
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
-    container_name: nginx
     ports:
       - 80:80
     volumes:
@@ -26,7 +26,6 @@ services:
 
   mysql:
     image: mariadb:10.6
-    container_name: mysql
     restart: unless-stopped
     tty: true
     ports:
@@ -48,7 +47,6 @@ services:
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
-    container_name: php
     volumes:
       - ./src:/var/www/html:delegated
     networks:
@@ -56,7 +54,6 @@ services:
 
   redis:
     image: redis:alpine
-    container_name: redis
     restart: unless-stopped
     ports:
       - 6379:6379
@@ -66,31 +63,27 @@ services:
   composer:
     build:
       context: ./dockerfiles
-      dockerfile: composer.dockerfile
+      dockerfile: php.dockerfile
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
-    container_name: composer
     volumes:
       - ./src:/var/www/html
-    working_dir: /var/www/html
     depends_on:
       - php
-    user: laravel
-    entrypoint: ['composer', '--ignore-platform-reqs']
+    entrypoint: [ 'composer', '--ignore-platform-reqs' ]
     networks:
       - laravel
 
   npm:
-    image: node:13.7
-    container_name: npm
+    image: node:current-alpine
     volumes:
       - ./src:/var/www/html
     ports:
       - 3000:3000
       - 3001:3001
     working_dir: /var/www/html
-    entrypoint: ['npm']
+    entrypoint: [ 'npm' ]
     networks:
       - laravel
 
@@ -101,19 +94,16 @@ services:
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
-    container_name: artisan
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
       - mysql
-    working_dir: /var/www/html
-    entrypoint: ['php', '/var/www/html/artisan']
+    entrypoint: [ 'php', '/var/www/html/artisan' ]
     networks:
       - laravel
 
   mailhog:
     image: mailhog/mailhog:latest
-    container_name: mailhog
     ports:
       - 1025:1025
       - 8025:8025

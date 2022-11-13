@@ -5,11 +5,11 @@ A pretty simplified Docker Compose workflow that sets up a LEMP network of conta
 
 To get started, make sure you have [Docker installed](https://docs.docker.com/docker-for-mac/install/) on your system, and then clone this repository.
 
-Next, navigate in your terminal to the directory you cloned this, and spin up the containers for the web server by running `docker-compose up -d --build site`.
+Next, navigate in your terminal to the directory you cloned this, and spin up the containers for the web server by running `docker-compose up -d --build app`.
 
 After that completes, follow the steps from the [src/README.md](src/README.md) file to get your Laravel project added in (or create a new blank one).
 
-Bringing up the Docker Compose network with `site` instead of just using `up`, ensures that only our site's containers are brought up at the start, instead of all of the command containers as well. The following are built for our web server, with their exposed ports detailed:
+Bringing up the Docker Compose network with `app` instead of just using `up`, ensures that only our site's containers are brought up at the start, instead of all of the command containers as well. The following are built for our web server, with their exposed ports detailed:
 
 - **nginx** - `:80`
 - **mysql** - `:3306`
@@ -30,7 +30,7 @@ If you encounter any issues with filesystem permissions while visiting your appl
 **If you are using your server or local environment as the root user:**
 
 - Bring any container(s) down with `docker-compose down`
-- Rename `docker-compose.root.yml` file to `docker-compose.root.yml`, replacing the previous one
+- Replace any instance of `php.dockerfile` in the docker-compose.yml file with `php.root.dockerfile`
 - Re-build the containers by running `docker-compose build --no-cache`
 
 **If you are using your server or local environment as a user that is not root:**
@@ -54,28 +54,12 @@ volumes:
   - ./mysql:/var/lib/mysql
 ```
 
-## Using BrowserSync with Laravel Mix
+## Usage in Production
 
-If you want to enable the hot-reloading that comes with Laravel Mix's BrowserSync option, you'll have to follow a few small steps. First, ensure that you're using the updated `docker-compose.yml` with the `:3000` and `:3001` ports open on the npm service. Then, add the following to the end of your Laravel project's `webpack.mix.js` file:
-
-```javascript
-.browserSync({
-    proxy: 'site',
-    open: false,
-    port: 3000,
-});
-```
-
-From your terminal window at the project root, run the following command to start watching for changes with the npm container and its mapped ports:
-
-```bash
-docker-compose run --rm --service-ports npm run watch
-```
-
-That should keep a small info pane open in your terminal (which you can exit with Ctrl + C). Visiting [localhost:3000](http://localhost:3000) in your browser should then load up your Laravel application with BrowserSync enabled and hot-reloading active.
+While I originally created this template for local development, it's robust enough to be used in basic Laravel application deployments. The biggest recommendation would be to ensure that HTTPS is enabled by making additions to the `nginx/default.conf` file and utilizing something like [Let's Encrypt](https://hub.docker.com/r/linuxserver/letsencrypt) to produce an SSL certificate.
 
 ## MailHog
 
-The current version of Laravel (8 as of today) uses MailHog as the default application for testing email sending and general SMTP work during local development. Using the provided Docker Hub image, getting an instance set up and ready is simple and straight-forward. The service is included in the `docker-compose.yml` file, and spins up alongside the webserver and database services.
+The current version of Laravel (9 as of today) uses MailHog as the default application for testing email sending and general SMTP work during local development. Using the provided Docker Hub image, getting an instance set up and ready is simple and straight-forward. The service is included in the `docker-compose.yml` file, and spins up alongside the webserver and database services.
 
 To see the dashboard and view any emails coming through the system, visit [localhost:8025](http://localhost:8025) after running `docker-compose up -d site`.
