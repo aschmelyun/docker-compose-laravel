@@ -13,7 +13,7 @@ services:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
     ports:
-      - 80:80
+      - "80:80"
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
@@ -29,7 +29,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - 3306:3306
+      - "3306:3306"
     environment:
       MYSQL_DATABASE: homestead
       MYSQL_USER: homestead
@@ -47,6 +47,8 @@ services:
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
+    ports:
+      - "9000:9000"
     volumes:
       - ./src:/var/www/html:delegated
     networks:
@@ -56,7 +58,7 @@ services:
     image: redis:alpine
     restart: unless-stopped
     ports:
-      - 6379:6379
+      - "6379:6379"
     networks:
       - laravel
 
@@ -80,9 +82,9 @@ services:
     volumes:
       - ./src:/var/www/html
     ports:
-      - 3000:3000
-      - 3001:3001
-      - 5173:5173
+      - "3000:3000"
+      - "3001:3001"
+      - "5173:5173"
     working_dir: /var/www/html
     entrypoint: [ 'npm' ]
     networks:
@@ -106,7 +108,7 @@ services:
   mailhog:
     image: mailhog/mailhog:latest
     ports:
-      - 1025:1025
-      - 8025:8025
+      - "1025:1025"
+      - "8025:8025"
     networks:
       - laravel
