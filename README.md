@@ -71,6 +71,21 @@ This configuration should be able to compile assets with both [laravel mix](http
 },
 ```
 
+When running the Vite development server within docker on Windows Subsystem for Linux 2 (WSL2), you should add `server.hmr.host=localhost` to your `vite.config.js` file to ensure the browser can communicate with the development server:
+
+```js
+// ...
+ 
+export default defineConfig({
+    // ...
+    server: { 
+        hmr: {
+            host: 'localhost',
+        },
+    }, 
+});
+```
+
 Then, run the following commands to install your dependencies and start the dev server:
 
 - `docker-compose run --rm npm install`
